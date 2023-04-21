@@ -103,6 +103,6 @@ theme: landscape
 # Deployment
 ## Docs: https://hexo.io/docs/one-command-deployment
 deploy:
-  type: git
-  repo: git@github.com:tc-rice-pudding/weblog.git
-  branch: gh-pages
+  type: 
+#   repo: git@github.com:tc-rice-pudding/weblog.git
+#   branch: gh-pages
