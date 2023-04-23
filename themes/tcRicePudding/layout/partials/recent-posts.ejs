@@ -1,0 +1,21 @@
+<% if (page.posts.length > 0) { %>
+  <!-- 最近 posts 文章列表 -->
+  <div class="recent-posts">
+    <% page.posts.sort('date', -1).limit(10).each(post => { %>
+      <div class="recent-post-item">
+        <a href="<%=url_for(post.path)%>">
+          <div class="post-item-bg"></div>
+          <div class="post-item-info">
+            <%=post.tags%>
+            <div class="title"><%=post.title%></div>
+            <p class="time">发表于27 天前 | 更新于3 天前</p>
+            <ul  class="tag">
+              <li>#js</li>
+              <li>#css</li>
+            </ul>
+          </div>
+        </a>
+      </div>
+    <% }); %>
+  </div>
+<% } %>

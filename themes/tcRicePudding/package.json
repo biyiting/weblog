@@ -1,0 +1,9 @@
+{
+  "name": "tcRicePudding",
+  "version": "0.1.0",
+  "description": "",
+  "private": true,
+  "scripts": {
+    "dev": "hexo s -p 4000 -o"
+  }
+}

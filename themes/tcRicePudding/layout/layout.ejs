@@ -1,0 +1,71 @@
+<% 
+  var pageTitle=page.title || config.subtitle || '' ; 
+  if (is_archive()) pageTitle='Archives' ; 
+  if (is_tag()) pageTitle='Tag: ' + page.tag; 
+  if (is_category()) pageTitle='Category: ' + page.category; 
+  if (is_month()) pageTitle+=': ' + page.month + '/' + page.year; 
+  if (is_year()) pageTitle +=': ' + page.year; 
+  pageTitle +=' [ ' + config.title+ ' ]' ; 
+%>
+
+  <!DOCTYPE html>
+  <html lang="<%=config.language%>">
+
+  <head>
+    <meta charset="UTF-8">
+    <title>
+      <%=pageTitle%>
+    </title>
+    <% if (theme.stylesheets !==undefined && theme.stylesheets.length> 0) { %>
+      <!-- stylesheets list from _config.yml -->
+      <% theme.stylesheets.forEach(url=> { %>
+        <link rel="stylesheet" href="<%=url%>">
+      <% }); %>
+    <% } %>
+  </head>
+
+  <body>
+    <div id="menu-box">
+      <div class="nav-left">
+        <a href="/"><%= config.title %></a>
+      </div>
+      <div class="nav-center">
+        <% Object.keys(theme.menu).forEach(key=> { %>
+          <a href="<%=theme.menu[key]%>">
+            <%=key%>
+          </a>
+          <% }); %>
+      </div>
+      <div class="nav-right"><a>右侧内容</a></div>
+    </div>
+
+    <div id="content-outer">
+        <%- body %>
+    </div>
+
+    <div id="bottom-outer">
+      <p>©2023-04-23 <%=config.author%></p>
+      <p>
+        <a class="github-badge" target="_blank" href="https://hexo.io/" style="margin-inline:5px"
+          data-title="博客框架为Hexo_v5.4.0" title="博客框架为Hexo_v5.4.0"><img
+            src="https://npm.elemecdn.com/anzhiyu-blog@2.1.5/img/badge/Frame-Hexo.svg"
+            data-lazy-src="https://npm.elemecdn.com/anzhiyu-blog@2.1.5/img/badge/Frame-Hexo.svg" alt="博客框架为Hexo_v5.4.0"
+            data-ll-status="loaded" class="entered loaded"></a>
+        <a class="github-badge" target="_blank" href="https://github.com/" style="margin-inline:5px"
+          data-title="本站项目由Github托管" title="本站项目由Github托管"><img
+            src="https://npm.elemecdn.com/anzhiyu-blog@2.1.5/img/badge/Source-Github.svg"
+            data-lazy-src="https://npm.elemecdn.com/anzhiyu-blog@2.1.5/img/badge/Source-Github.svg" alt="本站项目由Github托管"
+            data-ll-status="loaded" class="entered loaded"></a>
+      </p>
+    </div>
+
+    <% if (theme.scripts !==undefined && theme.scripts.length> 0) { %>
+      <!-- scripts list from theme config.yml -->
+      <% theme.scripts.forEach(url=> { %>
+        <script src="<%=url%>"></script>
+        <% }); %>
+          <% } %>
+
+  </body>
+
+  </html>

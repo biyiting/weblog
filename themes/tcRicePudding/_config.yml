@@ -1,0 +1,23 @@
+
+# html lang
+language: en
+
+# main menu navigation
+menu:
+  文章: /article
+  友链: /friendChain
+  关于: /about
+
+# stylesheets loaded in the <head>
+stylesheets:
+- /weblog/css/reset.css
+- /weblog/css/index.css
+- /weblog/css/layout.css
+- /weblog/css/partials/recent-posts.css
+- /weblog/css/partials/personal-info.css
+- /weblog/css/partials/tag-list.css
+
+# scripts loaded in the end of the body
+scripts:
+- /weblog/js/tools.js
+- /weblog/js/layout.js

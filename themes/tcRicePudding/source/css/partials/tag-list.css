@@ -1,0 +1,92 @@
+.static-list {
+    padding      : 10px;
+    background   : #fff;
+    border-radius: 10px;
+}
+
+.static-list hr {
+    display : flex;
+    position: relative;
+    margin  : 1rem 0;
+    border  : 1px dashed #4259ef23;
+}
+
+.tag-list {
+    padding-left   : 10px;
+    list-style-type: none;
+}
+
+.tag-list li {
+    display: inline-block;
+    padding: 5px;
+    margin : 0 5px 10px;
+}
+
+.tag-list-link {
+    text-decoration: none;
+    color          : #333;
+    padding-right  : 3px;
+}
+
+.tag-list-count {
+    font-size     : 12px;
+    vertical-align: top;
+    color         : #aeaaaa;
+}
+
+.tag-list li:hover {
+    background   : #3B70FC;
+    color        : #fff;
+    border-radius: 6px;
+    transition   : all 0.3s ease-in-out .1s;
+}
+
+.tag-list li:hover .tag-list-link {
+    transition: all 0.3s ease-in-out .1s;
+    color     : #fff;
+}
+
+.static-list .archive-list {
+    display        : flex;
+    flex-direction : row;
+    justify-content: space-between;
+    flex-wrap      : wrap;
+    list-style-type: none;
+    padding        : 0 20px;
+}
+
+.static-list .archive-list-item {
+    width         : 47%;
+    height        : 70px;
+    display       : flex;
+    flex-direction: column;
+    border        : 1px solid red;
+    border        : 1px solid #e3e8f7;
+    box-sizing    : border-box;
+    padding       : 10px 5px;
+    margin-bottom : 10px;
+    border-radius : 8px;
+}
+
+.static-list .archive-list-item:hover {
+    background   : #3B70FC;
+    color        : #fff;
+    border-radius: 8px;
+    transition   : all 0.3s ease-in-out .1s;
+}
+
+.static-list .archive-list-item:hover .archive-list-link {
+    color     : #fff;
+    transition: all 0.3s ease-in-out .1s;
+}
+
+.static-list .archive-list-link {
+    font-size : 14px;
+    color     : grey;
+    text-align: center;
+}
+
+.static-list .archive-list-count {
+    line-height: 38px;
+    text-align : center;
+}

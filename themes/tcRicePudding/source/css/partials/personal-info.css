@@ -1,0 +1,50 @@
+.info {
+    background   : #3b70fc;
+    border-radius: 10px;
+    padding      : 10px 20px 20px;
+    color        : #fff;
+}
+
+.info a {
+    text-decoration: none;
+    color          : #fff;
+}
+
+.info a:hover,
+.info a:visited,
+.info a:link,
+.info a:active {
+    color: #fff;
+}
+
+.hello {
+    font-size    : 13px;
+    padding      : 3px 7px;
+    background   : #6a8cfb;
+    border-radius: 10px;
+}
+
+.status {}
+
+.more {
+    text-align: center;
+}
+
+.more a {
+    width        : 200px;
+    border-radius: 10px;
+    background   : #6a8cfb;
+    font-size    : 20px;
+    font-weight  : 800;
+    display      : inline-block;
+    padding      : 4px;
+}
+
+.more a:hover {
+    background: #0f40e0;
+    transition: all 0.3s ease-in-out .1s
+}
+
+.linked {
+    text-align: center;
+}
