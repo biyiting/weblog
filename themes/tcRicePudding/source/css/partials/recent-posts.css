@@ -6,6 +6,7 @@
 }
 
 .recent-post-item {
+    position     : relative;
     min-width    : 500px;
     flex         : 1;
     margin       : 5px;
@@ -18,12 +19,16 @@
 }
 
 .recent-post-item:hover {
-    box-shadow   : 0px 0px 12px rgba(0, 0, 0, .3);
+    box-shadow: 0px 0px 12px rgba(0, 0, 0, .3);
+    transition: all 0.3s ease-in-out .1s
+}
+
+.recent-post-item:hover .title {
+    color     : #3B70FC;
     transition: all 0.3s ease-in-out .1s
 }
 
 .post-item-bg {
-    background     : cornsilk;
     background     : url(/weblog/images/post-bg.png) no-repeat;
     height         : 50%;
     background-size: 100%;
@@ -43,16 +48,43 @@
 .time {}
 
 .tag {
-    list-style-type: none;
-    padding        : 0;
+    padding: 0;
 }
 
-.tag>li {
-    display   : inline-block;
-    text-align: center;
-    padding   : 0 5px;
+.tag>a {
+    display      : inline-block;
+    text-align   : center;
+    padding      : 3px 8px;
+    background   : #eee;
+    margin-right : 10px;
+    border-radius: 6px;
+    font-size    : 14px;
 }
 
+.tag>a:hover {
+    color     : #fff;
+    background: #3B70FC;
+    transition: all 0.3s ease-in-out .1s
+}
+
+.post-categories {
+    position: absolute;
+    top     : 20px;
+    left    : 20px;
+}
+
+.post-categorie-item {
+    margin-right : 10px;
+    color        : #fff !important;
+    padding      : 3px 10px;
+    border-radius: 6px;
+    background   : rgba(0, 0, 0, 0.4);
+}
+
+.post-categorie-item:hover {
+    background: #3B70FC;
+    transition: all 0.3s ease-in-out .1s
+}
 
 
 a {

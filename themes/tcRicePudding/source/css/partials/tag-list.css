@@ -90,3 +90,9 @@
     line-height: 38px;
     text-align : center;
 }
+
+.static-list .archive-list-count::after {
+    content     : '篇';
+    padding-left: 2px;
+    font-size   : 16px;
+}
