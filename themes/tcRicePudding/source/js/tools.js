@@ -10,8 +10,12 @@ const toTop = () => {
         behavior: "smooth" 
     });
 };
+
 const toBottom = () => {
-    document.documentElement.scrollTop = 100000;
+    window.scrollTo({ 
+        bottom: 1000000, 
+        behavior: "smooth" 
+    });
 };
 
 // 节流
