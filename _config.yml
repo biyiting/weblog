@@ -106,3 +106,5 @@ deploy:
   type:
   repo: git@github.com:tc-rice-pudding/weblog.git
   branch: gh-pages
+
+#宝宝试试
