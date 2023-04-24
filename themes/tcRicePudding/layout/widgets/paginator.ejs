@@ -1,0 +1,10 @@
+<%
+const paginatorList = paginator({    
+  prev_text: '<i class="iconfont icon-shangyiye"></i><div class="custom-prev">上页</div>',
+  next_text: '<div class="custom-next">下页</div><i class="iconfont icon-xiayiye"></i>',
+  mid_size: 1,
+  escape: false
+})
+%>
+
+<div id="paginator"><%- paginatorList %></div>

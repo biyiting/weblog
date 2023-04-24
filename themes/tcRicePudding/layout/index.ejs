@@ -2,19 +2,12 @@
 <section class="content">
   <div class="left">
     <%-partial('partials/recent-posts')%>
+
+    <!-- 分页 -->
+    <%-partial('widgets/paginator')%>
   </div>
   <div class="right">
     <div class="info-box"><%-partial('partials/personal-info')%></div>
     <div class="list-box"><%-partial('partials/tag-list')%></div>
   </div>
 </section>
-
-<!-- 分页 -->
-<div id="paginator">
-   <%- paginator({    
-        prev_text: '上一页',  
-        next_text: '下一页',    
-        escape: false,
-        prev_next: true,
-      }) %>
-</div>
