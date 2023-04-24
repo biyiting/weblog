@@ -1,4 +1,3 @@
-
 # html lang
 language: en
 
@@ -10,18 +9,16 @@ menu:
 
 # stylesheets loaded in the <head>
 stylesheets:
-- http://at.alicdn.com/t/c/font_4034228_1rpsrk0whsc.css
-- /weblog/css/reset.css
-- /weblog/css/index.css
-- /weblog/css/layout.css
-- /weblog/css/partials/recent-posts.css
-- /weblog/css/partials/personal-info.css
-- /weblog/css/partials/tag-list.css
+  - http://at.alicdn.com/t/c/font_4034228_1rpsrk0whsc.css
+  - /weblog/css/reset.css
+  - /weblog/css/layout.css
+  - /weblog/css/index.css
+  - /weblog/css/tag.css
+  - /weblog/css/partials/recent-posts.css
+  - /weblog/css/partials/personal-info.css
+  - /weblog/css/partials/tag-list.css
 
 # scripts loaded in the end of the body
 scripts:
-- /weblog/js/tools.js
-- /weblog/js/layout.js
-
-
-# 
+  - /weblog/js/tools.js
+  - /weblog/js/layout.js

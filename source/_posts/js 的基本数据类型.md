@@ -1,5 +1,5 @@
 ---
-title: ggg
+title: js 的基本数据类型
 categories:
   - 前端
 tags:

@@ -1,5 +1,5 @@
 ---
-title: eee
+title: 手写 Promise
 categories:
   - 前端
 tags:
