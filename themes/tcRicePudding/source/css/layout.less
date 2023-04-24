@@ -1,0 +1,140 @@
+// 菜单
+#menu-box {
+  display: flex;
+  padding: 10px 20px;
+  background: #f7f9fe;
+  position: sticky;
+  top: 0px;
+  z-index: 100;
+  user-select: none;
+
+  .nav-left {
+    width: 200px;
+
+    #logo {
+      display: flex;
+      position: relative;
+      padding: 7px 10px !important;
+      width: 88px;
+
+      i {
+        transform: scale(0);
+        position: absolute;
+        transition: .3s ease-in;
+        top: 5px;
+        left: 42px;
+      }
+
+      .logo-fontsize {
+        font-size: 25px !important;
+      }
+
+      .logo-title {
+        transform: scale(1);
+        transition: .3s ease-in;
+        letter-spacing: normal;
+      }
+    }
+
+    #logo:hover {
+      transition: background 0.35s ease-in-out, color 0.1s ease-in-out !important;
+
+      .logo-title {
+        transform: scale(0);
+      }
+
+      .logo-fontsize {
+        transform: scale(1);
+      }
+    }
+  }
+
+  .nav-center {
+    flex: 1;
+    text-align: center;
+    padding: 5px 0 0;
+  }
+
+  .nav-right {
+    width: 200px;
+    text-align: right;
+    padding: 5px 0 0;
+  }
+
+  & a {
+    padding: 5px 15px;
+    margin: 0 5px;
+    font-size: 16px;
+    font-weight: 800;
+    display: inline-block;
+    text-align: center;
+    min-width: 60px;
+  }
+
+  & a:hover {
+    transition: background 0.35s ease-in-out, color 0.2s ease-in-out;
+    background: #3B70FC;
+    color: #f7f9fe;
+    border-radius: 500px;
+    text-align: center;
+  }
+}
+
+// 中间内容
+#content-outer {
+  flex: 1;
+  padding: 0 20px;
+  user-select: none;
+}
+
+// 底部
+#bottom-outer {
+  >p {
+    text-align: center;
+    user-select: none;
+  }
+}
+
+// 工具栏
+#tool-box {
+  position: fixed;
+  bottom: 50px;
+  right: 10px;
+  width: 40px;
+  display: flex;
+  box-sizing: border-box;
+  flex-direction: column;
+  padding: 10px 0;
+  z-index: 100;
+  user-select: none;
+
+  .tool-item {
+    text-align: center;
+    line-height: 30px;
+    width: 30px;
+    height: 30px;
+    border-radius: 4px;
+    margin: 5px;
+    box-sizing: border-box;
+    background: #3B70FC;
+    color: #fff;
+    cursor: pointer;
+  }
+
+  .tool-item:hover {
+    background: #FF7242;
+    transition: all 0.1s ease-in-out .1s
+  }
+
+  .iconfont-size {
+    font-size: 25px !important;
+    cursor: pointer;
+    background: #eee3;
+    border-radius: 500px;
+  }
+
+  .iconfont-size:hover {
+    background: #FF7242;
+    transition: all 0.3s ease-in-out .1s;
+  }
+}

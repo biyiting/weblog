@@ -1,0 +1,90 @@
+.info {
+  background: #3b70fc;
+  border-radius: 10px;
+  padding: 10px 20px 20px;
+  color: #fff;
+  user-select: none;
+
+  a,
+  a:hover,
+  a:visited,
+  a:link,
+  a:active {
+    color: #fff;
+  }
+
+  .base-info {
+    display: flex;
+    user-select: none;
+
+    .hello {
+      font-size: 13px;
+      padding: 3px 7px;
+      background: #6a8cfb;
+      border-radius: 10px;
+    }
+
+    .status {
+      font-size: 13px;
+      padding: 0 8px;
+      overflow: hidden;
+      display: inline-block;
+      white-space: nowrap;
+      vertical-align: middle;
+      cursor: pointer;
+    }
+
+    .status-box {
+      margin-left: 10px;
+      border-radius: 500px;
+      background: #6a8cfb;
+      width: 26px;
+      overflow: hidden;
+    }
+
+    .status-box:hover {
+      width: 135px;
+      transition: all 0.3s ease-in-out .1s
+    }
+  }
+
+  .more {
+    text-align: center;
+    cursor: pointer;
+
+    a {
+      width: 200px;
+      border-radius: 10px;
+      background: #6a8cfb;
+      font-size: 20px;
+      font-weight: 800;
+      display: inline-block;
+      padding: 6px;
+    }
+
+    a:hover {
+      background: #0f40e0;
+      transition: all 0.3s ease-in-out .1s
+    }
+  }
+
+  .linked {
+    text-align: center;
+
+    >a {
+      margin: 0 10px;
+    }
+
+    .iconfont-size {
+      font-size: 25px !important;
+      cursor: pointer;
+      background: #eee3;
+      border-radius: 500px;
+    }
+
+    .iconfont-size:hover {
+      background: #FF7242;
+      transition: all 0.3s ease-in-out .1s;
+    }
+  }
+}
