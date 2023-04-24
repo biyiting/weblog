@@ -10,7 +10,7 @@
           <% post.categories.each(function(categorie){%><a href="<%- url_for(categorie.path) %>" class="post-categorie-item"><%= categorie.name %></a><% }) %>
         </div>
         <div class="post-item-info">
-          <a href="<%= url_for(post.path) %>"><div class="title"><%= post.title %></div></a>
+          <a href="<%= url_for(post.path) %>"><div class="title" title="<%= post.title %>"><%= post.title %></div></a>
           <p class="time">
             发表于 <time datetime="<%=date_xml(post.date)%>"> <%=date(post.date)%></time> 
             | 更新于 <time datetime="<%=date_xml(post.updated)%>"><%=date(post.updated)%></time>

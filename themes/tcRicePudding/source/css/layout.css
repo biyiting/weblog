@@ -15,12 +15,14 @@ body {
 }
 
 #menu-box {
-  display: flex;
-  padding: 10px 20px;
+  display   : flex;
+  padding   : 10px 20px;
+  background: #f7f9fe;
 
-  position: sticky;
-  top     : 0px;
-  z-index : 100;
+  position   : sticky;
+  top        : 0px;
+  z-index    : 100;
+  user-select: none;
 }
 
 .nav-left {
@@ -30,10 +32,11 @@ body {
 .nav-center {
   flex      : 1;
   text-align: center;
+  padding   : 5px 0 0;
 }
 
 #menu-box a,
-#menu-box a {
+#logo {
   padding    : 5px 15px;
   margin     : 0 5px;
   font-size  : 16px;
@@ -44,28 +47,68 @@ body {
 }
 
 #menu-box a:hover {
-  transition   : background 0.35s ease-in-out, color 0.2s ease-in-out;
-  background   : #3B70FC;
-  color        : #f7f9fe;
-  border-radius: 500px;
-  text-align   : center;
-  transition   : all 0.3s ease-in-out .1s
+  transition      : background 0.35s ease-in-out, color 0.2s ease-in-out;
+  background      : #3B70FC;
+  color           : #f7f9fe;
+  border-radius   : 500px;
+  text-align      : center;
+  /* transition   : all 0.3s ease-in-out .1s */
 }
+
+#logo {
+  display : flex;
+  position: relative;
+  padding : 7px 10px !important;
+}
+
+#logo i {
+  transform : scale(0);
+  position  : absolute;
+  transition: .3s ease-in;
+  top       : 5px;
+  left      : 42px;
+}
+
+#logo .logo-fontsize {
+  font-size: 25px !important;
+}
+
+#logo .logo-title {
+  transform     : scale(1);
+  transition    : .3s ease-in;
+  letter-spacing: normal;
+}
+
+#logo:hover {
+  transition: background 0.35s ease-in-out, color 0.1s ease-in-out !important;
+}
+
+#logo:hover .logo-title {
+  transform: scale(0);
+}
+
+#logo:hover .logo-fontsize {
+  transform: scale(1);
+}
+
 
 .nav-right {
   width     : 200px;
   text-align: right;
+  padding   : 5px 0 0;
 }
 
 #content-outer {
-  flex   : 1;
-  padding: 0 20px;
+  flex       : 1;
+  padding    : 0 20px;
+  user-select: none;
 }
 
 
 #bottom-outer>p {
   text-align   : center;
   /* padding   : 10px 0; */
+  user-select  : none;
 }
 
 #tool-box {
@@ -78,6 +121,7 @@ body {
   flex-direction: column;
   padding       : 10px 0;
   z-index       : 100;
+  user-select   : none;
 }
 
 #tool-box .tool-item {

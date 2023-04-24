@@ -3,6 +3,7 @@
     border-radius: 10px;
     padding      : 10px 20px 20px;
     color        : #fff;
+    user-select  : none;
 }
 
 .info a {
@@ -17,17 +18,44 @@
     color: #fff;
 }
 
-.hello {
+.base-info {
+    display    : flex;
+    user-select: none;
+}
+
+.base-info .hello {
     font-size    : 13px;
     padding      : 3px 7px;
     background   : #6a8cfb;
     border-radius: 10px;
 }
 
-.status {}
+.base-info .status {
+    font-size     : 13px;
+    padding       : 0 8px;
+    overflow      : hidden;
+    display       : inline-block;
+    white-space   : nowrap;
+    vertical-align: middle;
+    cursor        : pointer;
+}
+
+.base-info .status-box {
+    margin-left  : 10px;
+    border-radius: 500px;
+    background   : #6a8cfb;
+    width        : 26px;
+    overflow     : hidden;
+}
+
+.base-info .status-box:hover {
+    width     : 135px;
+    transition: all 0.3s ease-in-out .1s
+}
 
 .more {
     text-align: center;
+    cursor    : pointer;
 }
 
 .more a {
@@ -37,7 +65,7 @@
     font-size    : 20px;
     font-weight  : 800;
     display      : inline-block;
-    padding      : 4px;
+    padding      : 6px;
 }
 
 .more a:hover {
@@ -47,4 +75,20 @@
 
 .linked {
     text-align: center;
+}
+
+.iconfont-size {
+    font-size    : 25px !important;
+    cursor       : pointer;
+    background   : #eee3;
+    border-radius: 500px;
+}
+
+.iconfont-size:hover {
+    background: #FF7242;
+    transition: all 0.3s ease-in-out .1s;
+}
+
+.linked>a {
+    margin: 0 10px;
 }
