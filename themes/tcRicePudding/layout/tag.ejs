@@ -1,6 +1,9 @@
 <div id="tag">
   <div class="left">
     <h1><%=page.tag%></h1>
+    
+    <%-tag_list(page)%>
+
     <% page.posts.each(article => { %>
       <div class="tag-item">
         <a href="<%=url_for(article.path)%>">
