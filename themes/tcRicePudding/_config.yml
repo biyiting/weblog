@@ -17,6 +17,7 @@ stylesheets:
   - /weblog/css/partials/recent-posts.css
   - /weblog/css/partials/personal-info.css
   - /weblog/css/partials/tag-list.css
+  - /weblog/css/archive.css
 
 # scripts loaded in the end of the body
 scripts:
