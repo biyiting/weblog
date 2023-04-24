@@ -49,7 +49,6 @@ const archivesList = list_archives({ show_count: false });
 <% } else { %>
 <div id="archive">
   <p class="archive_overview">文章总览 - <%=page.posts.length%></p>
-  <% console.log("=============",page.posts.length) %>
   <div class="archive_time">
     <p class="archive_time_title"><%=page.year +'-'+page.month %></p>
   </div>
@@ -71,11 +70,8 @@ const archivesList = list_archives({ show_count: false });
     
   </div>
 <% }) %></div>
-  
 
-  <div id="paginator">
-    <%-paginator()%>
-  </div>
+  <%-partial('widgets/paginator')%>
 </div>
   
 
