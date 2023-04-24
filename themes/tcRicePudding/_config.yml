@@ -14,10 +14,10 @@ stylesheets:
   - /weblog/css/layout.css
   - /weblog/css/index.css
   - /weblog/css/tag.css
+  - /weblog/css/archive.css
   - /weblog/css/partials/recent-posts.css
   - /weblog/css/partials/personal-info.css
   - /weblog/css/partials/tag-list.css
-  - /weblog/css/archive.css
   - /weblog/css/widgets/paginator.css
 
 # scripts loaded in the end of the body

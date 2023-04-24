@@ -4,6 +4,15 @@ const setStyle = (dom, styleObj) => {
     });
 };
 
+const toTop = () => {
+    window.scrollTo({ 
+        top: 0, 
+        behavior: "smooth" 
+    });
+};
+const toBottom = () => {
+    document.documentElement.scrollTop = 100000;
+};
 
 // 节流
 const throttle = (func, delay) => {
