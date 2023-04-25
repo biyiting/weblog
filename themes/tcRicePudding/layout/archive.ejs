@@ -25,13 +25,12 @@ const archivesList = list_archives({ show_count: false });
             </div>
             <div class="tag-item-content-list">
             <% article.tags.each(tag => { %>
-              <%console.log("1221:",tag.path)%>
                 <a class="tag" href="<%='/weblog/'+tag.path %>">
                   <%='#'+tag.name%>
                 </a>
                 <% }) %>
               </div>
-            <time datetime="<%=date_xml(article.date)%>">
+            <time datetime="<%=date_xml(article.date)%>" class="archive_time">
               <i class="iconfont icon-riqi2 iconfont-size"></i>
               <span><%=date(article.date)%></span>
             </time>
