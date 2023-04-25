@@ -68,7 +68,7 @@ index_generator:
 
 # archive 分页每页显示文章数
 archive_generator:
-    per_page: 5
+    per_page: 20
 
 # tag 分页每页显示文章数
 tag_generator:
