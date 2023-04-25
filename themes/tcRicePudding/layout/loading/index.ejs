@@ -1,0 +1,142 @@
+<% if(theme.preloader.enable){ %>
+<div id="loaderBox">
+  <div class="loader">
+      <div class="dot"></div>
+      <div class="dot"></div>
+      <div class="dot"></div>
+      <div class="dot"></div>
+      <div class="dot"></div>
+  </div>
+</div>
+
+<style>
+  #loaderBox{
+    width: 100%;
+    height: 1000px;
+    background: #eeeeee75;
+    z-index: 1000000;
+    position: fixed;
+    user-select: none;
+    transition: all 0.2s ease-in-out .2s
+  }
+  .loader {
+    position: absolute;
+    top: 300px;
+    left: 40%;
+    margin-left: 10%;
+    transform: translate3d(-50%, -50%, 0);
+  }
+
+  .dot {
+      width: 24px;
+      height: 24px;
+      background: #3ac;
+      border-radius: 100%;
+      display: inline-block;
+      animation: slide 1s infinite;
+  }
+
+  .dot:nth-child(1) {
+      animation-delay: 0.1s;
+      background: #32aacc;
+  }
+
+  .dot:nth-child(2) {
+      animation-delay: 0.2s;
+      background: #64aacc;
+  }
+
+  .dot:nth-child(3) {
+      animation-delay: 0.3s;
+      background: #96aacc;
+  }
+
+  .dot:nth-child(4) {
+      animation-delay: 0.4s;
+      background: #c8aacc;
+  }
+
+  .dot:nth-child(5) {
+      animation-delay: 0.5s;
+      background: #faaacc;
+  }
+
+  @-moz-keyframes slide {
+      0% {
+          transform: scale(1);
+      }
+
+      50% {
+          opacity: 0.3;
+          transform: scale(2);
+      }
+
+      100% {
+          transform: scale(1);
+      }
+  }
+
+  @-webkit-keyframes slide {
+      0% {
+          transform: scale(1);
+      }
+
+      50% {
+          opacity: 0.3;
+          transform: scale(2);
+      }
+
+      100% {
+          transform: scale(1);
+      }
+  }
+
+  @-o-keyframes slide {
+      0% {
+          transform: scale(1);
+      }
+
+      50% {
+          opacity: 0.3;
+          transform: scale(2);
+      }
+
+      100% {
+          transform: scale(1);
+      }
+  }
+
+  @keyframes slide {
+      0% {
+          transform: scale(1);
+      }
+
+      50% {
+          opacity: 0.3;
+          transform: scale(2);
+      }
+
+      100% {
+          transform: scale(1);
+      }
+  }
+</style>
+
+<script>
+  document.getElementById('loaderBox').style.opacity= 1;
+  document.getElementById('loaderBox').style.zIndex= 10000;
+  document.body.style.overflow = 'hidden';
+
+  var endLoading = function () {
+    setTimeout(()=>{
+      document.body.style.overflow = 'auto';
+      document.getElementById('loaderBox').style.opacity= 0;
+
+      setTimeout(()=>{
+        document.getElementById('loaderBox').style.zIndex= -100;
+      },100);
+    },200);
+  }
+  window.addEventListener('load',endLoading);
+</script>
+<% } %>

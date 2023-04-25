@@ -15,7 +15,7 @@ const generatorDomString = (map, helperFn = {}) => {
         `<div class="helper-tag-item">
             <div class="helper-tag-item-img"></div>
             <div class="helper-tag-item-content">
-              <div class="helper-tag-item-content-title">${post.title}</div>
+              <div class="helper-tag-item-content-title"><a href="${helperFn.url_for(post.path)}">${post.title}</a></div>
               <div class="helper-tag-item-content-list">${post.tags.map(tag => generatorTagDomString(helperFn.url_for(tag.path), tag.name)).join('')}</div>
               <time class="helper-tag-item-content-date" datetime="${post.date}">
                 <i class="iconfont icon-riqi2 iconfont-size"></i>
@@ -39,7 +39,6 @@ hexo.extend.helper.register("tag_list_helper", function (page = {}) {
 
   page.posts.filter(it => {
     it.formatYear = this.date(it.date, 'YYYY');
-    it.formatDate = this.date(it.date, 'YYYY-MM-DD');
     it.formatDate = this.date(it.date, 'YYYY-MM-DD');
     return it;
   }).forEach(post => {

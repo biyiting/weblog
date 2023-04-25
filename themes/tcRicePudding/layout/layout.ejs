@@ -69,6 +69,11 @@
      <div class="tool-item" onclick="toTop()"><i class="iconfont icon-xiangshang3 iconfont-size"></i></div>
     </div>
 
+    <!-- loading 加载动画 -->
+    <% if (theme.preloader.enable) { %>
+      <%-partial('loading/index', {}, {cache: true})%>
+    <% } %>
+
     <% if (theme.scripts !==undefined && theme.scripts.length> 0) { %>
       <!-- scripts list from theme config.yml -->
       <% theme.scripts.forEach(url=> { %>

@@ -25,3 +25,7 @@ stylesheets:
 scripts:
   - /weblog/js/tools.js
   - /weblog/js/layout.js
+
+# Loading Animation (加载动画)
+preloader:
+  enable: true
