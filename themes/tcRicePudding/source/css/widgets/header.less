@@ -1,0 +1,78 @@
+// 菜单
+#menu-box {
+  display: flex;
+  padding: 10px 20px;
+  background: #f7f9fe;
+  position: sticky;
+  top: 0px;
+  z-index: 100;
+  user-select: none;
+
+  .nav-left {
+    width: 200px;
+
+    #logo {
+      display: flex;
+      position: relative;
+      padding: 7px 10px !important;
+      width: 140px;
+      font-size: 25px;
+
+      i {
+        transform: scale(0);
+        position: absolute;
+        transition: .3s ease-in;
+        top: 8px;
+        left: 65px;
+        font-size: 30px !important;
+      }
+
+      .logo-title {
+        transition: .3s ease-in;
+        letter-spacing: normal;
+      }
+    }
+
+    #logo:hover {
+      transition: background 0.35s ease-in-out, color 0.1s ease-in-out !important;
+
+      .logo-title {
+        transform: scale(0);
+      }
+
+      .logo-fontsize {
+        transform: scale(1);
+      }
+    }
+  }
+
+  .nav-center {
+    flex: 1;
+    text-align: center;
+    padding: 5px 0 0;
+  }
+
+  .nav-right {
+    width: 200px;
+    text-align: right;
+    padding: 5px 0 0;
+  }
+
+  & a {
+    padding: 5px 15px;
+    margin: 0 5px;
+    font-size: 16px;
+    font-weight: 800;
+    display: inline-block;
+    text-align: center;
+    min-width: 60px;
+  }
+
+  & a:hover {
+    transition: background 0.35s ease-in-out, color 0.2s ease-in-out;
+    background: #3B70FC;
+    color: #f7f9fe;
+    border-radius: 500px;
+    text-align: center;
+  }
+}

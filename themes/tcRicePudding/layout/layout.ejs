@@ -25,23 +25,6 @@
   </head>
 
   <body>
-    <div id="menu-box">
-      <div class="nav-left">
-        <a id="logo" href="<%= url_for('/') %>">
-          <div class="logo-title"><%= config.title %></div>
-          <i class="iconfont logo-fontsize icon-home"></i>
-        </a>
-      </div>
-      <div class="nav-center">
-        <% Object.keys(theme.menu).forEach(key=> { %>
-          <a href="<%= url_for(theme.menu[key]) %>">
-            <%=key%>
-          </a>
-          <% }); %>
-      </div>
-      <div class="nav-right"><a>右侧内容</a></div>
-    </div>
-
     <div id="content-outer">
        <%- body %> 
     </div>
@@ -69,7 +52,11 @@
      <div class="tool-item" onclick="toTop()"><i class="iconfont icon-xiangshang3 iconfont-size"></i></div>
     </div>
 
-    <!-- loading 加载动画 -->
+    <!-- 控制台打印信息 -->
+    <% if (theme.console.enable) { %>
+      <%-partial('console/log-script', {}, {cache: true})%>
+    <% } %>
+
     <% if (theme.preloader.enable) { %>
       <%-partial('loading/index', {}, {cache: true})%>
     <% } %>

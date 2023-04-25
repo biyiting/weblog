@@ -18,6 +18,7 @@ stylesheets:
   - /weblog/css/partials/recent-posts.css
   - /weblog/css/partials/personal-info.css
   - /weblog/css/partials/tag-list.css
+  - /weblog/css/widgets/header.css
   - /weblog/css/widgets/paginator.css
   - /weblog/css/helper/tag_list.css
 
@@ -28,4 +29,8 @@ scripts:
 
 # Loading Animation (加载动画)
 preloader:
+  enable: true
+
+#  控制台打印信息
+console:
   enable: true
