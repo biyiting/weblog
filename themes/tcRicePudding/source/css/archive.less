@@ -1,117 +1,130 @@
-#archive{
+#archive {
+  display: flex;
+
+  .left {
+    flex: 1;
+    padding: 15px 30px;
+    flex: 1;
+    margin: 15px;
+    background: #fff;
+    border-radius: 10px;
+    box-shadow: 0px 0px 12px rgba(0, 0, 0, 0.12);
+
+    .archive_overview {
+      height: 60px;
+      line-height: 60px;
+      font-size: 22px;
+      font-weight: 800;
+    }
+
+    .archive-year-title {
+      height: 60px;
+      line-height: 60px;
+      background: #3B70FC;
+      border-radius: 8px;
+      color: #fff;
+      width: 100%;
+      padding: 0 10px;
+      font-weight: 600;
+      font-size: 18px;
+      margin: 5px 0;
+    }
+  }
+
+  .right {
+    width: 300px;
+    padding: 15px 10px 15px 0;
+    box-sizing: border-box;
+
+    .list-box {
+      margin-top: 10px;
+      position: sticky;
+      top: 65px;
+      z-index: 1;
+    }
+  }
+
+  .archive_time {
+    background-color: #4876ee;
+    border-radius: 10px;
+    width: 96%;
+    height: 60px;
+    line-height: 60px;
+  }
+
+  .archive_time_title {
+    color: #fff;
+    font-size: 20px;
+    margin-left: 1%;
+  }
+
+  .archive-item {
+    position: relative;
     display: flex;
-    .left {
-        flex: 1;
-        padding: 15px 30px;
-        flex: 1;
-        margin: 15px;
-        background: #fff;
-        border-radius: 10px;
-        box-shadow: 0px 0px 12px rgba(0, 0, 0, 0.12);
-    
-        .archive_overview {
-          height: 60px;
-          line-height: 60px;
-          font-size: 22px;
-          font-weight: 800;
-        }
-        .archive-year-title {
-            height: 60px;
-            line-height: 60px;
-            background: #3B70FC;
-            border-radius: 8px;
-            color: #fff;
-            width: 100%;
-            padding: 0 10px;
-            font-weight: 600;
-            font-size: 18px;
-            margin: 5px 0;
-        }
+    min-width: 470px;
+    max-width: calc(50% - 10px);
+    flex: 1;
+    margin: 5px;
+    height: 110px;
+    background: #fff;
+    margin-bottom: 5px;
+    border-radius: 10px;
+    overflow: hidden;
+  }
+
+  .archive-phono {
+    background: url(/weblog/images/archive.jpg) no-repeat;
+    width: 150px;
+    background-size: 100% 100%;
+    border-radius: 8px;
+    margin: 5px 0;
+  }
+
+  .archive-body {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+
+    .archive-item-content-index {
+      position: absolute;
+      right: 30px;
+      top: 0;
+      opacity: 0.5;
+      font-style: italic;
+      font-size: 30px;
+      color: #4c4948;
+    }
+
+    .tag-item-content-list {
+      padding: 7px 0;
+
+      .tag {
+        display: inline-block;
+        text-align: center;
+        padding: 3px 8px;
+        background: #eee;
+        margin-right: 10px;
+        border-radius: 6px;
+        font-size: 14px;
       }
-    
-      .right {
-        width: 300px;
-        padding: 15px 10px 15px 0;
-        box-sizing: border-box;
-    
-        .list-box {
-          margin-top: 10px;
-          position: sticky;
-          top: 65px;
-          z-index: 1;
-        }
+
+      .tag:hover {
+        color: #fff;
+        background: #3B70FC;
+        transition: all 0.3s ease-in-out 0.1s;
       }
-    .archive_time{
-        background-color:#4876ee;
-        border-radius: 10px;
-        width:96%;
-        height:60px;
-        line-height: 60px;
     }
-    .archive_time_title{
-        color:#fff;
-        font-size:20px;
-        margin-left: 1%;
+  }
+
+  .archive-title-part {
+    flex: 1;
+    padding: 10px;
+    position: relative;
+
+    .archive-item-content-title {
+      font-size: 22px;
+      line-height: 30px;
+      height: 30px;
     }
-    .archive-item{
-        position: relative;
-        display: flex;
-        min-width: 500px;
-        flex: 1;
-        margin: 5px;
-        height: 110px;
-        background: #fff;
-        margin-bottom: 5px;
-        border-radius: 10px;
-        overflow: hidden;
-    }
-    .archive-phono{
-        background: url(/weblog/images/archive.jpg) no-repeat;
-        width: 150px;
-        background-size: 100% 100%;
-        border-radius: 8px;
-        margin: 5px 0;
-    }
-    .archive-body{
-        display: flex;
-        flex-direction: row;
-        flex-wrap: wrap;
-        
-        .archive-item-content-index{
-            position: absolute;
-            right: 30px;
-            top: 0;
-            opacity: 0.5;
-            font-style: italic;
-            font-size: 30px;
-            color: #4c4948;
-        }
-        .tag-item-content-list{
-            padding: 7px 0;
-            .tag{
-                display: inline-block;
-                text-align: center;
-                padding: 3px 8px;
-                background: #eee;
-                margin-right: 10px;
-                border-radius: 6px;
-                font-size: 14px;
-            }
-            .tag:hover {
-                color: #fff;
-                background: #3B70FC;
-                transition: all 0.3s ease-in-out 0.1s;
-            }
-        }
-    }
-    .archive-title-part{
-        flex: 1;
-        padding: 10px;
-        position: relative;
-        .archive-item-content-title{
-            font-size: 22px;
-            line-height: 30px;
-            height: 30px;
-        }
-    }
+  }
 }
