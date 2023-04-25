@@ -2,7 +2,7 @@
   <div class="left">
     <div class="tag-title">标签：<%=page.tag%></div>
     <!-- 生成 tagList -->
-    <%-tag_list(page)%>
+    <%-tag_list_helper(page)%>
     <!-- 分页 -->
     <%-partial('widgets/paginator')%>
   </div>

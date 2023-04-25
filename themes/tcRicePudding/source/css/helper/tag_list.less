@@ -17,7 +17,7 @@
     margin: 5px 0;
   }
 
-  .tag-item {
+  .helper-tag-item {
     position: relative;
     display: flex;
     min-width: 400px;
@@ -51,7 +51,7 @@
       &-list {
         padding: 7px 0;
 
-        .tag {
+        .helper-tag-item-content-item-tag {
           display: inline-block;
           text-align: center;
           padding: 3px 8px;
@@ -61,7 +61,7 @@
           font-size: 14px;
         }
 
-        .tag:hover {
+        .helper-tag-item-content-item-tag:hover {
           color: #fff;
           background: #3B70FC;
           transition: all 0.3s ease-in-out .1s
@@ -86,6 +86,19 @@
         font-size: 30px;
         color: #4c4948;
       }
+    }
+  }
+
+  .helper-tag-item:hover {
+    .helper-tag-item-content-title {
+      color: #3B70FC;
+      transition: all .3s ease 0s;
+    }
+
+    .helper-tag-item-img {
+      transform: scale(1.05);
+      filter: brightness(0.8);
+      transition: all .3s ease 0s;
     }
   }
 }

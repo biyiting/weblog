@@ -1,5 +1,9 @@
+"use strict";
 
-const generatorTagDomString = (path, name) => `<a class="tag" href=${path}>#${name}<a/>`;
+const generatorTagDomString = (path, name) => {
+  if (!name) return '';
+  return `<a class="helper-tag-item-content-item-tag" href='${path}'>#${name}</a>`
+};
 
 const generatorDomString = (map, helperFn = {}) => {
   let domStr = [];
@@ -8,16 +12,16 @@ const generatorDomString = (map, helperFn = {}) => {
     domStr.push(`<div class="tag-year-title">${year}</div>`);
     postList.forEach((post, inx) => {
       domStr.push(
-        `<div class="tag-item">
-            <div class="tag-item-img"></div>
-            <div class="tag-item-content">
-              <div class="tag-item-content-title">${post.title}</div>
-              <div class="tag-item-content-list">${post.tags.map(tag => generatorTagDomString(helperFn.url_for(tag.path), tag.name)).join('')}</div>
-              <time class="tag-item-content-date" datetime=${post.date}>
+        `<div class="helper-tag-item">
+            <div class="helper-tag-item-img"></div>
+            <div class="helper-tag-item-content">
+              <div class="helper-tag-item-content-title">${post.title}</div>
+              <div class="helper-tag-item-content-list">${post.tags.map(tag => generatorTagDomString(helperFn.url_for(tag.path), tag.name)).join('')}</div>
+              <time class="helper-tag-item-content-date" datetime="${post.date}">
                 <i class="iconfont icon-riqi2 iconfont-size"></i>
                 <span>${post.formatDate}</span>
               </time>
-              <div class="tag-item-content-index">${inx + 1}</div>
+              <div class="helper-tag-item-content-index">${inx + 1}</div>
             </div>
          </div>`);
     })
@@ -27,7 +31,7 @@ const generatorDomString = (map, helperFn = {}) => {
 };
 
 // tag 主界面
-hexo.extend.helper.register("tag_list", function (page = {}) {
+hexo.extend.helper.register("tag_list_helper", function (page = {}) {
   let map = {
     // 2023:[ post{},...],
     // 2022:[],
