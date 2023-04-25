@@ -1,19 +1,9 @@
 <div id="tag">
   <div class="left">
-    <h1><%=page.tag%></h1>
-    
+    <div class="tag-title">标签：<%=page.tag%></div>
+    <!-- 生成 tagList -->
     <%-tag_list(page)%>
-
-    <% page.posts.each(article => { %>
-      <div class="tag-item">
-        <a href="<%=url_for(article.path)%>">
-          <%=article.title%>
-        </a>
-        <time datetime="<%=date_xml(article.date)%>">
-          <%=date(article.date)%>
-        </time>
-      </div>
-    <% }) %>
+    <!-- 分页 -->
     <%-partial('widgets/paginator')%>
   </div>
   <div class="right">
