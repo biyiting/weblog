@@ -71,6 +71,13 @@
     display: flex;
     padding: 10px;
 
+    a.headerlink {
+      display: block;
+      height: 80px;
+      margin-top: -80px;
+      visibility: hidden;
+    }
+
     .post-md-content {
       flex: 1;
       margin: 10px;
@@ -248,7 +255,8 @@
               background: url(/weblog/images/pay/alipay.png) no-repeat;
               background-size: 100%;
             }
-            .pay-title{
+
+            .pay-title {
               color: #000;
               font-size: 14px;
               text-align: center;

@@ -4,12 +4,12 @@ language: en
 # main menu navigation
 menu:
   文章: /article
-  友链: /friendChain
   关于: /about
+  计划: /todoList
 
 # stylesheets loaded in the <head>
 stylesheets:
-  - http://at.alicdn.com/t/c/font_4034228_3yx4wa0qd8y.css
+  - http://at.alicdn.com/t/c/font_4034228_akmgt3g3g6f.css
   - /weblog/css/reset.css
   - /weblog/css/layout.css
   - /weblog/css/index.css
@@ -19,6 +19,7 @@ stylesheets:
   - /weblog/css/partials/recent-posts.css
   - /weblog/css/partials/personal-info.css
   - /weblog/css/partials/tag-list.css
+  - /weblog/css/partials/toc.css
   - /weblog/css/widgets/header.css
   - /weblog/css/widgets/paginator.css
   - /weblog/css/widgets/busuanzi.css

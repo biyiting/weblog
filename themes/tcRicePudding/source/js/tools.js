@@ -27,7 +27,7 @@ const toTop = () => {
 
 const toBottom = () => {
     window.scrollTo({
-        bottom: 1000000,
+        top: 1000000,
         behavior: "smooth"
     });
 };
@@ -61,11 +61,6 @@ const messageHandel = (message, delay = 2000) => {
         setStyle(messageDom, { height: 0, backgroundPosition: '-500px 0' });
         messageDom.innerHTML = '';
     }, delay);
-};
-
-// 打赏作者
-const rewardAuthor = () => {
-    // todo
 };
 
 // 复制链接

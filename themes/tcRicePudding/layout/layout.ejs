@@ -16,6 +16,7 @@
     <title>
       <%=pageTitle%>
     </title>
+    <link rel="icon" href="<%= url_for('/images/favicon.ico') %>" />
     <% if (theme.stylesheets !==undefined && theme.stylesheets.length> 0) { %>
       <!-- stylesheets list from _config.yml -->
       <% theme.stylesheets.forEach(url=> { %>

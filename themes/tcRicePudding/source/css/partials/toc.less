@@ -1,0 +1,60 @@
+.post-toc {
+  box-shadow: 0 8px 16px -4px #2c2d300c;
+  background: #fff;
+  border: 1px solid #e3e8f7;
+  transition: 0.3s;
+  border-radius: 12px;
+  position: relative;
+  overflow: hidden;
+  margin-top: 20px;
+  padding: 20px 0;
+  position: sticky;
+  top: 80px;
+  z-index: 1;
+  overflow-y: auto;
+  max-height: calc(100% - 120px);
+
+  ol {
+    list-style: none;
+    padding: 0 !important;
+    margin: 0 20px !important;
+
+    >li {
+      list-style: none;
+    }
+  }
+
+  .active {
+    color: #3b70fc;
+    font-weight: 700;
+    font-size: 20px;
+  }
+
+  .toc-link {
+    padding: 8px;
+    line-height: 1.2;
+    padding: 8px;
+    border-left: 1px solid transparent;
+    cursor: pointer;
+    display: block;
+    margin: 4px 0;
+    border-radius: 8px;
+    transition: all .2s ease-in-out;
+
+    >span {
+      opacity: .6;
+      cursor: pointer;
+      filter: blur(1px);
+      transition: .3s;
+    }
+  }
+
+  .toc-link:hover {
+    >span {
+      opacity: 1;
+      filter: blur(0px);
+      color: #3b70fc;
+      font-weight: 700;
+    }
+  }
+}

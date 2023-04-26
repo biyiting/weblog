@@ -38,7 +38,7 @@
       <%-console.log(page)%>
       <%-page.content%>
       <div class="post-tool">
-        <div class="reward" onclick="rewardAuthor()" title="打赏作者">
+        <div class="reward" title="打赏作者">
           <i class="iconfont icon-dashang-01 iconfont-size"></i>
           <span>打赏作者</span>
           <div class="reward-dialog">
@@ -60,6 +60,7 @@
     </div>
     <div class="post-right-aside">
       <%-partial('partials/personal-info')%>
+      <%-partial('partials/toc')%>
     </div>
   </section>
 </article>
