@@ -1,10 +1,10 @@
-
 <%
 const categoriesList = list_categories({ show_count: false });
 const tagsList = list_tags({ show_count: false });
 const archivesList = list_archives({ show_count: false });
 %>
 
+<%-partial('widgets/header', {}, {cache: true})%>
 <div id="archive">
   
   <div class="left">

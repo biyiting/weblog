@@ -9,23 +9,27 @@ menu:
 
 # stylesheets loaded in the <head>
 stylesheets:
-  - http://at.alicdn.com/t/c/font_4034228_j2i2lpy2cr.css
+  - http://at.alicdn.com/t/c/font_4034228_zysvetp1uz.css
   - /weblog/css/reset.css
   - /weblog/css/layout.css
   - /weblog/css/index.css
   - /weblog/css/tag.css
   - /weblog/css/archive.css
+  - /weblog/css/post.css
   - /weblog/css/partials/recent-posts.css
   - /weblog/css/partials/personal-info.css
   - /weblog/css/partials/tag-list.css
   - /weblog/css/widgets/header.css
   - /weblog/css/widgets/paginator.css
+  - /weblog/css/widgets/busuanzi.css
   - /weblog/css/helper/tag_list.css
 
 # scripts loaded in the end of the body
 scripts:
   - /weblog/js/tools.js
   - /weblog/js/layout.js
+  - /weblog/js/busuanzi.pure.mini.js
+  - http://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js
 
 # Loading Animation (加载动画)
 preloader:

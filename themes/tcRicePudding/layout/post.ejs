@@ -1,8 +1,41 @@
 <%-partial('widgets/header', {}, {cache: true})%>
 
 <article id="post">
-  <h1><%=page.title%></h1>
-  <%-page.content%>
+  <header class="post-header">
+    <section class="post-header-content">
+      <h1><%=page.title%></h1>
+      <p class="time">
+          <i class="iconfont icon-rili iconfont-size"></i>
+          <span>发表于</span>
+          <time datetime="<%=date_xml(page.date)%>"> <%=date(page.date)%></time>
+        <span class="split">|</span>
+          <i class="iconfont icon-shijian iconfont-size"></i>
+          <span>更新于</span>
+          <time datetime="<%=date_xml(page.updated)%>"><%=date(page.updated)%></time>
+      </p>
+      <p class="tag">
+        <% page.tags.each(function(tag){ %><a href="<%- url_for(tag.path) %>">#<%=tag.name%></a><% }) %>
+      </p>
+      <p class="world-statistics">
+        <span>
+          <i class="iconfont icon-wenben iconfont-size"></i>
+          <span>字数总计：</span>
+          <span><%=wordcount(page.content)%></span>
+          <span>个</span>
+        </span>
+        <span class="split">|</span>
+        <span>
+          <i class="iconfont icon-yanjing iconfont-size"></i>
+          <span>阅读时长：</span>
+          <span><%=min2read(page.content)%></span>
+          <span>分钟</span>
+      </p>
+    </section>
+  </header>
+  <section>
+    <%-console.log(page)%>
+    <%-page.content%>
+  </section>
 </article>
 
 <%-partial('widgets/paginator')%>

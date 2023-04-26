@@ -12,8 +12,17 @@
         <div class="post-item-info">
           <a href="<%= url_for(post.path) %>"><div class="title" title="<%= post.title %>"><%= post.title %></div></a>
           <p class="time">
-            发表于 <time datetime="<%=date_xml(post.date)%>"> <%=date(post.date)%></time> 
-            | 更新于 <time datetime="<%=date_xml(post.updated)%>"><%=date(post.updated)%></time>
+            <span>
+              <i class="iconfont icon-rili iconfont-size"></i>
+              <span>发表于</span>
+              <time datetime="<%=date_xml(post.date)%>"> <%=date(post.date)%></time>
+            </span>
+            <span class="split">|</span>
+            <span>
+              <i class="iconfont icon-shijian iconfont-size"></i>
+              <span>更新于</span>
+              <time datetime="<%=date_xml(post.updated)%>"><%=date(post.updated)%></time>
+            </span>
           </p>
           <p class="tag">
             <% post.tags.each(function(tag){ %><a href="<%- url_for(tag.path) %>" class="tag">#<%=tag.name%></a><% }) %>
