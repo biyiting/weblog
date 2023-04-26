@@ -1,6 +1,6 @@
 <%-partial('widgets/header', {}, {cache: true})%>
 
-<article id="post">
+<article id="post" class="post-article">
   <header class="post-header">
     <section class="post-header-content">
       <h1><%=page.title%></h1>
@@ -32,9 +32,35 @@
       </p>
     </section>
   </header>
-  <section>
-    <%-console.log(page)%>
-    <%-page.content%>
+
+  <section class="post-content">
+    <div class="post-md-content">
+      <%-console.log(page)%>
+      <%-page.content%>
+      <div class="post-tool">
+        <div class="reward" onclick="rewardAuthor()" title="打赏作者">
+          <i class="iconfont icon-dashang-01 iconfont-size"></i>
+          <span>打赏作者</span>
+          <div class="reward-dialog">
+            <div class="title">您的打赏是我前进的动力</div>
+            <div class="pay-box">
+              <span>
+                <div class="wechat"></div>
+                <div class="pay-title">微信</div>
+              </span>
+              <span>
+                <div class="alipay"></div>
+                <div class="pay-title">支付宝</div>
+              </span>
+            </div>
+          </div>
+        </div>
+        <div class="copy-link" onclick="copyPageUrl()" title="复制链接"><i class="iconfont icon-charulianjie iconfont-size"></i></div>
+      </div>
+    </div>
+    <div class="post-right-aside">
+      <%-partial('partials/personal-info')%>
+    </div>
   </section>
 </article>
 

@@ -1,5 +1,13 @@
 <!-- uv的方式，单个用户连续点击n篇文章，只记录1次访客数 --> 
 <div id="busuanzi-box">
+    <div class="statistics-item">
+        <div class="title">文章总数量</div>
+        <div class="count"><span class="num"><%=site.posts.length%></span><span>篇</span></div>
+    </div>
+    <div class="statistics-item">
+        <div class="title">最后更新时间</div>
+        <div class="count"><%-getLastPostUpdated_helper(site)%></div>
+    </div>
     <div id="busuanzi_container_site_uv" class="statistics-item">
         <div class="title">本站访客数</div>
         <div class="count"><span id="busuanzi_value_site_uv" class="num"></span><span>人次</span></div>
@@ -9,11 +17,7 @@
         <div class="count"><span id="busuanzi_value_site_pv" class="num"></span><span>次</span></div>
     </div>
     <div class="statistics-item">
-        <div class="title">本站访客数</div>
-        <div class="count"><span id="busuanzi_value_site_uv" class="num"></span><span>人次</span></div>
-    </div>
-    <div class="statistics-item">
-        <div class="title">本文总阅读量</div>
+        <div class="title">本站总阅读量</div>
         <div class="count"><span id="busuanzi_value_page_pv" class="num"></span><span>次</span></div>
     </div>
 </div>
