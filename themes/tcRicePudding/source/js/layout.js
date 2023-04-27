@@ -47,7 +47,7 @@ const setSrollPercentage = () => {
     let percentage = (scrollH / (totalH - clientH) * 100).toFixed(2);
 
     let scrollPercentageDom = document.getElementById('scrollPercentage');
-    setTimeout(()=>{
+    setTimeout(() => {
         setStyle(scrollPercentageDom, {
             width: `${percentage}%`
         });

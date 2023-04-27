@@ -71,6 +71,17 @@
     display: flex;
     padding: 10px;
 
+    b,
+    strong {
+      color: #3b70fc;
+    }
+
+    b,
+    strong {
+      font-weight: bolder;
+    }
+
+
     a.headerlink {
       display: block;
       height: 80px;
@@ -87,6 +98,47 @@
       box-shadow: 0 3px 8px 6px rgba(7, 17, 27, 0.05);
       overflow-wrap: break-word;
 
+      mark {
+        padding: 2px 5px;
+        border-radius: 4px;
+        box-shadow: 3px 8px 15px -5px #2c2d307d;
+        background: #ffe400;
+      }
+
+      hr {
+        background: linear-gradient(-90deg, #e2e5ed94, #3b70fc, #f5f5f57a);
+        height: 2px;
+        border: 0;
+        width: 100%;
+      }
+
+      del {
+        color: #9d9999;
+      }
+
+      sub,
+      sup {
+        font-size: 12px;
+        font-weight: 800;
+        color: #2e6dea;
+      }
+
+      a {
+        font-weight: 500;
+        border-bottom: solid 2px #3b70fc;
+        color: #363636;
+        padding: 2px 2px 0;
+        text-decoration: none;
+        transition: all 0.2s;
+        overflow-wrap: break-word;
+      }
+
+      a:hover {
+        background: #3b70fc;
+        color: #fff;
+        border-radius: 4px;
+      }
+
       h1,
       h2,
       h3,
@@ -94,14 +146,56 @@
       h5,
       h6 {
         position: relative;
-        margin: 20px 0 14px;
         color: #1f2d3d;
         font-weight: 700;
+      }
+
+      h1 {
+        margin: 14px;
+      }
+      h2 {
+        margin: 8px;
+      }
+      h3 {
+        margin: 6px;
+      }
+      h4 {
+        margin: 4px;
+      }
+      h5 {
+        margin: 3px;
+      }
+      h6 {
+        margin: 2px;
       }
 
       p {
         margin: 8px 0;
         line-height: 28px;
+      }
+
+      ol {
+        list-style: none !important;
+        counter-reset: chapter !important;
+
+        >li {
+          counter-increment: chapter 1;
+          display: flex;
+          align-items: center;
+          flex-wrap: wrap;
+        }
+
+        >li:before {
+          content: counter(chapter);
+          background: transparent !important;
+          color: #3b70fc !important;
+          font-weight: 800;
+          position: relative !important;
+          margin-left: -25px;
+          padding-right: 18px;
+          font-size: 18px;
+          font-weight: 800;
+        }
       }
 
       ol,
@@ -116,16 +210,13 @@
       ul li {
         margin: 4px 0;
         line-height: 32px;
+        padding: 3.5px 3.5px 3.5px 24px;
       }
 
       ol li:not(.tab),
       ul li:not(.tab) {
         position: relative;
         margin: 0.2rem 0;
-      }
-
-      ul>li:not(.tab) {
-        padding: 3.5px 3.5px 3.5px 24px;
       }
 
       ul>li:not(.tab)::before {
@@ -136,7 +227,7 @@
         content: "";
       }
 
-      ul>li:not(.tab):before {
+      ul>li::before {
         border: 3.5px solid #3b70fc;
         background: #3b70fc;
       }
@@ -155,6 +246,10 @@
         list-style-type: none;
       }
 
+      figure {
+        width: 100%;
+      }
+
       blockquote {
         border: 1px solid #e3e8f7;
         background-color: #f1f3f8;
@@ -164,26 +259,59 @@
         padding: 0.5rem 0.8rem;
       }
 
-      code {
-        padding: 4px 8px;
-        border-radius: 4px;
-        margin: 0 4px;
-        line-height: 2;
-        box-shadow: 3px 8px 15px -5px #2c2d307d;
-        background: #3477f6;
-        color: #fff;
-      }
+      // code {
+      //   padding: 4px 8px;
+      //   border-radius: 4px;
+      //   margin: 0 4px;
+      //   line-height: 2;
+      //   box-shadow: 3px 8px 15px -5px #2c2d307d;
+      //   background: #3477f6;
+      //   color: #fff;
+      // }
 
       code,
       pre {
         font-size: 17px;
         font-family: consolas, Menlo, "PingFang SC", "Microsoft JhengHei", "Microsoft YaHei", sans-serif !important;
       }
+
+      .table-wrap {
+        overflow-x: scroll;
+        border-radius: 8px;
+
+        table {
+          display: table;
+          width: 100%;
+          border-spacing: 0;
+          border-collapse: collapse;
+          empty-cells: show;
+
+          thead {
+            background: #d1d9ec9c;
+          }
+
+          td,
+          th {
+            padding: 10px 8px;
+            vertical-align: middle;
+            border: 1px solid #e3e8f7;
+          }
+
+          tr:nth-child(even) {
+            background-color: #f1f3f8;
+          }
+
+          tbody>tr:hover {
+            background-color: #f1f3f88a;
+            transition: all 0.3s ease-in-out .1s;
+          }
+        }
+      }
     }
 
     .post-right-aside {
       width: 300px;
-      padding: 10px 0 15px 0px;
+      padding: 10px 0 10px 0px;
     }
 
     .post-tool {

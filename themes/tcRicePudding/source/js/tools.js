@@ -68,3 +68,18 @@ const copyPageUrl = () => {
     copyHandler(window.location.href);
     messageHandel('复制链接成功，快去分享吧');
 };
+
+
+/**
+ * @param {*} selector
+ * @param {*} eleType the type of create element
+ * @param {*} options object key: value
+ */
+const addWrap = (selector, eleType, options) => {
+    const creatEle = document.createElement(eleType);
+    for (const [key, value] of Object.entries(options)) {
+        creatEle.setAttribute(key, value);
+    }
+    selector.parentNode.insertBefore(creatEle, selector);
+    creatEle.appendChild(selector);
+};

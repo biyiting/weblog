@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        html {
+            color: #444;
+            font: 16px/1.6 微软雅黑, "Microsoft YaHei";
+        }
+
+        ol {
+            list-style: none;
+            padding-left: 3em;
+            /* counter-reset: chapter 2; */
+        }
+
+        ol>li {
+            counter-increment: section 1;
+        }
+
+        ol>li:before {
+            content: counter(section);
+            padding-right: .5em;
+        }
+    </style>
+</head>
+
+<body>
+    <ol>
+        <li>哈哈</li>
+        <li>哈哈</li>
+        <li>哈哈</li>
+        <li>哈哈</li>
+        <li>哈哈</li>
+    </ol>
+</body>
+
+</html>

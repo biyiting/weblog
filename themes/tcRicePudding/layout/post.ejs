@@ -63,6 +63,15 @@
       <%-partial('partials/toc')%>
     </div>
   </section>
+  <script>
+    const addTableWrap = () => {
+      const tableList = document.querySelectorAll("#post :not(.highlight) > table, #post > table");
+      (tableList||[]).forEach(item => {
+        addWrap(item, "div", { class: "table-wrap" });
+      });
+    };
+    setTimeout(addTableWrap,100);
+  </script>
 </article>
 
 <%-partial('widgets/paginator')%>
