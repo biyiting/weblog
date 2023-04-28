@@ -75,12 +75,18 @@
         let topHeight = $(window).scrollTop(); // 屏幕位置
         const allEl = [...document.getElementsByClassName('headerlink')];
 
-        const activeEl =  allEl.find((el,inx)=>{
+        let activeEl =  allEl.find((el,inx)=>{
           const yOffset = 80; // a 标签的偏移量为 menu 的高度（menu浮动，高度塌陷）
           let upperLimit = el.parentElement.offsetTop - yOffset;
           let lowerLimit = allEl[inx+1]?.parentElement.offsetTop - yOffset || +Infinity;
           return upperLimit<topHeight && topHeight<lowerLimit;
-        } );
+        });
+
+        // 只要可视区域内只有最后一个元素，则高亮
+        let activeList = allEl.filter(it=>it.parentElement.offsetTop>topHeight);
+        if(activeList.length===1){
+          activeEl = activeList[0];
+        }
 
         const hash = activeEl?.href.split('#')[1];
         [...$('.post-toc  a')].forEach(el=>{ $(el).removeClass('active') });
