@@ -84,7 +84,7 @@
 
         // 只要可视区域内只有最后一个元素，则高亮
         let activeList = allEl.filter(it=>it.parentElement.offsetTop>topHeight);
-        if(activeList.length===1){
+        if(activeList.length === 1 && allEl.indexOf(activeList[0])===allEl.length-1){
           activeEl = activeList[0];
         }
 
