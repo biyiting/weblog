@@ -120,4 +120,12 @@ deploy:
   repo: git@github.com:tc-rice-pudding/weblog.git
   branch: gh-pages
 
-#宝宝试试
+# prism_plugin:
+#   mode: 'preprocess' # realtime/preprocess
+#   theme: 'okaidia'
+#   line_number: true
+#   line_highlight: true
+#   inline_color: true
+#   toolbar: true
+#   highlight_keywords: true
+#   show_language: true

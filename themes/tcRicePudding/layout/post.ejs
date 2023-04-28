@@ -69,7 +69,30 @@
         addWrap(item, "div", { class: "table-wrap" });
       });
     };
-    setTimeout(addTableWrap,100);
+
+    // 滚动条滑动到相应位置导航栏显示高亮
+    const checkScrollHandel = ()=> {
+        let topHeight = $(window).scrollTop(); // 屏幕位置
+        const allEl = [...document.getElementsByClassName('headerlink')];
+
+        const activeEl =  allEl.find((el,inx)=>{
+          const yOffset = 80; // a 标签的偏移量为 menu 的高度（menu浮动，高度塌陷）
+          let upperLimit = el.parentElement.offsetTop - yOffset;
+          let lowerLimit = allEl[inx+1]?.parentElement.offsetTop - yOffset || +Infinity;
+          return upperLimit<topHeight && topHeight<lowerLimit;
+        } );
+
+        const hash = activeEl?.href.split('#')[1];
+        [...$('.post-toc  a')].forEach(el=>{ $(el).removeClass('active') });
+        $(`.post-toc  a[href='#${hash}']`).addClass('active');
+    }
+
+  document.addEventListener("DOMContentLoaded", function () {
+    addTableWrap(); // 给表格外套一层标签，否则样式会被污染
+
+    document.removeEventListener("scroll", checkScrollHandel);
+    document.addEventListener("scroll",checkScrollHandel);
+  });
   </script>
 </article>
 

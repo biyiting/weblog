@@ -32,6 +32,13 @@ const toBottom = () => {
     });
 };
 
+const toTopAppointPosition = (top) => {
+    window.scrollTo({
+        top: top,
+        behavior: "smooth"
+    });
+};
+
 const copyHandler = (content) => {
     const input = document.createElement("input");
     input.id = "copyVal";

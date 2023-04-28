@@ -21,7 +21,6 @@ hexo.extend.helper.register("getLastPostUpdated_helper", function (site = {}) {
     } else {
         res = `<span class="num">${Math.floor(timeInterval / minTimeStamp)}</span><span>分钟前</span>`;
     }
-    console.log(timeInterval);
 
     return res;
 });

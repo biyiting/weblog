@@ -54,10 +54,13 @@ const setSrollPercentage = () => {
     });
 };
 
-window.onscroll = () => {
+const scrollHandleLayout = () => {
     let scrollTop = document.documentElement.scrollTop || document.body.scrollTop;
     setMenuStyle(scrollTop);
     setToolBoxStyle(scrollTop);
 
     setSrollPercentage();
 };
+
+document.removeEventListener("scroll", scrollHandleLayout);
+document.addEventListener("scroll", scrollHandleLayout);

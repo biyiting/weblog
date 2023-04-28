@@ -1,3 +1,13 @@
 <div class="post-toc">
     <%- toc(page.content) %>
 </div>
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+    $(document).on( 'click', '.toc-link', function(e){
+        e.preventDefault();
+
+        const [,hash] = e.currentTarget.href.split('#');
+        toTopAppointPosition($(`#${decodeURI(hash)}`).offset().top-70);
+    })
+});
+</script>
