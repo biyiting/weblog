@@ -1,7 +1,8 @@
 ---
 title: 完全搞懂 this 指向 测试
 categories:
-  - Hexo
+  - JS 深度剖析
+  - js 高级
 tags:
   - js
 date: 2023-04-26 12:26:35

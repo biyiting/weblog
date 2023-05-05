@@ -32,7 +32,6 @@ const generoateTreeDom = (topNodeList, isRoot = true) => {
     topNodeList.forEach(it => {
         res.push(`
             <li class="cus-category-list-item">
-                ${it.children.length > 0 || it.posts.length>0?'<span>+</span>':''}
                 <span class="cus-category-list-link">${it.name}</span>
                 <span class="cus-category-list-count">${it.posts.length}</span>
             </li>
