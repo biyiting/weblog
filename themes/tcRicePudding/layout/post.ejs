@@ -29,17 +29,25 @@
           <span>阅读时长：</span>
           <span><%=min2read(page.content)%></span>
           <span>分钟</span>
+        </span>
       </p>
     </section>
   </header>
 
   <section class="post-content">
-    <div class="post-left-aside">
+    <div id="post-left-aside" class="post-left-aside">
       <%- menu_list(site) %>
     </div>
 
     <div class="post-md-content">
-      <%-page.content%>
+      <div class="markdown-html">
+        <div class="markdown-tool">
+          <i id="post-left" class="iconfont icon-shousuocaidan iconfont-size"></i>
+          <i id="post-right" class="iconfont icon-shousuocaidan-copy iconfont-size"></i>
+        </div>
+        <%-page.content%>
+      </div>
+
       <div class="post-tool">
         <div class="reward" title="打赏作者">
           <i class="iconfont icon-dashang-01 iconfont-size"></i>
@@ -60,9 +68,11 @@
         </div>
         <div class="copy-link" onclick="copyPageUrl()" title="复制链接"><i class="iconfont icon-charulianjie iconfont-size"></i></div>
       </div>
+
+      <%-partial('widgets/twikoo')%>
     </div>
 
-    <div class="post-right-aside">
+    <div id="post-right-aside" class="post-right-aside">
       <%-partial('partials/personal-info')%>
       <%-partial('partials/toc')%>
     </div>
@@ -131,8 +141,16 @@
     // 获取文章的路径
     let [,pathnameStr] = /\/(?:weblog)\/(?:\d{4})\/(?:\d{2})\/(?:\d{2})\/(.+)/g.exec(decodeURI(location.pathname));
     let postName=pathnameStr.split('/').filter(it=>it.length).pop();
-    $(`#${postName.replaceAll(' ','-')}`).trigger('click')
-    console.log(postName);
+    $(`#${postName.replaceAll(' ','-')}`).trigger('click');
+
+
+    // 工具栏的收缩与展开
+    $('#post-left').on('click',function(){
+      $('#post-left-aside').fadeToggle();
+    })
+    $('#post-right').on('click',function(){
+      $('#post-right-aside').slideToggle();
+    })
   });
   </script>
 </article>

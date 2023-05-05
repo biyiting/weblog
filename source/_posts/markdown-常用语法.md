@@ -1,5 +1,6 @@
 ---
 title: markdown 常用语法
+comment: true
 categories:
   - Hexo
 tags:

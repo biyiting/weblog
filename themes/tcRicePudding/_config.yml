@@ -9,7 +9,7 @@ menu:
 
 # stylesheets loaded in the <head>
 stylesheets:
-  - http://at.alicdn.com/t/c/font_4034228_9q29bmvm8j5.css
+  - http://at.alicdn.com/t/c/font_4034228_2j4kzmteu4l.css
   - /weblog/lib/prism/prism.css
   - /weblog/css/reset.css
   - /weblog/css/layout.css
@@ -25,9 +25,9 @@ stylesheets:
   - /weblog/css/widgets/header.css
   - /weblog/css/widgets/paginator.css
   - /weblog/css/widgets/busuanzi.css
+  - /weblog/css/widgets/twikoo.css
   - /weblog/css/helper/tag_list.css
   - /weblog/css/helper/menu_list.css
-  
 
 # scripts loaded in the end of the body
 scripts:
