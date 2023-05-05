@@ -65,7 +65,9 @@ marked:
 index_generator:
   path: ""
   per_page: 10
-  order_by: -date
+  order_by:
+    top: -1 # 根据 top 值倒序排序
+    date: -1 # 根据 date 时间倒序排序
 
 # archive 分页每页显示文章数
 archive_generator:

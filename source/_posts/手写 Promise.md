@@ -1,5 +1,6 @@
 ---
 title: 手写 Promise
+top: 10
 categories:
   - 前端
 tags:

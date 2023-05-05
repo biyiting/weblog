@@ -1,11 +1,17 @@
 <% if (page.posts.length > 0) { %>
   <!-- 最近 posts 文章列表 -->
   <div class="recent-posts">
-    <% page.posts.sort('date', -1).limit(10).each(post => { %>
+    <% page.posts.each(post => { %>
       <div class="recent-post-item">
         <a href="<%= url_for(post.path) %>">
           <div class="post-item-bg"></div>
         </a>
+        <% if (post.top>0) { %>
+          <div class="post-top">
+            <!-- <i class="iconfont icon-haofangtuoiconfont_zhiding iconfont-size"></i> -->
+            <span>TOP</span>
+          </div>
+        <% } %>
         <div class="post-categories">
           <% post.categories.each(function(categorie){%><a href="<%- url_for(categorie.path) %>" class="post-categorie-item"><%= categorie.name %></a><% }) %>
         </div>
