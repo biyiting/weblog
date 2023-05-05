@@ -1,5 +1,5 @@
 ---
-title: 完全搞懂 this 指向(测试)
+title: 完全搞懂 this 指向 测试
 categories:
   - Hexo
 tags:

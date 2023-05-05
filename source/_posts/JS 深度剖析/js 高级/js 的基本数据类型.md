@@ -1,7 +1,8 @@
 ---
 title: js 的基本数据类型
 categories:
-  - 前端
+  - JS 深度剖析
+  - js 高级
 tags:
   - js
   - hash

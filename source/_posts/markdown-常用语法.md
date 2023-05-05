@@ -1,9 +1,9 @@
 ---
-title: hexo 中 markdown 常用语法
+title: markdown 常用语法
 categories:
   - Hexo
 tags:
-  - js
+  - markdown
 date: 2023-04-26 10:34:11
 ---
 
@@ -69,7 +69,7 @@ console.log(1)
 console.log(1)
 console.log(1)
 ```
-## 列表嵌套
+## 列表嵌套(无序套有序)
 - 列表内容
     + 列表内容
     + 列表内容
@@ -79,6 +79,16 @@ console.log(1)
     4. 列表内容
     4. 列表内容
 - 列表内容
+
+## 列表嵌套(有序套无序)
+1. 列表内容
+    - 列表内容
+    - 列表内容
+    - 列表内容
+2. 列表内容
+    1. 列表内容
+    2. 列表内容
+    3. 列表内容
 
 ## 引用
 >这是引用的内容
@@ -112,6 +122,6 @@ console.log(1)
 * 文字<sub>下标</sub>
 * <b>加粗</b>
 * <i>斜体</i>
-* <a href=url>超链接</a>
+* <a href="http://www.baidu.com" target="_blank">超链接</a>
 * <center>居中</center>
 * <p align=right>右对齐</p>

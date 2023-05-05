@@ -3,21 +3,21 @@ language: en
 
 # main menu navigation
 menu:
-  文章: /article
-  关于: /about
-  计划: /todoList
+  分类: /weblog/categories
+  关于: /weblog/about
+  计划: /weblog/todoList
 
 # stylesheets loaded in the <head>
 stylesheets:
   - http://at.alicdn.com/t/c/font_4034228_akmgt3g3g6f.css
   - /weblog/lib/prism/prism.css
-  # - /weblog/lib/highlight/github.min.css
   - /weblog/css/reset.css
   - /weblog/css/layout.css
   - /weblog/css/index.css
   - /weblog/css/tag.css
   - /weblog/css/archive.css
   - /weblog/css/post.css
+  - /weblog/css/category.css
   - /weblog/css/partials/recent-posts.css
   - /weblog/css/partials/personal-info.css
   - /weblog/css/partials/tag-list.css
@@ -26,13 +26,13 @@ stylesheets:
   - /weblog/css/widgets/paginator.css
   - /weblog/css/widgets/busuanzi.css
   - /weblog/css/helper/tag_list.css
+  - /weblog/css/helper/menu_list.css
   
 
 # scripts loaded in the end of the body
 scripts:
   - /weblog/js/jquery-3.5.1.min.js
   - /weblog/lib/prism/prism.js
-  # - /weblog/lib/highlight/highlight.min.js
   - /weblog/js/tools.js
   - /weblog/js/layout.js
   - /weblog/js/busuanzi.pure.mini.js

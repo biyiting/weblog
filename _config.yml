@@ -69,15 +69,15 @@ index_generator:
 
 # archive 分页每页显示文章数
 archive_generator:
-    per_page: 20
+  per_page: 20
 
 # tag 分页每页显示文章数
 tag_generator:
-    per_page: 20
+  per_page: 20
 
 # category 分页每页显示文章数
-category_generator: 
-    per_page: 20
+category_generator:
+  per_page: 20
 
 # Category & Tag
 default_category: uncategorized
@@ -129,3 +129,7 @@ deploy:
 #   toolbar: true
 #   highlight_keywords: true
 #   show_language: true
+
+auto_category:
+  enable: true
+  # depth: 1
