@@ -115,6 +115,7 @@ console.log(1)
 ## HTML 标签
 * 换<br/>行
 * 水平分割线<hr/>
+* ---------
 * <mark>标记</mark>
 * <del>删除线</del>
 * <u>下划线</u>
@@ -128,3 +129,4 @@ console.log(1)
 * <a href="http://www.baidu.com" target="_blank">超链接</a>
 * <center>居中</center>
 * <p align=right>右对齐</p>
+* 使用 <kbd>Ctrl</kbd>+<kbd>Alt</kbd>+<kbd>Del</kbd> 重启电脑
