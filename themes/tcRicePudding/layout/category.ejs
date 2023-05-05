@@ -1,9 +1,12 @@
 <%-partial('widgets/header', {}, {cache: true})%>
 
 <div id="category">
-  <h1><%=page.category%></h1>
-  <%- list_categories(site.categories) %>
-
+  <!-- <h1><%=page.category%></h1> -->
+  
+  <div id="category-left-aside" class="category-left-aside">
+    <%- list_categories(site.categories) %>
+  </div>
+  <div class="category-md-content">
   <% if (page.posts) { %>
     <% page.posts.each(article => { %>
       <div class="category-item">
@@ -16,6 +19,10 @@
       </div>
     <% }); %>
   <% } %>
+  </div>
+  <div id="category-right-aside" class="category-right-aside">
+    <%-partial('partials/personal-info')%>
+    
+  </div>
 </div>
 
-<%-partial('widgets/paginator')%>
