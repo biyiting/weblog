@@ -3,39 +3,39 @@ language: en
 
 # main menu navigation
 menu:
-  分类: /weblog/categories
-  关于: /weblog/about
-  计划: /weblog/todoList
+  分类: /categories
+  关于: /about
+  计划: /todoList
 
 # stylesheets loaded in the <head>
 stylesheets:
   - http://at.alicdn.com/t/c/font_4034228_2j4kzmteu4l.css
-  - /weblog/lib/prism/prism.css
-  - /weblog/css/reset.css
-  - /weblog/css/layout.css
-  - /weblog/css/index.css
-  - /weblog/css/tag.css
-  - /weblog/css/archive.css
-  - /weblog/css/post.css
-  - /weblog/css/category.css
-  - /weblog/css/partials/recent-posts.css
-  - /weblog/css/partials/personal-info.css
-  - /weblog/css/partials/tag-list.css
-  - /weblog/css/partials/toc.css
-  - /weblog/css/widgets/header.css
-  - /weblog/css/widgets/paginator.css
-  - /weblog/css/widgets/busuanzi.css
-  - /weblog/css/widgets/twikoo.css
-  - /weblog/css/helper/tag_list.css
-  - /weblog/css/helper/menu_list.css
+  - /lib/prism/prism.css
+  - /css/reset.css
+  - /css/layout.css
+  - /css/index.css
+  - /css/tag.css
+  - /css/archive.css
+  - /css/post.css
+  - /css/category.css
+  - /css/partials/recent-posts.css
+  - /css/partials/personal-info.css
+  - /css/partials/tag-list.css
+  - /css/partials/toc.css
+  - /css/widgets/header.css
+  - /css/widgets/paginator.css
+  - /css/widgets/busuanzi.css
+  - /css/widgets/twikoo.css
+  - /css/helper/tag_list.css
+  - /css/helper/menu_list.css
 
 # scripts loaded in the end of the body
 scripts:
-  - /weblog/js/jquery-3.5.1.min.js
-  - /weblog/lib/prism/prism.js
-  - /weblog/js/tools.js
-  - /weblog/js/layout.js
-  - /weblog/js/busuanzi.pure.mini.js
+  - /js/jquery-3.5.1.min.js
+  - /lib/prism/prism.js
+  - /js/tools.js
+  - /js/layout.js
+  - /js/busuanzi.pure.mini.js
   - http://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js
 
 # Loading Animation (加载动画)

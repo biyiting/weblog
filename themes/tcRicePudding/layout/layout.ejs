@@ -16,11 +16,11 @@
     <title>
       <%=pageTitle%>
     </title>
-    <link rel="icon" href="<%= '/images/favicon.ico' %>" />
+    <link rel="icon" href="<%= url_for('/images/favicon.ico') %>" />
     <% if (theme.stylesheets !==undefined && theme.stylesheets.length> 0) { %>
       <!-- stylesheets list from _config.yml -->
       <% theme.stylesheets.forEach(url=> { %>
-        <link rel="stylesheet" href="<%=url%>">
+        <link rel="stylesheet" href="<%=url_for(url)%>">
       <% }); %>
     <% } %>
   </head>
@@ -37,12 +37,12 @@
           data-title="博客框架为Hexo_v5.4.0" title="博客框架为Hexo_v5.4.0"><img
             src="https://npm.elemecdn.com/anzhiyu-blog@2.1.5/img/badge/Frame-Hexo.svg"
             data-lazy-src="https://npm.elemecdn.com/anzhiyu-blog@2.1.5/img/badge/Frame-Hexo.svg" alt="博客框架为Hexo_v5.4.0"
-            data-ll-status="loaded" class="entered loaded"></a>
+            data-ll-status="loaded" class="entered loaded"/></a>
         <a class="github-badge" target="_blank" href="https://github.com/" style="margin-inline:5px"
           data-title="本站项目由Github托管" title="本站项目由Github托管"><img
             src="https://npm.elemecdn.com/anzhiyu-blog@2.1.5/img/badge/Source-Github.svg"
             data-lazy-src="https://npm.elemecdn.com/anzhiyu-blog@2.1.5/img/badge/Source-Github.svg" alt="本站项目由Github托管"
-            data-ll-status="loaded" class="entered loaded"></a>
+            data-ll-status="loaded" class="entered loaded"/></a>
       </p>
     </div>
 
@@ -65,7 +65,7 @@
     <% if (theme.scripts !==undefined && theme.scripts.length> 0) { %>
       <!-- scripts list from theme config.yml -->
       <% theme.scripts.forEach(url=> { %>
-        <script src="<%=url%>"></script>
+        <script src="<%=url_for(url)%>"></script>
       <% }); %>
     <% } %>
   </body>
