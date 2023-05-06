@@ -1,10 +1,10 @@
 ---
 title: less代码实践
 categories:
-  - 前端基础
+  - A.前端基础
   - CSS预处理器
 tags:
-  - CSS
+  - css
   - less
 date: 2021-09-03 14:30:50
 ---
@@ -36,9 +36,9 @@ date: 2021-09-03 14:30:50
 ### 变量: 符号@
 - less
   ```css
-  @selector: #header; // 选择器 作为变量
-  @m: margin;         // 样式名 作为变量
-  @width: 10px;       // 样式值 作为变量
+  @selector: #header; /* 选择器 作为变量 */
+  @m: margin;         /* 样式名 作为变量 */ 
+  @width: 10px;       /* 样式值 作为变量 */ 
 
   @{selector} {
       @{m}: 20px;

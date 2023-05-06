@@ -1,7 +1,7 @@
 ---
 title: canvas基本用法
 categories:
-  - 前端基础
+  - A.前端基础
   - HTML5
 tags:
   - HTML5

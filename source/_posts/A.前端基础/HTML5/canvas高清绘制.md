@@ -1,7 +1,7 @@
 ---
 title: canvas高清绘制
 categories:
-  - 前端基础
+  - A.前端基础
   - HTML5
 tags:
   - HTML5

@@ -1,10 +1,10 @@
 ---
 title: sass代码实践
 categories:
-  - 前端基础
+  - A.前端基础
   - CSS预处理器
 tags:
-  - CSS
+  - css
   - sass
 date: 2021-09-03 15:30:50
 ---

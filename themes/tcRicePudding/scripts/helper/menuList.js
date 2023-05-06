@@ -11,13 +11,14 @@ const recursionTreeData = (categories, topNode) => {
     });
 };
 
-const generoatePostsDom = (posts)=>{
+const generoatePostsDom = (posts) => {
     let res = [`<ul class="cus-category-list-posts">`];
 
-    posts.forEach(post => {
+    // 根据生成文章时间升序排列
+    Array.from(posts.data).sort((a, b) => a.date - b.date).forEach(post => {
         res.push(`
             <li class="cus-category-list-posts-item" data-post-name="${post.title}">
-                <a href="/weblog/${ post.path }" id="${ post.title.replaceAll(' ','-') }">${ post.title }</a> 
+                <a href="/weblog/${post.path}" id="${post.title.replaceAll(' ', '-')}">${post.title}</a> 
             </li>
         `);
     });
