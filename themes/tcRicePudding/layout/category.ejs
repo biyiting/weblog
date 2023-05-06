@@ -9,20 +9,23 @@
   <div class="category-md-content">
   <% if (page.posts) { %>
     <% page.posts.each(article => { %>
-      <div class="category-item">
-        <a href="<%=url_for(article.path)%>">
-          <%=article.title%>
-        </a>
-        <time datetime="<%=date_xml(article.date)%>">
-          <%=date(article.date)%>
-        </time>
+      <div class="category-item-body">
+        <div class="category-item">
+          <a class="cf-article-title" href="<%=url_for(article.path)%>">
+            <%=article.title%>
+          </a>
+          <div class="cf-article-bottom">
+            <time class="category-time" datetime="<%=date_xml(article.date)%>">
+              <%=date(article.date)%>
+            </time>
+            <div class="category-phone"></div>
+          </div>
+          
+        </div>
       </div>
+      
     <% }); %>
   <% } %>
-  </div>
-  <div id="category-right-aside" class="category-right-aside">
-    <%-partial('partials/personal-info')%>
-    
   </div>
 </div>
 
