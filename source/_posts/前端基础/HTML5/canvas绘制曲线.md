@@ -8,8 +8,7 @@ tags:
   - canvas
 date: 2022-04-27 13:50:24
 ---
-## 角度与弧度的 js 表达式 
-  <b><small>radians = （Math.PI/180）* degrees</small></b>
+## 角度与弧度的 js 表达式 <b><small>radius = （Math.PI/180）* degrees</small></b>
 
 ## canvas 绘制圆形
 - arc(x, y, radius, startAngle, endAngle, anticlockwise)：
