@@ -1,7 +1,7 @@
 ---
 title: canvas导出和事件
 categories:
-  - A.前端基础
+  - 前端基础
   - HTML5
 tags:
   - HTML5

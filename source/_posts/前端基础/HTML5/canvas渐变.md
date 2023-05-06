@@ -1,7 +1,7 @@
 ---
 title: canvas渐变
 categories:
-  - A.前端基础
+  - 前端基础
   - HTML5
 tags:
   - HTML5

@@ -1,7 +1,7 @@
 ---
 title: sass代码实践
 categories:
-  - A.前端基础
+  - 前端基础
   - CSS预处理器
 tags:
   - css

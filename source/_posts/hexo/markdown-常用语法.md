@@ -3,7 +3,7 @@ title: markdown 常用语法
 comment: true
 top: 100000
 categories:
-  - K.hexo
+  - hexo
 tags:
   - markdown
 date: 2023-04-26 10:34:11

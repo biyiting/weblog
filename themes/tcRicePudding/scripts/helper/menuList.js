@@ -44,13 +44,27 @@ const generoateTreeDom = (topNodeList, isRoot = true) => {
     return res.join('');
 };
 
+const sortReference = [
+    '',
+    '前端基础',
+    '数据结构与算法',
+    '浏览器相关',
+    'JS深度剖析',
+    '工程化',
+    'VUE全家桶',
+    'Node全栈开发',
+    '高阶技术专题',
+    '前端运维',
+    '面试指导',
+    'hexo'
+];
 hexo.extend.helper.register("menu_list", function (site = {}) {
     let topNodeList = site.categories.filter(it => !Reflect.has(it, 'parent'));
     let childNodeList = site.categories.filter(it => Reflect.has(it, 'parent'));
 
-    topNodeList.forEach(topNode => {
-        recursionTreeData(childNodeList, topNode);
-    });
+    // 自定义排序
+    topNodeList = topNodeList.data.sort((a, b) => sortReference.indexOf(a.name) - sortReference.indexOf(b.name));
+    topNodeList.forEach(topNode => { recursionTreeData(childNodeList, topNode) });
 
     return generoateTreeDom(topNodeList);
 });
