@@ -7,7 +7,7 @@ document.addEventListener("DOMContentLoaded", function () {
         e.preventDefault();
 
         const [,hash] = e.currentTarget.href.split('#');
-        toTopAppointPosition($(`#${decodeURI(hash)}`).offset().top-70);
+        toTopAppointPosition($(`#${decodeURI(hash)}`).last().offset().top-70);
     })
 });
 </script>
