@@ -1,59 +1,35 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>steps逐帧动画-loading</title>
     <style>
-        html {
-            color: #444;
-            font: 16px/1.6 微软雅黑, "Microsoft YaHei";
+        .dotting {
+            display: inline-block;
+            min-width: 2px;
+            min-height: 2px;
+            margin-right: 8px;
+            box-shadow: 2px 0, 6px 0, 10px 0;
+            animation: dot 4s infinite step-start both;
         }
-
-        ol {
-            list-style: none;
-            padding-left: 3em;
-            /* counter-reset: chapter 2; */
-        }
-
-        ol>li {
-            counter-increment: section 1;
-        }
-
-        ol>li:before {
-            content: counter(section);
-            padding-right: .5em;
+        @keyframes dot {
+            /* 0个点 */
+            25% {
+                box-shadow: none;
+            }
+            /* 1个点 */
+            50% {
+                box-shadow: 2px 0;
+            }
+            /* 2个点 */
+            75% {
+                box-shadow: 2px 0, 6px 0;
+            }
         }
     </style>
 </head>
-
 <body>
-
-    <body>
-        <form>
-            <input type="email" />
-            <input type="submit" value="提交" />
-        </form>
-    </body>
-    <script type="text/javascript">
-        window.onload = function () {
-            var inputEl = document.querySelector("input");
-
-            inputEl.addEventListener("invalid", function () {
-                console.log(this.validity)
-
-                if (inputEl.value === 'sb')
-                    inputEl.setCustomValidity('请不要输入敏感词！');
-                else
-                    inputEl.setCustomValidity('');
-            })
-        }
-    </script>
+    <button>订单提交中<span class="dotting"></span></button>
 </body>
-
 </html>
-
-hexo new 简历 -p K.面试指导/简历
-hexo new 自我介绍 -p K.面试指导/自我介绍

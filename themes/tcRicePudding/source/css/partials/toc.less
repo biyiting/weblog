@@ -7,17 +7,25 @@
   position: relative;
   overflow: hidden;
   margin-top: 10px;
-  padding: 20px 0;
+  // padding: 20px 0;
+  padding-bottom: 20px;
   position: sticky;
   top: 80px;
   z-index: 1;
-  overflow-y: auto;
-  max-height: calc(100% - 120px);
+
+  &-title {
+    padding: 0 25px;
+    font-size: 20px;
+    font-weight: 800;
+    margin: 15px 0 5px;
+  }
 
   ol {
     list-style: none;
     padding: 0 !important;
     margin: 0 20px !important;
+    overflow-y: auto;
+    max-height: 500px !important;
 
     >li {
       list-style: none;
