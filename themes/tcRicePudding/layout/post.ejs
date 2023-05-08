@@ -36,15 +36,17 @@
 
   <section class="post-content">
     <div id="post-left-aside" class="post-left-aside">
-      <%- menu_list(site) %>
+      <div class="post-list-box">
+        <div id="post-tool">
+          <i id="post-left" class="iconfont icon-jiantou_yemian_xiangzuo iconfont-size"></i>
+          <i id="post-right" class="iconfont icon-jiantou_yemian_xiangyou iconfont-size"></i>
+        </div>
+        <%- menu_list(site) %>
+      </div>
     </div>
 
     <div class="post-md-content">
       <div class="markdown-html">
-        <div class="markdown-tool">
-          <i id="post-left" class="iconfont icon-jiantou_yemian_xiangzuo iconfont-size"></i>
-          <i id="post-right" class="iconfont icon-jiantou_yemian_xiangyou iconfont-size"></i>
-        </div>
         <%-page.content%>
       </div>
 
@@ -116,7 +118,7 @@
     document.addEventListener("scroll",checkScrollHandel);
 
 
-    $(document).on( 'click', '.cus-category-list-item', function(e){
+    $('.cus-category-list').on( 'click', '.cus-category-list-item', function(e){
         let [child] = $(e.currentTarget).next();
         $(child).toggleClass('active');
         Array.from($(child).siblings()).forEach(el=>{ $(el).removeClass('active') });
@@ -125,7 +127,7 @@
         Array.from($(e.currentTarget).siblings()).forEach(el=>{ $(el).removeClass('extend') });
     })
 
-    $(document).on( 'click', '.cus-category-list-posts-item', function(e){
+    $('.cus-category-list').on( 'click', '.cus-category-list-posts-item', function(e){
       $(e.currentTarget).addClass('active');
 
       let parent = $(e.currentTarget).parent('.cus-category-list-posts') || $(e.currentTarget).parent('.cus-category-list-child');
@@ -144,13 +146,26 @@
     $(`#${postName.replaceAll(' ','-')}`).trigger('click');
 
 
+    $('#post-right').css('opacity', 0);
     // 工具栏的收缩与展开
     $('#post-left').on('click',function(){
-      $('#post-left-aside').fadeToggle();
+      $("#post-left-aside").animate({ marginLeft: -310 },200);
+      $('#post-left').animate({ 'opacity': 0},500);
+      $('#post-right').animate({ 'opacity': 1 },500);
+
+      localStorage.setItem('post-left-aside-isHide', true);
     })
     $('#post-right').on('click',function(){
-      $('#post-right-aside').slideToggle();
+      $('#post-left-aside').animate({ marginLeft: 0 },200);
+      $('#post-left').animate({ 'opacity': 1 },500);
+      $('#post-right').animate({ 'opacity': 0 },500);
+
+      localStorage.setItem('post-left-aside-isHide', false);
     })
+
+    if(JSON.parse(localStorage.getItem('post-left-aside-isHide'))){
+      $('#post-left').trigger('click');
+    }
   });
   </script>
 </article>

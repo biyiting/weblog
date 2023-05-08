@@ -99,9 +99,9 @@
 
     .post-md-content {
       flex: 1;
-      margin: 10px;
+      margin: 10px 20px;
       background: #fff;
-      padding: 20px 30px;
+      padding: 20px;
       border-radius: 10px;
       box-shadow: 0 3px 8px 6px rgba(7, 17, 27, 0.05);
       overflow-wrap: break-word;
@@ -446,20 +446,41 @@
       padding: 10px 0 10px 0px;
       flex-shrink: 0;
 
-      ul {
-        list-style: none;
-        margin: 5px 0;
-      }
+      .post-list-box {
+        position: sticky;
+        top: 80px;
+        padding: 20px 0;
+        background: #fff;
+        border-radius: 10px;
+        box-shadow: 0 3px 8px 6px rgba(7, 17, 27, 0.05);
 
-      li {
-        margin: 2px 0;
-      }
+        #post-tool {
+          position: absolute;
+          left: 276px;
+          margin-top: -15px;
+          /* width: 100px; */
+          display: flex;
 
-      ul,
-      li {
-        padding: 0 15px;
-      }
+          >i:hover {
+            color: #3477f6;
+            transition: all .4s ease 0s;
+          }
+        }
 
+        ul {
+          list-style: none;
+          margin: 5px 0;
+        }
+
+        li {
+          margin: 2px 0;
+        }
+
+        ul,
+        li {
+          padding: 0 15px;
+        }
+      }
     }
 
     .post-right-aside {
