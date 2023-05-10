@@ -1,0 +1,256 @@
+variables:
+  GIT_DEPTH: "6"
+
+image: 'node:erbium'
+
+stages:
+  - install
+  - lint
+  - build
+  - deploy
+
+cache: &cache
+  key: "$CI_COMMIT_REF_NAME"
+  paths:
+    - node_modules/
+
+install:
+  stage: install
+  script:
+    - npm i -g cnpm
+    - cnpm i
+  only:
+    changes:
+      - package.json
+
+info:
+  stage: install
+  script:
+    - node -v
+    - npm -v
+    - if [ -a node_modules ]; then echo '[skip] npm i'; else echo '[run] npm i' && npm i -g cnpm && cnpm i; fi;
+reinstall:
+  stage: install
+  script:
+    - node -v
+    - npm -v
+    - npm i -g cnpm
+    - cnpm i
+  when: manual
+
+# lint
+
+lint:
+  stage: lint
+  cache:
+    <<: *cache
+    policy: pull
+  script:
+    - npm run lint -- -f visualstudio --quiet
+
+# build
+
+'[skip] build':
+  stage: build
+  variables:
+    GIT_STRATEGY: none
+  cache: {}
+  script:
+    - echo ''
+  rules:
+    - if: '$CI_MERGE_REQUEST_TARGET_BRANCH == "master"'
+      when: manual
+    - if: '$CI_COMMIT_REF_NAME == "master"'
+      when: manual
+    - if: '$CI_COMMIT_REF_NAME =~ /^v/'
+      when: manual
+    - if: $CI_COMMIT_MESSAGE =~ /::ci:dev/
+      when: manual
+    - when: on_success
+  allow_failure: true
+
+# master or /^v.*$/i build on success other manual build
+
+# build:
+#   stage: build
+#   script:
+#     - npm run build
+#   artifacts:
+#     name: 'release-$CI_COMMIT_TAG-$CI_PIPELINE_ID$CI_COMMIT_SHORT_SHA'
+#     expire_in: 1 week
+#     paths:
+#       - dist/
+#   only:
+#     - /^v.*$/i
+#     - /^master$/
+
+build:
+  stage: build
+  script:
+    - npm run build
+  cache:
+    <<: *cache
+    policy: pull
+  artifacts:
+    name: 'release-$CI_COMMIT_TAG-$CI_PIPELINE_ID-$CI_COMMIT_SHORT_SHA'
+    expire_in: 1 day
+    paths:
+      - dist/
+      - Makefile
+  # except:
+  #   - /^v.*$/i
+  #   - /^master$/
+  rules:
+    - if: '$CI_MERGE_REQUEST_TARGET_BRANCH == "master"'
+      when: on_success
+    - if: '$CI_COMMIT_REF_NAME == "master"'
+      when: on_success
+    - if: '$CI_COMMIT_REF_NAME =~ /^v/'
+      when: on_success
+    - if: $CI_COMMIT_MESSAGE =~ /::ci:dev/
+      when: on_success
+    - if: $CI_COMMIT_MESSAGE =~ /::ci:pack/
+      when: on_success
+    - when: manual
+  allow_failure: true
+
+# sync
+
+'build package': 
+  stage: deploy
+  image: yugaego/alpine-curl-lftp
+  cache: {}
+  variables:
+    GIT_STRATEGY: none
+    PUB_PATH: '/publish_new/Modules/xweb_wr/'
+    KE_SOURCE_VERSION: V300R004C00B243
+    KE_TARGET_VERSION: V300R004C00B243_CP001B010
+    TGZ_FILES: dist Makefile VERSION
+    MODULE_NAME: xweb_wr
+    BUILD_TAG: 1.0.7
+  dependencies: ['build']
+  environment:
+    name: BUILD
+  script:
+    - rm -f $MODULE_NAME-$BUILD_TAG-release.tgz $MODULE_NAME-$BUILD_TAG-release.md5
+    - echo "Service:$MODULE_NAME" > VERSION
+    - echo "Tag:$BUILD_TAG" >> VERSION
+    - tar -zcf $MODULE_NAME-$BUILD_TAG-release.tgz $TGZ_FILES
+    - echo "Time:`date +%s`" > $MODULE_NAME-$BUILD_TAG-release.md5
+    - echo "MD5:`md5sum $MODULE_NAME-$BUILD_TAG-release.tgz | awk -F ' ' '{print $1}'`" >> $MODULE_NAME-$BUILD_TAG-release.md5
+    - cat VERSION
+    - cat $MODULE_NAME-$BUILD_TAG-release.md5
+    - lftp -c "open ftp://publish:publish2016@pub.yanfa.xbrother.com; put -O $PUB_PATH $MODULE_NAME-$BUILD_TAG-release.md5; put -O $PUB_PATH $MODULE_NAME-$BUILD_TAG-release.tgz"
+    - |
+      curl 'http://team.yanfa.xbrother.com/jenkins/view/Git%E6%9E%84%E5%BB%BA/job/module-V3R4-pack-patch/build?delay=0sec' \
+      -H 'Upgrade-Insecure-Requests: 1' \
+      -H 'Origin: http://team.yanfa.xbrother.com' \
+      -H 'Content-Type: application/x-www-form-urlencoded' \
+      -H 'User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/86.0.4240.198 Safari/537.36' \
+      -H 'Referer: http://team.yanfa.xbrother.com/jenkins/view/Git%E6%9E%84%E5%BB%BA/job/module-V3R4-pack-patch/build?delay=0sec' \
+      --data-raw "name=PROJECT_TYPE&value=General%7C%E9%80%9A%E7%94%A8%E7%89%88%E6%9C%AC&name=PLATFORM_TYPE&value=centos%7C%E5%8C%85%E5%90%AB%E9%80%9A%E7%94%A8%E6%9C%8D%E5%8A%A1%E5%99%A8%EF%BC%8C%E9%9B%B7%E7%94%B5&name=SOURCE_VERSION&value=$KE_SOURCE_VERSION&name=TARGET_VERSION&value=$KE_TARGET_VERSION&name=CNAME&value=%E5%BB%BA%E8%A1%8C%E5%89%8D%E7%AB%AF&name=STAG&value=0.0.0&name=TTAG&value=$BUILD_TAG&name=MODULE_NAME&value=$MODULE_NAME&name=RELEASE_NOTE&value=%E4%BF%AE%E5%A4%8Dbug&statusCode=303&redirectTo=.&json=%7B%22parameter%22%3A+%5B%7B%22name%22%3A+%22PROJECT_TYPE%22%2C+%22value%22%3A+%22General%7C%E9%80%9A%E7%94%A8%E7%89%88%E6%9C%AC%22%7D%2C+%7B%22name%22%3A+%22PLATFORM_TYPE%22%2C+%22value%22%3A+%22centos%7C%E5%8C%85%E5%90%AB%E9%80%9A%E7%94%A8%E6%9C%8D%E5%8A%A1%E5%99%A8%EF%BC%8C%E9%9B%B7%E7%94%B5%22%7D%2C+%7B%22name%22%3A+%22SOURCE_VERSION%22%2C+%22value%22%3A+%22$KE_SOURCE_VERSION%22%7D%2C+%7B%22name%22%3A+%22TARGET_VERSION%22%2C+%22value%22%3A+%22$KE_TARGET_VERSION%22%7D%2C+%7B%22name%22%3A+%22CNAME%22%2C+%22value%22%3A+%22%E5%BB%BA%E8%A1%8C%E5%89%8D%E7%AB%AF%22%7D%2C+%7B%22name%22%3A+%22STAG%22%2C+%22value%22%3A+%220.0.0%22%7D%2C+%7B%22name%22%3A+%22TTAG%22%2C+%22value%22%3A+%22$BUILD_TAG%22%7D%2C+%7B%22name%22%3A+%22MODULE_NAME%22%2C+%22value%22%3A+%22$MODULE_NAME%22%7D%2C+%7B%22name%22%3A+%22RELEASE_NOTE%22%2C+%22value%22%3A+%22%E4%BF%AE%E5%A4%8Dbug%22%7D%5D%2C+%22statusCode%22%3A+%22303%22%2C+%22redirectTo%22%3A+%22.%22%7D&Submit=%E5%BC%80%E5%A7%8B%E6%9E%84%E5%BB%BA" \
+      --compressed
+    - echo "http://pub.yanfa.xbrother.com/publish_new/Modules/xweb_wr/"
+  allow_failure: true
+  rules:
+    - if: $CI_COMMIT_MESSAGE =~ /::ci:pack/
+      when: on_success
+    - when: manual
+
+sync:dev-1: &sync_dev1
+  stage: deploy
+  image: ictu/sshpass:latest
+  dependencies: ['build']
+  cache: {}
+  variables:
+    GIT_STRATEGY: none
+  environment:
+    name: DEV-1
+  variables:
+    SYNC_USERNAME: '$DEV1_USERNAME'
+    SYNC_PWD: '$DEV1_PWD'
+    SYNC_HOST: '$DEV1_HOST'
+    SYNC_SITE_PATH: '$DEV1_SITE_PATH'
+  script:
+    - sshpass -p $SYNC_PWD scp -r -o StrictHostKeyChecking=no ./dist/* $SYNC_USERNAME@$SYNC_HOST:$SYNC_SITE_PATH
+  allow_failure: true
+  # except:
+  #   - /^v.*$/i
+  #   - /^master$/
+  rules:
+    - if: $CI_COMMIT_MESSAGE =~ /::ci:dev-1/
+      when: on_success
+    - when: manual
+
+sync:dev-2: &sync_dev2
+  <<: *sync_dev1
+  environment:
+    name: DEV-2
+  variables:
+    SYNC_USERNAME: '$DEV2_USERNAME'
+    SYNC_PWD: '$DEV2_PWD'
+    SYNC_HOST: '$DEV2_HOST'
+    SYNC_SITE_PATH: '$DEV2_SITE_PATH'
+  rules:
+    - if: $CI_COMMIT_MESSAGE =~ /::ci:dev-2/
+      when: on_success
+    - when: manual
+
+# on build:manual
+
+sync:production:
+  when: manual
+  stage: deploy
+  image: ictu/sshpass:latest
+  dependencies: ['build']
+  cache: {}
+  variables:
+    GIT_STRATEGY: none
+  environment:
+    name: PRODUCTION
+  variables:
+    SYNC_USERNAME: '$PROD_USERNAME'
+    SYNC_PWD: '$PROD_PWD'
+    SYNC_HOST: '$PROD_HOST'
+    SYNC_SITE_PATH: '$PROD_SITE_PATH'
+  script:
+    - sshpass -p $SYNC_PWD scp -r -o StrictHostKeyChecking=no ./dist/* $SYNC_USERNAME@$SYNC_HOST:$SYNC_SITE_PATH
+  allow_failure: true
+  only:
+    - /^v.*$/i
+    - /^master$/
+
+# sync>dev-1:
+#   <<: *sync_dev1
+#   dependencies: ['build']
+#   only:
+#     - /^v.*$/i
+#     - /^master$/
+#   except: []
+
+# sync>dev-2:
+#   <<: *sync_dev2
+#   dependencies: ['build']
+#   only:
+#     - /^v.*$/i
+#     - /^master$/
+#   except: []
+
+# '[skip] sync':
+#   stage: deploy
+#   cache: {}
+#   variables:
+#     GIT_STRATEGY: none
+#   script:
+#     - echo ''
+#   rules:
+#     - if: $CI_COMMIT_MESSAGE =~ /::ci:dev/
+#       when: manual
+#     - when: on_success
+#   allow_failure: true
+
+#'[status report]':
+#  stage: deploy
+#  cache: {}
+#  script:
+#    - node ./script/gitlab-ci-status-report.js -token=$API_TOKEN -pipeline_id=$CI_PIPELINE_ID

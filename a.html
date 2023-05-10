@@ -1,35 +1,56 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>steps逐帧动画-loading</title>
+    <title>Document</title>
     <style>
-        .dotting {
-            display: inline-block;
-            min-width: 2px;
-            min-height: 2px;
-            margin-right: 8px;
-            box-shadow: 2px 0, 6px 0, 10px 0;
-            animation: dot 4s infinite step-start both;
+        * {
+            padding: 0;
+            margin: 0;
         }
-        @keyframes dot {
-            /* 0个点 */
-            25% {
-                box-shadow: none;
-            }
-            /* 1个点 */
-            50% {
-                box-shadow: 2px 0;
-            }
-            /* 2个点 */
-            75% {
-                box-shadow: 2px 0, 6px 0;
-            }
+        ul {
+            list-style: none;
+            width: 600px;
+            margin: auto;
+        }
+        li {
+            padding: 10px;
+            border: 10px solid pink;
+            outline-offset: -10px;
+        }
+        li+li {
+            margin-top: -10px;
+        }
+        li:hover {
+            border:10px solid gold;
+            /* outline: 10px solid gold; */
         }
     </style>
 </head>
+
 <body>
-    <button>订单提交中<span class="dotting"></span></button>
+    <ul>
+        <li>1</li>
+        <li>2</li>
+        <li>3</li>
+        <li>4</li>
+        <li>5</li>
+        <li>6</li>
+    </ul>
 </body>
+
 </html>
+
+
+
+hexo new 主流布局方式 -p 前端基础/CSS高级/主流布局方式
+hexo new 常用布局 -p 前端基础/CSS高级/常用布局
+hexo new 定位和层叠上下文 -p 前端基础/CSS高级/定位和层叠上下文
+hexo new 渐变 -p 前端基础/CSS高级/渐变
+hexo new icon全解析 -p 前端基础/CSS高级/icon全解析
+hexo new css工作原理和性能优化 -p 前端基础/CSS高级/css工作原理和性能优化
+
+
