@@ -4,6 +4,6 @@ categories:
   - JS深度剖析
   - JS高级
 tags:
-  - HTML5
+  - JS高级
 date: 2022-09-15 08:41:13
 ---
