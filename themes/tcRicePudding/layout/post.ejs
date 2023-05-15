@@ -149,27 +149,41 @@
       console.log(err);
     }
 
+    try{
+      $('#post-right').css('opacity', 0);
+      // 工具栏的收缩与展开
+      $('#post-left').on('click',function(){
+        $("#post-left-aside").animate({ marginLeft: -310 },200);
+        $('#post-left').animate({ 'opacity': 0},500);
+        $('#post-right').animate({ 'opacity': 1 },500);
 
-    $('#post-right').css('opacity', 0);
-    // 工具栏的收缩与展开
-    $('#post-left').on('click',function(){
-      $("#post-left-aside").animate({ marginLeft: -310 },200);
-      $('#post-left').animate({ 'opacity': 0},500);
-      $('#post-right').animate({ 'opacity': 1 },500);
+        localStorage.setItem('post-left-aside-isHide', true);
+      })
+      $('#post-right').on('click',function(){
+        $('#post-left-aside').animate({ marginLeft: 0 },200);
+        $('#post-left').animate({ 'opacity': 1 },500);
+        $('#post-right').animate({ 'opacity': 0 },500);
 
-      localStorage.setItem('post-left-aside-isHide', true);
-    })
-    $('#post-right').on('click',function(){
-      $('#post-left-aside').animate({ marginLeft: 0 },200);
-      $('#post-left').animate({ 'opacity': 1 },500);
-      $('#post-right').animate({ 'opacity': 0 },500);
+        localStorage.setItem('post-left-aside-isHide', false);
+      })
 
-      localStorage.setItem('post-left-aside-isHide', false);
-    })
-
-    if(JSON.parse(localStorage.getItem('post-left-aside-isHide'))){
-      $('#post-left').trigger('click');
+      if(JSON.parse(localStorage.getItem('post-left-aside-isHide'))){
+        $('#post-left').trigger('click');
+      }
+    }catch(err){
+      console.log(err);
     }
+
+    try{
+      // 附件下载：劫持 a.class = "attachment"，给其增加相对路径
+      $('.markdown-html').on( 'click', '.attachment', function(e){
+        let {baseURI,name} = e.currentTarget;
+        e.currentTarget.href = `${baseURI}/${name}`;
+      });
+    }catch(err){
+      console.log(err);
+    }
+    
   });
   </script>
 </article>

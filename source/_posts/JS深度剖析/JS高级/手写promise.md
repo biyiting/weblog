@@ -1030,7 +1030,6 @@ date: 2022-09-14 16:41:13
       d1.resolve("Fish");
       d2.resolve("Pizza");
       ```
-
 ## 面试题
 
 ### 中断 promise

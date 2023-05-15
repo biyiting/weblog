@@ -17,7 +17,7 @@ url: https://tc-rice-pudding.github.io/
 root: /weblog/
 # permalink: :year/:month/:day/:title/
 permalink_defaults:
-
+# 永久url
 permalink: article/:abbrlink.html
 abbrlink:
   alg: crc32  # 算法：crc16(default) and crc32
