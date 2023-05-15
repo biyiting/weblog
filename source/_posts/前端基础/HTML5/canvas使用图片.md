@@ -6,6 +6,7 @@ categories:
 tags:
   - HTML5
   - canvas
+abbrlink: bcf60bef
 date: 2022-04-27 14:08:24
 ---
 ## 在canvas中插入图片(需要image对象)

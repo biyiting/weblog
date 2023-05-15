@@ -6,6 +6,7 @@ categories:
 tags:
   - HTML5
   - canvas
+abbrlink: '88190237'
 date: 2022-04-27 14:15:24
 ---
 ## canvas 线性渐变

@@ -6,6 +6,7 @@ categories:
 tags:
   - HTML5
   - canvas
+abbrlink: 985663f1
 date: 2022-04-27 14:18:24
 ---
 ## ImageData 对象

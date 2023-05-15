@@ -1,6 +1,7 @@
 <%-partial('widgets/header', {}, {cache: true})%>
 
 <article id="post" class="post-article">
+  <input name="postTitle" type="hidden" value="<%=page.title%>"/>
   <header class="post-header">
     <section class="post-header-content">
       <h1><%=page.title%></h1>
@@ -140,10 +141,13 @@
     })
 
 
-    // 获取文章的路径
-    let [,pathnameStr] = /\/(?:weblog)\/(?:\d{4})\/(?:\d{2})\/(?:\d{2})\/(.+)/g.exec(decodeURI(location.pathname));
-    let postName=pathnameStr.split('/').filter(it=>it.length).pop();
-    $(`#${postName.replaceAll(' ','-')}`).trigger('click');
+    try{
+      let postTitle = $("input[name='postTitle']").val();
+      // 获取文章的路径
+      $(`#${postTitle.replaceAll(' ','-')}`).trigger('click');
+    }catch(err){
+      console.log(err);
+    }
 
 
     $('#post-right').css('opacity', 0);

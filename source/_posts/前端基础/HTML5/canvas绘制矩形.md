@@ -6,6 +6,7 @@ categories:
 tags:
   - HTML5
   - canvas
+abbrlink: 3a737bb7
 date: 2022-04-27 13:45:24
 ---
 

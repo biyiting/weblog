@@ -6,6 +6,7 @@ categories:
 tags:
   - HTML5
   - canvas
+abbrlink: 10e45b10
 date: 2022-04-27 14:30:24
 ---
 ## 将画布导出为图像
