@@ -1,31 +1,62 @@
 <%-partial('widgets/header', {}, {cache: true})%>
 
 <div id="category">
-  <!-- <h1><%=page.category%></h1> -->
-  
-  <div id="category-left-aside" class="category-left-aside">
-    <%- list_categories(site.categories) %>
+  <div class="cg-list-box">
+    <%- cg_list(site) %>
   </div>
-  <div class="category-md-content">
-  <% if (page.posts) { %>
-    <% page.posts.each(article => { %>
-      <div class="category-item-body">
-        <div class="category-item">
-          <a class="cf-article-title" href="<%=url_for(article.path)%>">
-            <%=article.title%>
-          </a>
-          <div class="cf-article-bottom">
-            <time class="category-time" datetime="<%=date_xml(article.date)%>">
-              <%=date(article.date)%>
-            </time>
-            <div class="category-phone"></div>
-          </div>
-          
-        </div>
-      </div>
-      
-    <% }); %>
-  <% } %>
+  <div id="category-md-content">
+  <div class="cg-title">目录</div>
   </div>
 </div>
+<script>
+  const addTableWrap = () => {
+    const tableList = document.querySelectorAll("#post :not(.highlight) > table, #post > table");
+    (tableList||[]).forEach(item => {
+      addWrap(item, "div", { class: "table-wrap" });
+    });
+  };
 
+document.addEventListener("DOMContentLoaded", function () {
+  $('.cus-category-list').on( 'click', '.cus-category-list-item', function(e){
+    console.log('$(e.currentTarget).next()',$(e.currentTarget))
+     let  data = $(e.currentTarget)[0]
+     if(!data.attributes["data-post"].value) return
+     var obj = JSON.parse(data.attributes["data-post"].value)
+     obj.forEach(it=>{
+      let id = document.getElementById("category-md-content")
+      let div = document.createElement("a")
+      div.setAttribute('href', "/weblog/"+it.path);
+      div.innerHTML = it.title
+      id.appendChild(div);
+     })
+    
+
+    console.log(id);
+// id.insertAdjacentHTML("beforeed",div);
+  })
+
+  $('.cus-category-list').on( 'click', '.cus-category-list-posts-item', function(e){
+    $(e.currentTarget).addClass('active');
+
+    let parent = $(e.currentTarget).parent('.cus-category-list-posts') || $(e.currentTarget).parent('.cus-category-list-child');
+    while(parent.length){
+      $(parent[0]).prev().addClass('extend');
+
+      $(parent[0]).addClass('active');
+      parent = $($(parent[0]).parent('.cus-category-list-posts')[0]||$(parent[0]).parent('.cus-category-list-child')[0]);
+    }
+  })
+
+
+  // 获取文章的路径
+  let [,pathnameStr] = /\/(?:weblog)\/(?:\d{4})\/(?:\d{2})\/(?:\d{2})\/(.+)/g.exec(decodeURI(location.pathname));
+  let postName=pathnameStr.split('/').filter(it=>it.length).pop();
+  $(`#${postName.replaceAll(' ','-')}`).trigger('click');
+
+
+  
+
+  
+});
+</script>
+<%-partial('widgets/paginator')%>
