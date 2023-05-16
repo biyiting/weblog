@@ -1,8 +1,7 @@
 
 <% if(theme.console.enable){ %>
 <script>
-    const words = [`1.0 版本`, `欢迎使用 「粽子」 主题`, `🤪`];
-        const logLogo = `
+    const logLogo = `
   ===============================================================================================================
 
    ████████╗ ██████╗    ██████╗ ██╗ ██████╗███████╗    ██████╗ ██╗   ██╗██████╗ ██████╗ ██╗███╗   ██╗ ██████╗ 
@@ -15,6 +14,18 @@
   ===============================================================================================================`;
     
     console.log(`\n%c${logLogo}\n`, "color:#3b70fc");
-    console.log(`%c ${words[0]} %c ${words[1]} %c \n${words[2]} \n`,"color:white; background-color:#4fd953", "", 'font-size:450%');
+    console.log(`%c 欢迎使用 「粽子」 主题 %c 🤪 `,"color:white; background-color:#4fd953; padding: 5px 5px; border-radius: 6px;", 'font-size:450%');
+    console.log(
+                `%c Author %c 粽子 `,
+                "color:white; background-color:grey; padding: 5px 5px; border-radius: 6px 0 0 6px;", 'color:white; background-color:#1375b2; padding: 5px 5px; border-radius: 0 6px 6px 0;'
+                );
+    console.log(
+                `%c Version %c 1.0.0 `,
+                "color:white; background-color:grey; padding: 5px 5px; border-radius: 6px 0 0 6px;", 'color:white; background-color:#1375b2; padding: 5px 5px; border-radius: 0 6px 6px 0;'
+                );
+    console.log(
+                `%c Build Date %c 2023-04-23T08:00:23.175Z `,
+                "color:white; background-color:grey; padding: 5px 5px; border-radius: 6px 0 0 6px;", 'color:white; background-color:#1375b2; padding: 5px 5px; border-radius: 0 6px 6px 0;'
+                );
 </script>
 <% } %>

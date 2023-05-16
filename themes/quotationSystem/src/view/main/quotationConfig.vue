@@ -462,7 +462,11 @@ export default defineComponent({
         .then(
           (res) => {
             if (res.status === 200 && res.data.size > 0) {
-              let name = res.headers["content-disposition"].match(/filename=(.*)/)[1];
+              let name = res.headers["content-disposition"].match(/fileName=(.*)/)[1];
+              name = name.replace(new RegExp('"', 'g'), '');
+              console.log('--decodeURI(name)--');
+              console.log(decodeURI(name));
+              console.log('--decodeURI(name)--');
               fileDownload(res.data, decodeURI(name), false);
             } else {
               ElMessage({showClose: true,type:'error',message: res?.data?.message || "下载失败！"});

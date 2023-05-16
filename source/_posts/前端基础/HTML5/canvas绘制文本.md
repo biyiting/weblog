@@ -6,6 +6,7 @@ categories:
 tags:
   - HTML5
   - canvas
+abbrlink: d5b394d3
 date: 2022-04-27 14:10:24
 ---
 ## 在canvas中绘制文本：

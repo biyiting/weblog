@@ -8,7 +8,7 @@ const ProductionGzipExtensions = ['js'];
 const TerserPlugin = require('terser-webpack-plugin');
 
 module.exports = merge(BaseConfig, {
-  mode: 'production',
+  mode: 'development',
   cache: true,
   optimization: {
     minimizer: [new TerserPlugin({ parallel: true, extractComments: false })],

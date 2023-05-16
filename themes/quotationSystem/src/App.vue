@@ -510,7 +510,7 @@ export default defineComponent({
                       value: "",
                     },
                     customValida: {
-                      codeString: `if({{sfyxdc}} === '不配置' && {{isSetBatteryMonitor}} === '配置'){
+                      codeString: `if({{sfyxdc}} === '不配置' && {{isSetBatteryMonitor}} == true){
                         ##xdczzs##.config.hide = false;
                         ##xdczjs##.config.hide = false;
                       }else{
@@ -525,8 +525,8 @@ export default defineComponent({
                     tips: "aaa",
                     label: "是否配置蓄电池检测",
                     options: [
-                      { label: "配置", value: "配置" },
-                      { label: "不配置", value: "不配置" },
+                      { label: "配置", value: true },
+                      { label: "不配置", value: false },
                     ],
                   },
                 },
@@ -909,8 +909,8 @@ export default defineComponent({
                     tips: "aaa",
                     label: "是否配置漏水检测",
                     options: [
-                      { label: "配置", value: "配置" },
-                      { label: "不配置", value: "不配置" },
+                      { label: "配置", value: true },
+                      { label: "不配置", value: false },
                     ],
                   },
                 },
@@ -925,8 +925,8 @@ export default defineComponent({
                     tips: "aaa",
                     label: "是否配置蓄电池检测",
                     options: [
-                      { label: "配置", value: "配置" },
-                      { label: "不配置", value: "不配置" },
+                      { label: "配置", value: true },
+                      { label: "不配置", value: false },
                     ],
                   },
                 },
@@ -941,8 +941,8 @@ export default defineComponent({
                     tips: "aaa",
                     label: "是否配置消防检测",
                     options: [
-                      { label: "配置", value: "配置" },
-                      { label: "不配置", value: "不配置" },
+                      { label: "配置", value: true },
+                      { label: "不配置", value: false },
                     ],
                   },
                 },
@@ -956,9 +956,9 @@ export default defineComponent({
                     },
                     customValida: {
                       codeString: `
-                        if({{isSetVideoMonitor}} === '配置'){
+                        if({{isSetVideoMonitor}} == true){
                             ##sxtgs##.config.hide = false;
-                        }else if({{isSetVideoMonitor}} === '不配置'){
+                        }else if({{isSetVideoMonitor}} == false){
                           ##sxtgs##.config.hide = true;
                         }
                       `,
@@ -966,8 +966,8 @@ export default defineComponent({
                     tips: "aaa",
                     label: "是否配置视频检测",
                     options: [
-                      { label: "配置", value: "配置" },
-                      { label: "不配置", value: "不配置" },
+                      { label: "配置", value: true },
+                      { label: "不配置", value: false },
                     ],
                   },
                 },

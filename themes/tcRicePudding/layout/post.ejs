@@ -1,6 +1,7 @@
 <%-partial('widgets/header', {}, {cache: true})%>
 
 <article id="post" class="post-article">
+  <input name="postTitle" type="hidden" value="<%=page.title%>"/>
   <header class="post-header">
     <section class="post-header-content">
       <h1><%=page.title%></h1>
@@ -140,32 +141,49 @@
     })
 
 
-    // 获取文章的路径
-    let [,pathnameStr] = /\/(?:weblog)\/(?:\d{4})\/(?:\d{2})\/(?:\d{2})\/(.+)/g.exec(decodeURI(location.pathname));
-    let postName=pathnameStr.split('/').filter(it=>it.length).pop();
-    $(`#${postName.replaceAll(' ','-')}`).trigger('click');
-
-
-    $('#post-right').css('opacity', 0);
-    // 工具栏的收缩与展开
-    $('#post-left').on('click',function(){
-      $("#post-left-aside").animate({ marginLeft: -310 },200);
-      $('#post-left').animate({ 'opacity': 0},500);
-      $('#post-right').animate({ 'opacity': 1 },500);
-
-      localStorage.setItem('post-left-aside-isHide', true);
-    })
-    $('#post-right').on('click',function(){
-      $('#post-left-aside').animate({ marginLeft: 0 },200);
-      $('#post-left').animate({ 'opacity': 1 },500);
-      $('#post-right').animate({ 'opacity': 0 },500);
-
-      localStorage.setItem('post-left-aside-isHide', false);
-    })
-
-    if(JSON.parse(localStorage.getItem('post-left-aside-isHide'))){
-      $('#post-left').trigger('click');
+    try{
+      let postTitle = $("input[name='postTitle']").val();
+      // 获取文章的路径
+      $(`#${postTitle.replaceAll(' ','-')}`).trigger('click');
+    }catch(err){
+      console.log(err);
     }
+
+    try{
+      $('#post-right').css('opacity', 0);
+      // 工具栏的收缩与展开
+      $('#post-left').on('click',function(){
+        $("#post-left-aside").animate({ marginLeft: -310 },200);
+        $('#post-left').animate({ 'opacity': 0},500);
+        $('#post-right').animate({ 'opacity': 1 },500);
+
+        localStorage.setItem('post-left-aside-isHide', true);
+      })
+      $('#post-right').on('click',function(){
+        $('#post-left-aside').animate({ marginLeft: 0 },200);
+        $('#post-left').animate({ 'opacity': 1 },500);
+        $('#post-right').animate({ 'opacity': 0 },500);
+
+        localStorage.setItem('post-left-aside-isHide', false);
+      })
+
+      if(JSON.parse(localStorage.getItem('post-left-aside-isHide'))){
+        $('#post-left').trigger('click');
+      }
+    }catch(err){
+      console.log(err);
+    }
+
+    try{
+      // 附件下载：劫持 a.class = "attachment"，给其增加相对路径
+      $('.markdown-html').on( 'click', '.attachment', function(e){
+        let {baseURI,name} = e.currentTarget;
+        e.currentTarget.href = `${baseURI}/${name}`;
+      });
+    }catch(err){
+      console.log(err);
+    }
+    
   });
   </script>
 </article>

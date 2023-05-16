@@ -35,6 +35,7 @@ scripts:
   - /lib/prism/prism.js
   - /js/tools.js
   - /js/layout.js
+  - /js/search.js
   - /js/busuanzi.pure.mini.js
   - http://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js
 

@@ -6,6 +6,7 @@ categories:
 tags:
   - HTML5
   - canvas
+abbrlink: 294dcb80
 date: 2022-04-27 14:20:24
 ---
 ## 全局透明度的设置

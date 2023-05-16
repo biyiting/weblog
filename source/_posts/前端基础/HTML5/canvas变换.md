@@ -6,6 +6,7 @@ categories:
 tags:
   - HTML5
   - canvas
+abbrlink: '2e443989'
 date: 2022-04-27 14:00:24
 ---
 ## 移动
