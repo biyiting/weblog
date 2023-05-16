@@ -143,3 +143,15 @@ auto_category:
   # depth: 1
 
 all_minifier: true
+
+# algolia api 配置
+algolia:
+  applicationID: 'DB8UNLAMSA'
+  apiKey: '6d5b55f0fe1142dd929d8f763ccbb970'
+  adminApiKey: f9534fc080876ddee930d1e70f7851ad
+  indexName: 'hexo'
+
+search:
+  path: search.xml
+  field: all
+  format: html
