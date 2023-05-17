@@ -1,3 +1,25 @@
+// 目录排序规则
+const sortReference = [
+    // 一级目录
+    '前端基础',
+    '数据结构与算法',
+    '浏览器相关',
+    'JS深度剖析',
+    '工程化',
+    'VUE全家桶',
+    'Node全栈开发',
+    '高阶技术专题',
+    '前端运维',
+    '面试指导',
+    'hexo',
+
+    // 二级目录
+    'JS高级',
+    'ECMAScript',
+    '正则表达式',
+    'TypeScript',
+];
+
 const recursionTreeData = (categories, topNode) => {
     if (!Array.isArray(topNode.children)) {
         topNode.children = [];
@@ -28,6 +50,8 @@ const generoatePostsDom = (posts) => {
 };
 
 const generoateTreeDom = (topNodeList, isRoot = true) => {
+    topNodeList.sort((a, b) => sortReference.indexOf(a.name) - sortReference.indexOf(b.name));
+
     let res = [`<ul class="${isRoot ? 'cus-category-list' : 'cus-category-list-child'}">`];
 
     topNodeList.forEach(it => {
@@ -44,20 +68,6 @@ const generoateTreeDom = (topNodeList, isRoot = true) => {
     return res.join('');
 };
 
-const sortReference = [
-    '',
-    '前端基础',
-    '数据结构与算法',
-    '浏览器相关',
-    'JS深度剖析',
-    '工程化',
-    'VUE全家桶',
-    'Node全栈开发',
-    '高阶技术专题',
-    '前端运维',
-    '面试指导',
-    'hexo'
-];
 hexo.extend.helper.register("menu_list", function (site = {}) {
     let topNodeList = site.categories.filter(it => !Reflect.has(it, 'parent'));
     let childNodeList = site.categories.filter(it => Reflect.has(it, 'parent'));

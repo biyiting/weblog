@@ -4,7 +4,7 @@ categories:
   - JS深度剖析
   - ECMAScript
 tags:
-  - HTML5
+  - es6
 abbrlink: "57897401"
 date: 2023-01-29 09:50:32
 ---
