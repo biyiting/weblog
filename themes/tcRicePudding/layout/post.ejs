@@ -2,6 +2,7 @@
 
 <article id="post" class="post-article">
   <input name="postTitle" type="hidden" value="<%=page.title%>"/>
+  <input name="postId" type="hidden" value="<%=page._id%>"/>
   <header class="post-header">
     <section class="post-header-content">
       <h1><%=page.title%></h1>
@@ -142,9 +143,9 @@
 
 
     try{
-      let postTitle = $("input[name='postTitle']").val();
+      let postId = $("input[name='postId']").val();
       // 获取文章的路径
-      $(`#${postTitle.replaceAll(' ','-')}`).trigger('click');
+      $(`#${postId}`).trigger('click');
     }catch(err){
       console.log(err);
     }

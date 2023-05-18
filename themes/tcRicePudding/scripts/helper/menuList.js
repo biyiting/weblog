@@ -4,17 +4,17 @@ const sortReference = [
     '前端基础',
     '数据结构与算法',
     '浏览器相关',
-    'JS深度剖析',
+    'JS 深度剖析',
     '工程化',
-    'VUE全家桶',
-    'Node全栈开发',
+    'VUE 全家桶',
+    'Node 全栈开发',
     '高阶技术专题',
     '前端运维',
     '面试指导',
     'hexo',
 
     // 二级目录
-    'JS高级',
+    'JS 高级',
     'ECMAScript',
     '正则表达式',
     'TypeScript',
@@ -40,7 +40,7 @@ const generoatePostsDom = (posts) => {
     Array.from(posts.data).sort((a, b) => a.date - b.date).forEach(post => {
         res.push(`
             <li class="cus-category-list-posts-item" data-post-name="${post.title}">
-                <a href="/weblog/${post.path}" id="${post.title.replaceAll(' ', '-')}">${post.title}</a> 
+                <a href="/weblog/${post.path}" id="${post._id}">${post.title}</a> 
             </li>
         `);
     });

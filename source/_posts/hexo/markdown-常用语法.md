@@ -152,3 +152,13 @@ console.log(1)
 - <center>居中</center>
 - <p align=right>右对齐</p>
 - 使用 <kbd>Ctrl</kbd>+<kbd>Alt</kbd>+<kbd>Del</kbd> 重启电脑
+
+
+hexo new vue 概览 -p VUE全家桶/vue2.x源码分析/概览
+hexo new vue 剖析全局 API -p VUE全家桶/vue2.x源码分析/剖析全局 API
+hexo new vue 剖析 Vue 的初始化过程 API -p VUE全家桶/vue2.x源码分析/剖析 Vue 的初始化过程
+hexo new vue 模板编译 -p VUE全家桶/vue2.x源码分析/模板编译
+hexo new vue 创建渲染 watcher -p VUE全家桶/vue2.x源码分析/创建渲染 watcher
+hexo new vue 响应式 -p VUE全家桶/vue2.x源码分析/响应式
+hexo new vue 生命周期合并 -p VUE全家桶/vue2.x源码分析/生命周期合并
+hexo new vue Diff 算法 -p VUE全家桶/vue2.x源码分析/Diff 算法
