@@ -51,8 +51,11 @@ date: 2023-04-26 10:34:11
 ## 在线图片链接
 ![霉霉](https://gimg2.baidu.com/image_search/src=http%3A%2F%2Fc-ssl.duitang.com%2Fuploads%2Fitem%2F201502%2F09%2F20150209171221_uFkTa.jpeg&refer=http%3A%2F%2Fc-ssl.duitang.com&app=2002&size=f9999,10000&q=a80&n=0&g=0n&fmt=auto?sec=1685866238&t=442c26597b5dc85fbb2fff987f95d4b4)
 
-## 本地图片连接链接
+## 本地图片链接
 {% asset_img meimei.png 霉霉 %}
+
+## 本地图片支持自定义宽高
+<img src="meimei.png" width="auto" height="200px" class="custom-img" title="meimei"/>
 
 ## <a class="attachment" name="meimei.zip">附件下载(meimei.zip)</a>
 ## 表格
@@ -153,12 +156,3 @@ console.log(1)
 - <p align=right>右对齐</p>
 - 使用 <kbd>Ctrl</kbd>+<kbd>Alt</kbd>+<kbd>Del</kbd> 重启电脑
 
-
-hexo new vue 概览 -p VUE全家桶/vue2.x源码分析/概览
-hexo new vue 剖析全局 API -p VUE全家桶/vue2.x源码分析/剖析全局 API
-hexo new vue 剖析 Vue 的初始化过程 API -p VUE全家桶/vue2.x源码分析/剖析 Vue 的初始化过程
-hexo new vue 模板编译 -p VUE全家桶/vue2.x源码分析/模板编译
-hexo new vue 创建渲染 watcher -p VUE全家桶/vue2.x源码分析/创建渲染 watcher
-hexo new vue 响应式 -p VUE全家桶/vue2.x源码分析/响应式
-hexo new vue 生命周期合并 -p VUE全家桶/vue2.x源码分析/生命周期合并
-hexo new vue Diff 算法 -p VUE全家桶/vue2.x源码分析/Diff 算法

@@ -90,11 +90,16 @@
       });
     };
 
-    // 滚动条滑动到相应位置导航栏显示高亮
-    const checkScrollHandel = ()=> {
+    // 滚动条滑动到相应标题对应目录显示高亮
+    const checkScrollHandel = (ev)=> {
+        if($(ev.target).attr('class')==='toc'){
+          return;
+        }
+
         let topHeight = $(window).scrollTop(); // 屏幕位置
         const allEl = [...document.getElementsByClassName('headerlink')];
 
+        // 找到需要高亮的标题
         let activeEl =  allEl.find((el,inx)=>{
           const yOffset = 90; // a 标签的偏移量为 menu 的高度（menu浮动，高度塌陷）
           let upperLimit = el.parentElement.offsetTop - yOffset;
@@ -102,22 +107,31 @@
           return upperLimit<topHeight && topHeight<lowerLimit;
         });
 
-        // 只要可视区域内只有最后一个元素，则高亮
-        // let activeList = allEl.filter(it=>it.parentElement.offsetTop>topHeight);
-        // if(activeList.length === 1 && allEl.indexOf(activeList[0])===allEl.length-1){
-        //   activeEl = activeList[0];
-        // }
 
+        // 切换高亮标题
         const hash = activeEl?.href.split('#')[1];
         [...$('.post-toc  a')].forEach(el=>{ $(el).removeClass('active') });
         $(`.post-toc  a[href='#${hash}']`).addClass('active');
+
+
+        // 如果要高亮的标题位于容器滚动条下，要放在容器里面
+        const $continer = $('.post-toc .toc');
+        const tocHeight = $continer.height(); // 容器高度 
+        const offsetTop = $(`.post-toc  a[href='#${hash}']`)[0]?.offsetTop;
+
+        if(offsetTop >= tocHeight){
+          $continer[0].scrollTo({top: offsetTop - tocHeight + 100,behavior: "smooth"});
+        }
+        if(offsetTop < $continer.scrollTop()){
+          $continer[0].scrollTo({top: 0, behavior: "smooth"});
+        }
     }
 
   document.addEventListener("DOMContentLoaded", function () {
     addTableWrap(); // 给表格外套一层标签，否则样式会被污染
 
     document.removeEventListener("scroll", checkScrollHandel);
-    document.addEventListener("scroll",checkScrollHandel);
+    document.addEventListener("scroll",checkScrollHandel, true);
 
 
     $('.cus-category-list').on( 'click', '.cus-category-list-item', function(e){
@@ -179,8 +193,19 @@
       // 附件下载：劫持 a.class = "attachment"，给其增加相对路径
       $('.markdown-html').on( 'click', '.attachment', function(e){
         let {baseURI,name} = e.currentTarget;
+        console.log(baseURI);
         e.currentTarget.href = `${baseURI}/${name}`;
       });
+    }catch(err){
+      console.log(err);
+    }
+
+    try{
+      // 自定义 img 样式
+      $('.custom-img').each((inx, img)=>{
+          let oldSrc = $(img).attr('src');
+          $(img).attr('src',`${location.pathname}/${oldSrc}`);
+      })
     }catch(err){
       console.log(err);
     }
