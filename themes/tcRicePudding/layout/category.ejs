@@ -1,16 +1,18 @@
 
 <%-partial('widgets/header', {}, {cache: true})%>
 <!-- site.categories -->
-
+<%var list = cg_list(site) %>
 <% var colorList=["#fff","#F5EAD6","#b0c4de","#8BE4E0","#D67E7D","#6298da","#9acd32","#F3AA4D","#ece896","#00AEB9","#4DBEEE"] %>
 <div id="category">
-    <% site.categories.each((it,index) => { %>
+    <% list.forEach((it,index) => { %>
         <div class="group">
             <% var ind= Math.floor(Math.random() * 10) + 1 %>
+            <% var indPhone = Math.floor(Math.random() * 10) + 1 %>
             <div class="color" style="<%='background-color:'+ colorList[ind]%>">
-                <div class="phone" style="<%='background: url(/weblog/images/cg'+ ind +'.jpg) no-repeat;background-size: 100% 100%'%>"></div>
+                <div class="phone" style="<%='background: url(/weblog/images/cg'+ indPhone +'.jpg) no-repeat;background-size: 100% 100%'%>"></div>
             </div>
             <h4><%=it.name%></h4>
+            <!-- <p><%=it._id%></p> -->
         </div>
         
         <% }) %>
