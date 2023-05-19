@@ -2,7 +2,7 @@
 title: Suspense 组件
 categories:
   - VUE 全家桶
-  - Vue3.x 使用
+  - vue3.x 使用
 tags:
   - vue
 abbrlink: f00f8d35

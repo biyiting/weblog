@@ -18,6 +18,17 @@ const sortReference = [
     'ECMAScript',
     '正则表达式',
     'TypeScript',
+
+    // 二级目录
+    'vue2.x 使用',
+    'vue2.x 源码分析',
+    'vue3.x 使用',
+    '手写 vue3.0 响应式原理',
+    'vue-router 使用',
+    '手写 vue-router',
+    'vuex 使用',
+    'axios 源码分析',
+    '同构渲染 SSR'
 ];
 
 const recursionTreeData = (categories, topNode) => {

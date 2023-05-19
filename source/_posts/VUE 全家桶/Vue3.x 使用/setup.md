@@ -2,7 +2,7 @@
 title: setup
 categories:
   - VUE 全家桶
-  - Vue3.x 使用
+  - vue3.x 使用
 tags:
   - vue
 abbrlink: 251d5630

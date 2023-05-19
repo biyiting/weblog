@@ -2,7 +2,7 @@
 title: TS 与选项式 API
 categories:
   - VUE 全家桶
-  - Vue3.x 使用
+  - vue3.x 使用
 tags:
   - vue
 abbrlink: 56eca6a3
