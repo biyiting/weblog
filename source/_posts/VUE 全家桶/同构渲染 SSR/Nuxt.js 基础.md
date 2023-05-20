@@ -49,7 +49,7 @@ date: 2021-12-03 08:13:50
 
 ### 手动创建
 1. 准备
-    ```xml
+    ```YAML
     # 创建示例项目 
     mkdir nuxt-app-demo 
     
