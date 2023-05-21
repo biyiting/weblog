@@ -6,7 +6,7 @@ categories:
 tags:
   - vuex
 abbrlink: f0bf31fc
-date: 2023-05-18 21:03:30
+date: 2022-10-01 21:03:30
 ---
 
 ## 为什么要使用 vuex 的模块化

@@ -9,7 +9,7 @@ menu:
 
 # stylesheets loaded in the <head>
 stylesheets:
-  - http://at.alicdn.com/t/c/font_4034228_if3yanxjyne.css
+  - http://at.alicdn.com/t/c/font_4034228_hcmibzvr05p.css
   - /lib/prism/prism.css
   - /css/reset.css
   - /css/layout.css
@@ -22,7 +22,8 @@ stylesheets:
   - /css/partials/personal-info.css
   - /css/partials/tag-list.css
   - /css/partials/toc.css
-  - /css/widgets/header.css
+  - /css/widgets/header.css 
+  - /css/widgets/search.css
   - /css/widgets/paginator.css
   - /css/widgets/busuanzi.css
   - /css/widgets/twikoo.css
@@ -42,6 +43,10 @@ scripts:
 # Loading Animation (加载动画)
 preloader:
   enable: true
+
+# search
+search:
+    enable: true
 
 #  控制台打印信息
 console:

@@ -6,7 +6,7 @@ categories:
 tags:
   - vuex
 abbrlink: bfd25193
-date: 2023-05-18 20:38:30
+date: 2022-10-01 20:38:30
 ---
 
 ## Mutation 必须是同步函数

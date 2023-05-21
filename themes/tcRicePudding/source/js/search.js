@@ -45,7 +45,7 @@ var searchFunc = function (path, search_id, content_id) {
             .trim()
             .toLowerCase()
             .split(/[\s\-]+/);
-          $resultContent.innerHTML = "";
+          $resultContent.innerHTML = "<p>No recent searches</p>";
           if (this.value.trim().length <= 0) {
             return;
           }
@@ -119,7 +119,7 @@ var searchFunc = function (path, search_id, content_id) {
                   var regS = new RegExp(keyword, "gi");
                   match_content = match_content.replace(
                     regS,
-                    '<em class="search-keyword">' + keyword + "</em>"
+                    '<span class="search-keyword">' + keyword + "</span>"
                   );
                 });
 

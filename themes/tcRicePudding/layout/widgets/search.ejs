@@ -1,14 +1,21 @@
-<% if (theme.swiftype_key) { %>
-  <div class="form-group has-success has-feedback" id="site_search">
-    <form class="site-search-form">
-        <input type="text" id="st-search-input" name="q" results="0" placeholder="<%= __('search') %>" class="st-search-input st-default-search-input form-control" />
-    </form>
-  </div>  
-<% } else { %>
+<% if(theme.search.enable){ %>
+<div id="searchBox">
   <div id="site_search">
-   <div class="form-group">
-    <input type="text" id="local-search-input" name="q" results="0" placeholder="<%= __('search') %>" class="st-search-input st-default-search-input form-control"/>
-   </div>  
-  <div id="local-search-result"></div>
+    <svg t="1684651815052" class="icon" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="9177" width="32" height="32"><path d="M64 761.6c-76.8-128-44.8-320 32-441.6 12.8-19.2 38.4-19.2 51.2-12.8 12.8 12.8 19.2 19.2 19.2 25.6 0 6.4 0 12.8 6.4 19.2 6.4-25.6 19.2-51.2 32-76.8 44.8-76.8 115.2-140.8 185.6-166.4 19.2-6.4 38.4 0 51.2 19.2 6.4 6.4 6.4 19.2 0 25.6-6.4 19.2-12.8 38.4-19.2 51.2 57.6-51.2 128-96 198.4-121.6 147.2-57.6 320-38.4 384 128 6.4 19.2 0 44.8-19.2 51.2h-6.4c-128 32-172.8 115.2-217.6 192-64 108.8-121.6 211.2-326.4 204.8 12.8 6.4 32 12.8 57.6 19.2 19.2 6.4 32 25.6 25.6 44.8-6.4 12.8-12.8 19.2-19.2 19.2-96 51.2-262.4 89.6-371.2 51.2-12.8 19.2-38.4 70.4-19.2 140.8h102.4c12.8 0 25.6 12.8 25.6 25.6s-12.8 19.2-25.6 19.2H70.4c-19.2 0-38.4-12.8-38.4-32-25.6-76.8 6.4-147.2 32-185.6z m275.2 236.8h396.8c12.8 0 19.2-12.8 19.2-19.2 0-12.8-12.8-25.6-19.2-25.6H339.2c-12.8 0-25.6 12.8-25.6 25.6 0 6.4 12.8 19.2 25.6 19.2zM128 723.2c51.2 51.2 192 19.2 249.6 0-32-19.2-51.2-38.4-57.6-57.6-12.8-25.6-19.2-83.2 32-76.8 230.4 32 281.6-64 339.2-166.4 44.8-83.2 96-172.8 224-217.6-121.6-192-467.2 25.6-524.8 160-6.4 19.2-19.2 25.6-38.4 25.6s-38.4-19.2-38.4-38.4c0 0 0-57.6 19.2-128-25.6 25.6-51.2 51.2-64 83.2-32 57.6-44.8 121.6-25.6 179.2 6.4 12.8 0 32-12.8 44.8-25.6 6.4-44.8 0-57.6-12.8-19.2-25.6-38.4-51.2-51.2-76.8-32 83.2-44.8 198.4 6.4 281.6z" fill="" p-id="9178"></path></svg>
+    <div class="form-group">
+      <input type="text" id="local-search-input" name="q" results="0" placeholder="<%= __('search docs') %>" class="st-search-input st-default-search-input form-control"/>
+    </div>  
+    <div id="local-search-result"></div>
   </div>
+</div>
+<script>
+  document.addEventListener("DOMContentLoaded", ()=>{
+    let searchBox = document.getElementById('searchBox');
+    searchBox.addEventListener("click", function (ev) {
+      if($(ev.target).attr('id')==='searchBox'){
+          onCloseSearch();
+      }
+    })
+  })
+</script>
 <% } %>

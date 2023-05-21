@@ -6,7 +6,7 @@ categories:
 tags:
   - vuex
 abbrlink: 4d2c62e5
-date: 2023-05-18 20:11:30
+date: 2022-10-01 20:11:35
 ---
 
 ## 单一状态树

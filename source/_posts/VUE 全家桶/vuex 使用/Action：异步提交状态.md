@@ -6,7 +6,7 @@ categories:
 tags:
   - vuex
 abbrlink: 7345f9e4
-date: 2023-05-18 20:48:30
+date: 2022-10-01 20:48:30
 ---
 > Action 类似于 mutation，不同在于 Action 提交的是 mutation，而不是直接变更状态，Action 可以包含任意异步操作；
 

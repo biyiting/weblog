@@ -1,0 +1,117 @@
+#searchBox {
+  width: 100%;
+  height: 1000px;
+  background: rgb(255 255 255 / 81%);
+  z-index: 1000000;
+  position: fixed;
+  user-select: none;
+  display: none;
+  // transition: all 0.2s ease-in-out .2s
+}
+
+#site_search {
+  width: 600px;
+  background-color: #fafafa;
+  border-radius: 8px;
+  position: absolute;
+  top: 100px;
+  left: 50%;
+  transform: translateX(-50%);
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  box-shadow: 0px 12px 32px 4px rgba(0, 0, 0, .04), 0px 8px 20px rgba(0, 0, 0, .08);
+
+  svg {
+    position: absolute;
+    margin-top: 6px;
+    margin-left: 8px;
+  }
+
+  input {
+    width: 100%;
+    height: 45px;
+    /* outline-style: none; */
+    border: 2px solid #3477f6;
+    border-radius: 5px;
+    text-indent: 45px;
+    font-size: 18px;
+  }
+
+  svg path {
+    stroke: #3477f6;
+    fill: none;
+    stroke-width: 5px;
+    stroke-dasharray: 7544;
+    animation: anima-line 3s ease infinite;
+  }
+
+  /* 声明关键帧动画 */
+  @keyframes anima-line {
+    from {
+      stroke-dashoffset: 7544;
+      /* 初始状态，隐藏起来 */
+      fill: transparent;
+    }
+
+    to {
+      stroke-dashoffset: 0;
+      /* 结束状态，展示出来 */
+      fill: #3477f6;
+    }
+  }
+}
+
+#local-search-result {
+  min-height: 100px;
+  max-height: 400px;
+  margin-top: 10px;
+  overflow-y: auto;
+
+  >p {
+    text-align: center;
+    color: grey;
+    padding: 20px
+  }
+
+  >ul {
+    list-style: none;
+    padding: 0 3px;
+    margin: 0;
+
+    >li {
+      background: #fff;
+      border-radius: 4px;
+      box-shadow: 0 1px 3px 0 #d4d9e1;
+      padding: 10px;
+      margin-bottom: 10px;
+
+      .search-result {
+        margin: 5px 0;
+      }
+
+      .search-result-title {
+        font-size: 18px;
+        font-weight: 800;
+      }
+
+      .search-keyword {
+        font-size: 18px;
+        font-weight: 800;
+        color: coral;
+        padding: 0 5px;
+      }
+    }
+
+    >li:hover {
+      background-color: #3f9eff;
+      color: #fff;
+      transition: all 0.1s ease-in-out .1s;
+
+      .search-result-title {
+        color: #fff !important;
+        transition: all 0.1s ease-in-out .1s;
+      }
+    }
+  }
+}
