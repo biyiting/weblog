@@ -79,9 +79,16 @@
       display: block;
       // margin: 0 auto 20px;
     }
-    .custom-img{
-      
+
+    img:not(li>img) {
+      padding: 0 20px;
     }
+
+    .tk-avatar-img {
+      padding: 0;
+    }
+
+    .custom-img {}
 
     b,
     strong {
@@ -110,7 +117,6 @@
       box-shadow: 0 3px 8px 6px rgba(7, 17, 27, 0.05);
       overflow-wrap: break-word;
       overflow: auto;
-      min-width: 500px;
 
       .markdown-html {
         .markdown-tool {
