@@ -28,7 +28,15 @@ const sortReference = [
     '手写 vue-router',
     'vuex 使用',
     'axios 源码分析',
-    '同构渲染 SSR'
+    '同构渲染 SSR',
+
+    // 二级目录
+    'Node 核心',
+    'Koa',
+    'Express',
+    'Egg.js',
+    'MongoDB',
+    'Redis'
 ];
 
 const recursionTreeData = (categories, topNode) => {

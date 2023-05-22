@@ -122,7 +122,7 @@
         if(offsetTop >= tocHeight){
           $continer[0].scrollTo({top: offsetTop - tocHeight + 100,behavior: "smooth"});
         }
-        if(offsetTop < $continer.scrollTop()){
+        if(offsetTop < $continer.scrollTop()+20){
           $continer[0].scrollTo({top: 0, behavior: "smooth"});
         }
     }
