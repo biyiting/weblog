@@ -204,7 +204,8 @@
       // 自定义 img 样式
       $('.custom-img').each((inx, img)=>{
           let oldSrc = $(img).attr('src');
-          $(img).attr('src',`${location.pathname}/${oldSrc}`);
+          let [pathname] = location.pathname.split('.html')
+          $(img).attr('src',`${pathname}/${oldSrc}`);
       })
     }catch(err){
       console.log(err);
