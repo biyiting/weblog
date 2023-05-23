@@ -9,7 +9,7 @@ abbrlink: 5e67dc05
 date: 2022-10-06 16:16:51
 ---
 ## 项目目录
-<img src="项目目录.jpg" width="200px" height="auto" class="custom-img" title="项目目录"/>
+<img src="项目目录.jpg" width="200px" height="auto" class="lazy-load" title="项目目录"/>
 
 ## 项目代码
 ### app.vue

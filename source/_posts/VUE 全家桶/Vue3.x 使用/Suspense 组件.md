@@ -78,6 +78,6 @@ date: 2022-10-06 14:16:51
 
 ## 效果展示
 1. 白屏期间展示 Suspense 组件：loading...
-    <img src="白屏.jpg" width="auto" height="200px" class="custom-img" title="白屏"/>
+    <img src="白屏.jpg" width="auto" height="200px" class="lazy-load" title="白屏"/>
 2. 异步组件加载出来，Suspense 组件消失
-    <img src="异步组件加载.jpg" width="auto" height="200px" class="custom-img" title="异步组件加载"/>
+    <img src="异步组件加载.jpg" width="auto" height="200px" class="lazy-load" title="异步组件加载"/>

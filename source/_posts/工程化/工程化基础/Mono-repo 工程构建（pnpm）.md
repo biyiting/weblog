@@ -13,7 +13,7 @@ date: 2022-09-15 13:25:17
 1. mono-repo 是把多个项目的所有代码放到一个 git 仓库中进行管理，多个项目中会有共享的代码则可以分包引用；
 2. 整个项目就是有 root 管理的 dependencies 加上多个 packages，每个 package 也可以在自己的作用域引入自己的 dependencies；
 3. 项目结构如下
-    <img src="mono-repo.jpg" width="auto" height="240px" class="custom-img" title="mono-repo"/>
+    <img src="mono-repo.jpg" width="auto" height="240px" class="lazy-load" title="mono-repo"/>
 
 ## 为什么要使用 monorepo
 1. 使用 monorepo 可以把原本一个项目的多个模块拆分成多个 packages，在 packages 之间相互引用，也可以单独发布成包，极大地解决了项目之间代码无法重用的痛点；

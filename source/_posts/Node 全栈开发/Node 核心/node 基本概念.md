@@ -16,13 +16,13 @@ date: 2022-09-15 11:25:30
 
 ## node 解决了哪些问题
 ### 问题：java 多线程在某些场景下的一些问题；
-  <img src="问题.jpg" width="500px" height="auto" class="custom-img" title="问题"/>
+  <img src="问题.jpg" width="500px" height="auto" class="lazy-load" title="问题"/>
 
 1. 客户端有几个请求访问服务器，那么服务器就会提供几个线程来处理，此时对于用户而言，体验是很好的；
 2. 但是，问题也是很明显的，某个时间内请求量很大，又不能无限增加响应线程来处理，那么就出现了无人响应的问题；
 
 ### 解决：node 中 Reactor 应答者模式，单线程完成多线程工作；
-  <img src="解决.jpg" width="500px" height="auto" class="custom-img" title="解决"/>
+  <img src="解决.jpg" width="500px" height="auto" class="lazy-load" title="解决"/>
 
 1. 只有一个主线程，当请求结束后主线程才会去处理，主线程在不同任务上来回切换处理，这样就相当于单线程完成了多线程工作，并且是非阻塞的，每个请求结束后都会有主线程的应答；
 2. 使用这样的操作就避免多线程上下轮切换的时候要考虑的 状态保存、时间消耗以及状态锁等问题；
@@ -40,11 +40,11 @@ date: 2022-09-15 11:25:30
 ## 同步异步和阻塞非阻塞
 > 阻塞和非阻塞 针对的是调用方，同步异步 针对的是被调用方
 
-<img src="同步异步和阻塞非阻塞.jpg" width="500px" height="auto" class="custom-img" title="同步异步和阻塞非阻塞"/>
+<img src="同步异步和阻塞非阻塞.jpg" width="500px" height="auto" class="lazy-load" title="同步异步和阻塞非阻塞"/>
 
 ## 应用场景
 1. 中间层：
-    <img src="中间层.jpg" width="600px" height="auto" class="custom-img" title="中间层"/>
+    <img src="中间层.jpg" width="600px" height="auto" class="lazy-load" title="中间层"/>
 2. 操作数据库提供 API 服务；
 3. 实时聊天应用程序；
 4. ......

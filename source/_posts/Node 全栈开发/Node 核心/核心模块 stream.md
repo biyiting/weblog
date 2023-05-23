@@ -19,7 +19,7 @@ date: 2022-09-18 19:35:30
     - Nodejs 中的 stream 模块提供了用于实现流接口的对象；
 ### 应用程序中为什么使用流来处理数据
 1. 想象一个场景，我们正在通过网络观看一部高清电影，它的大小是 1GB，客户端上大体流程就是：
-    <img src="客户端上大体流程.jpg" width="auto" height="200px" class="custom-img" title="客户端上大体流程"/>
+    <img src="客户端上大体流程.jpg" width="auto" height="200px" class="lazy-load" title="客户端上大体流程"/>
 
     >- 首先应用程序会从服务器读取 1GB 的内容；
     >- 然后通过网络传输到客户端；
@@ -28,12 +28,12 @@ date: 2022-09-18 19:35:30
     >- 同步读取资源文件，用户需要等待数据全部读取完成；
     >- 资源文件最终一次性加载到内存，开销较大，Nodejs 底层采用 V8 引擎，默认情况下 V8 提供的内存大小只有 1GB 左右；
 3. 因此可以采用流的方式处理数据：
-    <img src="常见的问题.jpg" width="auto" height="200px" class="custom-img" title="常见的问题"/>
+    <img src="常见的问题.jpg" width="auto" height="200px" class="lazy-load" title="常见的问题"/>
 
     >- 可以先把资源文件像水一样，一点一点的抽到一个池子里
     >- 然后再去选择需要的方式来抽干池子里的水
 4. 这样对于用户来说就可以分段的看到资源里的内容，同时对内存的使用开销也会明显友好很多：
-    <img src="进行需求的加工.jpg" width="auto" height="150px" class="custom-img" title="进行需求的加工"/>
+    <img src="进行需求的加工.jpg" width="auto" height="150px" class="lazy-load" title="进行需求的加工"/>
 
     >- 除此之外，流操作还可以配合管道对分段的数据进行需求的加工；
     >- 例如，原始的数据是字符串，可以利用管道将它传给能够实现数据转换为 Buffer 的单元，还可以传给执行压缩操作的单元，只要类型支持，语法正常，就可以一直往后传递处理，直到最后使用数据；
@@ -78,7 +78,7 @@ rs.pipe(ws)
 >可读流是专门生产供程序消费数据的流，最常见的数据生产方式就是读取磁盘文件或读取网络请求中的内容
 ### 例如下面的示例
 1. 图示
-    <img src="可读流.jpg" width="auto" height="200px" class="custom-img" title="可读流"/>
+    <img src="可读流.jpg" width="auto" height="200px" class="lazy-load" title="可读流"/>
 2. createReadStream 就是创建了一个可读流；
 3. fs 模块内部实现了 Readable 的具体接口，同时继承了 EventEmitter 类；
 4. 当前生产数据的方式其实就是读取指定路径的磁盘文件内容，最后得到一个可读流，相当于数据源，途中使用 rs 变量进行表示，之后利用 pipe 管道操作把之前获取到的数据传递给 process.stdout（标准输出）；
@@ -92,7 +92,7 @@ rs.pipe(ws)
 1. 主要为了满足不同使用场景，有时可能只需按需读取一定量的数据，而有时可能需要源源不断的将底层数据全部读出，基于这样的需求，在 Readable 的实现上就存在着两种模式：「流动模式」 和 「暂停模式」；
 2. 对于使用者来说两者的区别就在于消费数据的时候是否需要主动调用 read() 方法读取数据。
 3. 下面通过图示了解主要逻辑步骤：
-    <img src="消费数据为什么存在两种方式.jpg" width="auto" height="200px" class="custom-img" title="消费数据为什么存在两种方式"/>
+    <img src="消费数据为什么存在两种方式.jpg" width="auto" height="200px" class="lazy-load" title="消费数据为什么存在两种方式"/>
     - 先创建一个 Readable 对象的实现；
     - 然后调用 _read() 方法读取底层数据；
     - 接着触发 push 操作，把底层数据添加到缓存区；
@@ -442,7 +442,7 @@ myTransform.on('data', chunk => console.log(chunk.toString()))
     ws.on('drain', () => console.log('11'))
     ```
 3. write 的执行流程设计三个角色：数据生产者、可写流、文件；
-    <img src="执行流程设计.jpg" width="auto" height="300px" class="custom-img" title="执行流程设计"/>
+    <img src="执行流程设计.jpg" width="auto" height="300px" class="lazy-load" title="执行流程设计"/>
 
     - 示例中数据是立即生产的；
     - 调用 writeable.write() 写入数据；
@@ -774,7 +774,7 @@ myTransform.on('data', chunk => console.log(chunk.toString()))
     - 基于这种场景，就需要提供一种可以让数据生产者和消费者之间平滑流动的机制，这就是背压机制；
 
 3. 数据读取流程
-    <img src="数据读取流程.jpg" width="auto" height="300px" class="custom-img" title="数据读取流程"/>
+    <img src="数据读取流程.jpg" width="auto" height="300px" class="lazy-load" title="数据读取流程"/>
 
     - 数据的读取操作分为三个部分：
       > - 底层数据；
@@ -790,7 +790,7 @@ myTransform.on('data', chunk => console.log(chunk.toString()))
       > - 现在用水的人就可以先慢慢消化之前缓冲的水资源，等到都消费完之后，就可以告诉可读流可以继续放水了；
 
 4. 数据写入流程
-    <img src="数据写入流程.jpg" width="auto" height="300px" class="custom-img" title="数据写入流程"/>
+    <img src="数据写入流程.jpg" width="auto" height="300px" class="lazy-load" title="数据写入流程"/>
 
     - 数据的写入操作分为三个部分：
       > - 生产者

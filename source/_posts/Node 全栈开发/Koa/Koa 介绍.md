@@ -34,7 +34,7 @@ date: 2022-02-18 11:31:27
     - 它是按照类似堆栈的方式组织和执行的；
     - Koa 内部没有捆绑任何中间件，甚至是路由功能；
 2. Koa 的执行流程：
-    <img src="执行流程.jpg" width="600px" height="auto" class="custom-img" title="执行流程"/>
+    <img src="执行流程.jpg" width="600px" height="auto" class="lazy-load" title="执行流程"/>
 3. 示例代码
     ```JS
     const Koa = require('koa')

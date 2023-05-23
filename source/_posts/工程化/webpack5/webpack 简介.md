@@ -18,11 +18,11 @@ date: 2022-10-10 13:13:34
 ## 核心工作原理
 > Loader 机制是 webpack 的核心
 1. 先配置一个 js 入口文件；
-    <img src="入口.jpg" width="300px" height="auto" class="custom-img" title="入口"/>
+    <img src="入口.jpg" width="300px" height="auto" class="lazy-load" title="入口"/>
 2. 在这个入口文件中的 require 和 import 会去加载资源，根据这个规则会生成一棵依赖树；
-    <img src="依赖树.jpg" width="300px" height="auto" class="custom-img" title="依赖树"/>
+    <img src="依赖树.jpg" width="300px" height="auto" class="lazy-load" title="依赖树"/>
 3. webpack 会递归遍历这棵依赖树，找到每个节点对应的模块，在配置的 rules 中选择这个模块对应的加载器，将打包的内容放到 bundle.js 中；
-    <img src="bundle.jpg" width="500px" height="auto" class="custom-img" title="bundle"/>
+    <img src="bundle.jpg" width="500px" height="auto" class="lazy-load" title="bundle"/>
 
 ## webpack 的功能
 1. 代码转化 ：

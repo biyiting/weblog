@@ -26,7 +26,7 @@ date: 2022-09-15 20:35:30
 
 ## Nodejs 事件循环机制
 1. 图示
-    <img src="事件循环机制.jpg" width="700px" height="auto" class="custom-img" title="事件循环机制"/>
+    <img src="事件循环机制.jpg" width="700px" height="auto" class="lazy-load" title="事件循环机制"/>
 2. Nodejs 完整事件循环：
     - 执行同步代码，将不同的任务添加到相应的队列，所有同步代码执行后会去执行满足条件的微任务；
     - 所有微任务代码执行后会按照上面图示中的顺序执行六个队列中的任务；

@@ -11,7 +11,7 @@ date: 2022-09-20 12:50:30
 >该工具可以通过命令行指令启动服务向 web 提供的浏览文件的静态页面，简单的说就是启动一个 HTTP 服务，通过这个服务可以在浏览器上浏览服务指定的相关文件；
 
 ## 项目目录
-<img src="项目目录.jpg" width="300px" height="auto" class="custom-img" title="项目目录"/>
+<img src="项目目录.jpg" width="300px" height="auto" class="lazy-load" title="项目目录"/>
 
 ## 实现代码
 1. config.js
@@ -273,6 +273,6 @@ date: 2022-09-20 12:50:30
 6. 在工作区间根目录下执行 npm link，将 package.json bin 下的 ws-http-server、whs 命令映射到全局；
 7. 如果不指定服务的端口号默认为 3000，服务提供 浏览项目目录下 的所有文件；
 8. 效果展示：
-    <img src="效果展示.jpg" width="300px" height="auto" class="custom-img" title="效果展示"/>
+    <img src="效果展示.jpg" width="300px" height="auto" class="lazy-load" title="效果展示"/>
 
 ## <a class="attachment" name="http-server.zip">附件下载(meimei.zip)</a>

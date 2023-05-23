@@ -20,7 +20,7 @@ date: 2022-09-18 18:35:30
 2. FS 实例常用 API：如文件的打开/关闭、文件的增删改查等；
 ### 关于系统和文件的前置知识
 1. 「权限位」：当前操作系统内，不同的用户角色对于当前文件所具备的不同权限操作；
-    <img src="权限位.jpg" width="auto" height="150px" class="custom-img" title="权限位"/>
+    <img src="权限位.jpg" width="auto" height="150px" class="lazy-load" title="权限位"/>
 2. 「文件标志符」：文件系统标志符 flag 表示文件打开的方式；
     - 常见标识符有很多，这里只列举一部分：
       - a ：打开文件进行追加，如果文件不存在，则创建文件；
@@ -313,7 +313,7 @@ date: 2022-09-18 18:35:30
 
 ## 大文件读写操作
 1. 大文件读写操作的数据传输
-    <img src="大文件读写操作的数据传输.jpg" width="auto" height="200px" class="custom-img" title="大文件读写操作的数据传输"/>
+    <img src="大文件读写操作的数据传输.jpg" width="auto" height="200px" class="lazy-load" title="大文件读写操作的数据传输"/>
 
     - A 文件中的数据要想拷贝到 B 文件中，默认情况下需要内存作为中转；
     - 如果是一次性的操作，就会存在内存占满并且溢出的潜在问题；

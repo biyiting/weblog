@@ -14,10 +14,10 @@ date: 2022-02-21 14:20:27
 2. 这些操作在 HTTP 服务器开发中频繁使用，它们被添加到此级别而不是更高级别的框架，这将强制中间件重新实现此通用功能；
 
 ## context 实现了不同应用以及不同请求之间的环境隔离
-<img src="环境隔离.jpg" width="500px" height="auto" class="custom-img" title="环境隔离"/>
+<img src="环境隔离.jpg" width="500px" height="auto" class="lazy-load" title="环境隔离"/>
 
 ## ctx 实现代理
-<img src="实现代理.jpg" width="500px" height="auto" class="custom-img" title="实现代理"/>
+<img src="实现代理.jpg" width="500px" height="auto" class="lazy-load" title="实现代理"/>
 
 ## Context API
 1. ctx.req：Node 的 request 对象.

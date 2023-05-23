@@ -61,7 +61,7 @@ date: 2022-10-11 12:57:34
     };
     ```
 3. 效果展示
-    <img src="css资源加载器.jpg" width="auto" height="300px" class="custom-img" title="css资源加载器"/>
+    <img src="css资源加载器.jpg" width="auto" height="300px" class="lazy-load" title="css资源加载器"/>
 
 ## 文件资源加载器
 1. 利用 file-loader 加载项目中引入的文件资源；

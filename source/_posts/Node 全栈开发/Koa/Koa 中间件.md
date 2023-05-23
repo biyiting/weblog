@@ -11,7 +11,7 @@ date: 2022-02-21 15:20:27
 
 ## 中间件栈
 1. 洋葱模型
-    <img src="洋葱模型.png" width="400px" height="auto" class="custom-img" title="洋葱模型"/>
+    <img src="洋葱模型.png" width="400px" height="auto" class="lazy-load" title="洋葱模型"/>
 
     - 多个中间件（中间件是一个函数）会形成一个栈结构（middle stack），以"先进后出"（first-in-last-out）的顺序执行；
     - 最外层的中间件首先执行；
@@ -27,7 +27,7 @@ date: 2022-02-21 15:20:27
     - koa 中所有的异步都必须是 promise，否则不会有等待效果；
 
 ## 中间件原理
-<img src="中间件原理.jpg" width="600px" height="auto" class="custom-img" title="中间件原理"/>
+<img src="中间件原理.jpg" width="600px" height="auto" class="lazy-load" title="中间件原理"/>
 
 ## 中间件执行顺序
 1. 示例代码 1
@@ -59,7 +59,7 @@ date: 2022-02-21 15:20:27
     // 4
     // 2
     ```
-    <img src="示例代码1.jpg" width="600px" height="auto" class="custom-img" title="示例代码1"/>
+    <img src="示例代码1.jpg" width="600px" height="auto" class="lazy-load" title="示例代码1"/>
 2. 示例代码 2
     ```JS
     const Koa = require('koa');
@@ -99,7 +99,7 @@ date: 2022-02-21 15:20:27
     // 6
     // 4
     ```
-    <img src="示例代码2.jpg" width="600px" height="auto" class="custom-img" title="示例代码2"/>
+    <img src="示例代码2.jpg" width="600px" height="auto" class="lazy-load" title="示例代码2"/>
 3. 示例代码 3
     ```JS
     const Koa = require('koa');

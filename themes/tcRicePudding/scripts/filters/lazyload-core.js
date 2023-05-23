@@ -7,7 +7,9 @@ function lazyloadImg(source) {
   // 遍历所有 img 标签，添加 data-original 属性
   LZ("img").each(function (index, element) {
     var oldsrc = LZ(element).attr("src");
-    if (oldsrc) {
+    var clazz = LZ(element).attr("class");
+    
+    if (oldsrc && clazz === "lazy-load") {
       LZ(element).removeAttr("src");
       LZ(element).attr({ "data-original": oldsrc });
     }

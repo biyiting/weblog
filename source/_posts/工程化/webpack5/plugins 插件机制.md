@@ -19,7 +19,7 @@ date: 2022-10-15 18:23:34
     - 相比于 loadr，Plugin 拥有更宽的能力范围；
     - Plugin 通过钩子机制实现，通过在生命周期的钩子中挂载函数实现扩展；
     - 一个函数或者是一个包含 apply 方法的对象；
-    <img src="工作原理.jpg" width="auto" height="200px" class="custom-img" title="工作原理"/>
+    <img src="工作原理.jpg" width="auto" height="200px" class="lazy-load" title="工作原理"/>
 4. 自动化工作都有哪些：
     - 清除 dist 目录；
     - 拷贝静态文件至输出目录（不需要被打包）；

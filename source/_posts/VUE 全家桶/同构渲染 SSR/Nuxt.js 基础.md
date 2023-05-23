@@ -82,7 +82,7 @@ date: 2021-12-03 08:13:50
 >Nuxt.js 依据 pages 目录结构自动 encodeURIComponent 生成 vue-router 模块的路由配置
 ### 基础路由
 1. 假设 pages 的目录结构如下
-    <img src="基础路由.jpg" width="auto" height="200px" class="custom-img" title="基础路由"/>
+    <img src="基础路由.jpg" width="auto" height="200px" class="lazy-load" title="基础路由"/>
 2. Nuxt.js 自动生成的路由配置如下
     ```JS
     router: {
@@ -112,7 +112,7 @@ date: 2021-12-03 08:13:50
 ### 动态路由
 1. 在 Nuxt.js 里面定义带参数的动态路由，需要创建对应的以下划线作为前缀的 Vue 文件 或 目录。 
 2. 以下目录结构：
-    <img src="动态路由.jpg" width="auto" height="200px" class="custom-img" title="动态路由"/>
+    <img src="动态路由.jpg" width="auto" height="200px" class="lazy-load" title="动态路由"/>
 3. Nuxt.js 生成对应的路由配置表为：
     ```JS
     router: {
@@ -146,7 +146,7 @@ date: 2021-12-03 08:13:50
 2. 创建内嵌子路由，需要添加一个 Vue 文件，同时添加一个与该文件同名的目录用来存放子视图组件；
 3. Warning: 别忘了在父组件( .vue 文件) 内增加 <nuxt-child/> 用于显示子视图内容；
 4. 假设文件结构如：
-    <img src="嵌套路由.jpg" width="auto" height="200px" class="custom-img" title="嵌套路由"/>
+    <img src="嵌套路由.jpg" width="auto" height="200px" class="lazy-load" title="嵌套路由"/>
 5. Nuxt.js 自动生成的路由配置如下：
     ```JS
     router: {
@@ -175,14 +175,14 @@ date: 2021-12-03 08:13:50
 ## Nuxt 视图
 >如何在 Nuxt.js 应用中为指定的路由配置数据和视图，包括应用模板、页面、布局和 HTML 头部等内容
 
-<img src="视图.jpg" width="auto" height="300px" class="custom-img" title="视图"/>
+<img src="视图.jpg" width="auto" height="300px" class="lazy-load" title="视图"/>
 
 ### 定制化默认的 html 模板
 >只需要在 src 文件夹下（默认是应用根目录）创建一个  app.html 的文件
 1. 默认模板为
-    <img src="默认模板.jpg" width="auto" height="200px" class="custom-img" title="默认模板"/>
+    <img src="默认模板.jpg" width="auto" height="200px" class="lazy-load" title="默认模板"/>
 2. 举个例子，可以修改模板添加 IE 的条件表达式：
-    <img src="修改模板.jpg" width="auto" height="200px" class="custom-img" title="修改模板"/>
+    <img src="修改模板.jpg" width="auto" height="200px" class="lazy-load" title="修改模板"/>
 
 ### 布局
 1. Nuxt.js 允许扩展默认的布局，或在 layout 目录下创建自定义的布局；
@@ -190,20 +190,20 @@ date: 2021-12-03 08:13:50
     - 可通过添加 layouts/default.vue 文件来扩展应用的默认布局；
     - 提示: 别忘了在布局文件中添加 <nuxt/> 组件用于显示页面的主体内容；
     - 默认布局的源码如下：
-      <img src="默认布局.jpg" width="auto" height="100px" class="custom-img" title="默认布局"/>
+      <img src="默认布局.jpg" width="auto" height="100px" class="lazy-load" title="默认布局"/>
 3. 自定义布局
     - layouts 目录中的每个文件 (顶级) 都将创建一个可通过页面组件中的 layout 属性访问的自定义布局；
     - 假设要创建一个 博客布局 并将其保存到 layouts/blog.vue:
-      <img src="blog.jpg" width="auto" height="200px" class="custom-img" title="blog"/>
+      <img src="blog.jpg" width="auto" height="200px" class="lazy-load" title="blog"/>
     - 然后必须告诉页面 (即 pages/posts.vue) 使用自定义布局：
-      <img src="posts.jpg" width="auto" height="300px" class="custom-img" title="posts"/>
+      <img src="posts.jpg" width="auto" height="300px" class="lazy-load" title="posts"/>
 
 ### 错误页面
 1. 可以通过编辑 layouts/error.vue 文件来定制化错误页面；
 2. 警告: 虽然此文件放在 layouts 文件夹中, 但应该将它看作是一个 页面(page)；
 3. 这个布局文件不需要包含  <nuxt/>  标签，可以把这个布局文件当成是显示应用错误（404，500 等）的组件；
 4. 举一个个性化错误页面的例子 layouts/error.vue:
-    <img src="错误页面.jpg" width="auto" height="300px" class="custom-img" title="错误页面"/>
+    <img src="错误页面.jpg" width="auto" height="300px" class="lazy-load" title="错误页面"/>
 
 ## Nuxt 异步数据
 >Nuxt.js 扩展了 Vue.js，增加了一个叫 asyncData 的方法，可以在设置组件的数据之前能异步获取或处理数据

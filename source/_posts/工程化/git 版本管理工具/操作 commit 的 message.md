@@ -15,7 +15,7 @@ date: 2022-06-18 18:34:46
 ## 修改历史提交的 message
 >`git rebase -i hash`
 >指定需要修改 commit 的前一次 commit id，将需要修改 message 的 commit 修改 Commands 为 reword，无需修改的保持 pick；
-<img src="修改历史.jpg" width="auto" height="400px" class="custom-img" title="修改历史"/>
+<img src="修改历史.jpg" width="auto" height="400px" class="lazy-load" title="修改历史"/>
 
 ## 连续多次 commit 合并成一个 commit
 1. 进入仓库 git log 查看 commit；

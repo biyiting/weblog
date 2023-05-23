@@ -38,7 +38,7 @@ date: 2023-01-11 08:50:58
     dir ./ 
     ```
 4. RDB 快照的运行方式是异步进行的，在保存快照期间依然能够提供客户端请求：
-    <img src="客户端请求.jpg" width="500px" height="auto" class="custom-img" title="客户端请求"/>
+    <img src="客户端请求.jpg" width="500px" height="auto" class="lazy-load" title="客户端请求"/>
 
     - Redis 调用 fork() 创建一个子进程；
     - 使用子进程将数据集写入到一个临时 RDB 文件中；

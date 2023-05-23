@@ -55,7 +55,7 @@ date: 2023-04-26 10:34:11
 {% asset_img meimei.png 霉霉 %}
 
 ## 本地图片支持自定义宽高
-<img src="meimei.png" width="auto" height="200px" class="custom-img" title="meimei"/>
+<img src="meimei.png" width="auto" height="200px" class="lazy-load" title="meimei"/>
 
 ## <a class="attachment" name="meimei.zip">附件下载(meimei.zip)</a>
 ## 表格

@@ -12,7 +12,7 @@ date: 2022-03-02 08:20:57
 >Koa 和 Express 的设计风格非常类似，底层也都是共用的[同一套 HTTP 基础库](https://github.com/jshttp)，但是有几个显著的区别，除了上面提到的默认异步解决方案之外，主要的特点还有下面几个；
 ### Middleware
 1. Koa 的中间件和 Express 不同，Koa 选择了洋葱圈模型；
-    <img src="洋葱圈模型.jpg" width="400px" height="auto" class="custom-img" title="洋葱圈模型"/>
+    <img src="洋葱圈模型.jpg" width="400px" height="auto" class="lazy-load" title="洋葱圈模型"/>
 2. 所有的请求经过一个中间件的时候都会执行两次，对比 Express 形式的中间件，Koa 的模型可以非常方便的实现后置处理逻辑，对比 Koa 和 Express 的 Compress 中间件就可以明显的感受到 Koa 中间件模型的优势；
 ### Context
 1. 和 Express 只有 Request 和 Response 两个对象不同，Koa 增加了一个 Context 的对象，作为这次请求的上下文对象（在 Koa 1 中为中间件的 this，在 Koa 2 中作为中间件的第一个参数传入）；

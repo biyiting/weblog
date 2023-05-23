@@ -31,4 +31,4 @@ date: 2023-02-14 15:20:38
 
 
 ## 图解
-<img src="图解.jpg" width="700px" height="auto" class="custom-img" title="图解"/>
+<img src="图解.jpg" width="700px" height="auto" class="lazy-load" title="图解"/>

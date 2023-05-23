@@ -11,9 +11,9 @@ date: 2022-06-18 16:02:46
 
 ## 版本管理的演变
 1. 集中式 VCS
-    <img src="集中式.jpg" width="auto" height="215px" class="custom-img" title="集中式"/>
+    <img src="集中式.jpg" width="auto" height="215px" class="lazy-load" title="集中式"/>
 2. 分布式 VCS
-    <img src="分布式.jpg" width="auto" height="200px" class="custom-img" title="分布式"/>
+    <img src="分布式.jpg" width="auto" height="200px" class="lazy-load" title="分布式"/>
 
 ## GIT 特点：
 1. 最优的存储能力；
@@ -29,9 +29,9 @@ date: 2022-06-18 16:02:46
     - 暂存区：英文叫 stage 或 index，一般存放在 .git 目录下的 index 文件（.git/index）中，所以把暂存区有时也叫作索引（index）；
     - 版本库：工作区有一个隐藏目录 .git，这个不算工作区，而是 Git 的版本库；
 2. 下面这个图展示了工作区、版本库中的暂存区和版本库之间的关系
-    <img src="暂存区和版本库之间的关系.jpg" width="auto" height="305px" class="custom-img" title="暂存区和版本库之间的关系"/>
+    <img src="暂存区和版本库之间的关系.jpg" width="auto" height="305px" class="lazy-load" title="暂存区和版本库之间的关系"/>
 3. git 操作
-    <img src="git操作.jpg" width="auto" height="200px" class="custom-img" title="git操作"/>
+    <img src="git操作.jpg" width="auto" height="200px" class="lazy-load" title="git操作"/>
 
 ## 面试题
 

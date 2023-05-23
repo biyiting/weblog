@@ -10,7 +10,7 @@ date: 2023-02-14 15:22:38
 ---
 
 ## 图解
-<img src="图解.jpg" width="auto" height="500px" class="custom-img" title="图解"/>
+<img src="图解.jpg" width="auto" height="500px" class="lazy-load" title="图解"/>
 
 
 ## 关键代码：axios.js

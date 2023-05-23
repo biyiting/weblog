@@ -9,7 +9,7 @@ abbrlink: b75d3175
 date: 2022-01-25 18:43:02
 ---
 ## 项目目录
-<img src="项目目录.jpg" width="300px" height="auto" class="custom-img" title="项目目录"/>
+<img src="项目目录.jpg" width="300px" height="auto" class="lazy-load" title="项目目录"/>
 
 ## 实现代码
 1. index.js

@@ -72,7 +72,7 @@ date: 2022-09-20 09:35:30
     // 发送 post 请求：curl -v -X POST -d "'name':'张三'" http://localhost:1234/
     ```
 2. 效果展示：
-    <img src="获取http请求信息.png" width="300px" height="auto" class="custom-img" title="获取http请求信息"/>
+    <img src="获取http请求信息.png" width="300px" height="auto" class="lazy-load" title="获取http请求信息"/>
 
 ## 设置 http 响应
 1. 示例代码：
@@ -100,7 +100,7 @@ date: 2022-09-20 09:35:30
     // 发送 get 请求
     ```
 2. 效果展示：
-    <img src="设置http响应.jpg" width="300px" height="auto" class="custom-img" title="设置http响应"/>
+    <img src="设置http响应.jpg" width="300px" height="auto" class="lazy-load" title="设置http响应"/>
 
 ## 面试题
 ### 图片防盗链

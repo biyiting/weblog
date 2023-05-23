@@ -20,7 +20,7 @@ date: 2022-10-01 19:53:35
 ## 单向数据流
 >当应用遇到多个组件共享状态时，单向数据流的简洁性很容易被破坏：
 
-<img src="单向数据流.jpg" width="auto" height="300px" class="custom-img" title="单向数据流"/>
+<img src="单向数据流.jpg" width="auto" height="300px" class="lazy-load" title="单向数据流"/>
 
 
 ## 多组件共享状态的问题
@@ -32,7 +32,7 @@ date: 2022-10-01 19:53:35
     - 使用 eventBus；
 
 ## vuex 结构图
-<img src="结构图.jpg" width="auto" height="400px" class="custom-img" title="结构图"/>
+<img src="结构图.jpg" width="auto" height="400px" class="lazy-load" title="结构图"/>
 
 ## 如何使用：
 1. 使用 Vue.use(Vuex) 调用插件，将其注入到 Vue 根实例中：

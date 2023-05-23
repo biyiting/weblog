@@ -203,6 +203,6 @@ date: 2023-01-12 08:50:58
 
 ## 接口测试
 1. 扔一个漂流瓶
-    <img src="扔一个漂流瓶.jpg" width="600px" height="auto" class="custom-img" title="扔一个漂流瓶"/>
+    <img src="扔一个漂流瓶.jpg" width="600px" height="auto" class="lazy-load" title="扔一个漂流瓶"/>
 2. 捡一个漂流瓶
-    <img src="捡一个漂流瓶.jpg" width="600px" height="auto" class="custom-img" title="捡一个漂流瓶"/>
+    <img src="捡一个漂流瓶.jpg" width="600px" height="auto" class="lazy-load" title="捡一个漂流瓶"/>

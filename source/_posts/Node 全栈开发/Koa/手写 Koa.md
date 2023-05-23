@@ -11,7 +11,7 @@ date: 2022-02-26 15:20:27
 
 
 ## 项目目录
-<img src="项目目录.jpg" width="600px" height="auto" class="custom-img" title="项目目录"/>
+<img src="项目目录.jpg" width="600px" height="auto" class="lazy-load" title="项目目录"/>
 
 ## 重点关注：
 1. 上下文的实现原理；

@@ -49,11 +49,11 @@ date: 2021-11-15 09:02:34
 ### 如何开始使用 Git Hooks？
 > 如图中所示的文件，是由本地执行的脚本语言写成的，尽管这些文件默认会是 Shell Script，你完全可以给它替换成自己喜欢的 Ruby，Python 或者 Perl。关于这些脚本文件的命名，细心的读者就会发现图中的文件都是上面 Git 行为列表中列出的名称加上后缀 .sample。没错就是这样，把那些文件的后缀去掉，或者以列表中的名字直接命名，就会把该脚本绑定到特定的 Git 行为上。所以说，Git Hooks的正确操作方式是：写脚本；
 
-<img src="写脚本.jpg" width="500px" height="auto" class="custom-img" title="写脚本"/>
+<img src="写脚本.jpg" width="500px" height="auto" class="lazy-load" title="写脚本"/>
 
 
 ### 本地 Hooks 和 服务端 Hooks
-<img src="Hooks.jpg" width="500px" height="auto" class="custom-img" title="Hooks"/>
+<img src="Hooks.jpg" width="500px" height="auto" class="lazy-load" title="Hooks"/>
 
 #### 本地 Hooks
 1. commit hooks：与git commit相关的hooks一共有四个，均由git commit命令触发调用，按照一次发生的顺序分别是：

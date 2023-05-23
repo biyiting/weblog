@@ -10,7 +10,7 @@ date: 2023-02-15 09:38:38
 ---
 
 ## 图解
-<img src="图解.jpg" width="500px" height="auto" class="custom-img" title="图解"/>
+<img src="图解.jpg" width="500px" height="auto" class="lazy-load" title="图解"/>
 
 
 ## 关键代码
