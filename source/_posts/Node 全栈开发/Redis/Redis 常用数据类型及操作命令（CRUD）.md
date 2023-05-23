@@ -6,5 +6,417 @@ categories:
 tags:
   - Redis
 abbrlink: 6dfe5dcb
-date: 2023-05-22 08:40:59
+date: 2023-01-09 14:35:58
 ---
+
+## 常用数据类型
+1. Redis 不是简单的键值存储，它实际上是一个数据结构服务器，支持不同类型的值，在 Redis 中，不仅限于简单的字符串，还可以容纳更复杂的数据结构；
+2. 以下是 Redis 中支持的所有数据结构的列表：
+    |	类型	|说明|
+    |------|----|
+    |String	|字符串|
+    |Hash|	散列，是由与值相关联的字段组成的内容，字段和值都是字符串；类似于 JavaScript 中的对象结构；|
+    |List	|列表，根据插入顺序排序的字符串元素的集合，它们基本上是链表；|
+    |Set	|未排序的字符串元素集合，集合中的数据是不重复的；|
+    |ZSet	|与 Sets 类似，但每个字符串元素都与一个称为分数的浮点值相关联，元素总是按它们的分数排序，因此与 Sets 不同，可以检索一系列元素（例如，获取前 10 名或后 10 名的数据）|
+    |Bit arrays（或 bitmaps）	|可以使用特殊命令像位数组一样处理字符串值：可以设置和清除单个位，计数所有设置为 1 的位，找到第一个设置或未设置的位，依此类推；|
+    |HyperLogLogs	|这是一个概率数据结构，用于估计集合的基数；|
+    |Streams	|提供抽象日志数据类型的类似地图项的仅追加集合；|
+3. Redis 中的键：
+    - Redis 密钥是二进制安全的，这意味着可以使用任何二进制序列作为 key，从 "foo" 之类的字符串到 JPEG 文件的内容，空字符串也是有效的键；
+    - 有关键的其他一些规则：
+      - 太长不好，占用内存空间；
+      - 太短也不好，没有可读性；
+      - 尝试坚持使用固定规则，点或破折号通常用于多字字段，例如：comment:1234:reply.to 或 comment:1234:reply-to；
+      - 允许的最大大小为 512 MB；
+## 字符串（String）
+1. 字符串类型
+    - 图示：
+      <img src="字符串类型.jpg" width="400px" height="auto" class="custom-img" title="字符串类型"/>
+    - Redis 中最基本的数据类型，也是其它数据类型的基础：它能存储任何形式的字符串，包括二进制数据；可以用它存储用户的邮箱、JSON 化的对象，甚至是一张图片；value 最多可以容纳数据大小为 512 MB；
+    - 字符串类型是其他常见 4 种数据类型的基础，其他数据类型和字符串类型的差别从某种角度来说只是组织字符的形式不同；
+    - 例如，列表类型是以列表的形式组织字符串，而集合类型是以集合的形式组织字符串；
+2. 添加
+    ```batch
+    # 设置指定 key 的值
+    SET key value
+    
+    # 同时设置一个或多个 key-value 对
+    MSET key value [key value ...]
+    
+    # 只有在 key 不存在时设置 key 的值
+    SETNX key value
+    
+    # 只有在 key 不存在时，设置一个或多个 key-value 对
+    MSETNX key value [key value ...]
+    ```
+3. 删除
+    ```batch
+    # 通用命令：删除 1 个或多个指定的 key
+    DEL key [key ...]
+    ```
+4. 查询
+    ```batch
+    # 获取指定 key 的值
+    GET key
+    
+    # 返回 key 的子字符
+    GETRANGE key start end
+    
+    # 获取所有(一个或多个)给定 key 的值
+    MGET key [key ...]
+    
+    # 返回 key 所储存值的的长度
+    STRLEN key
+    
+    # 通用命令：查询集合中是否有指定的 key
+    EXISTS key [key ...]
+    
+    # 通用命令，查询 key 的类型
+    TYPE key
+    ```
+5. 修改
+    ```batch
+    # 设置指定 key 的值
+    SET key value
+    
+    # 将给定 key 的值设为 value ，并返回 key 的旧值
+    GETSET key value
+    
+    # 如果 key 已经存在并且是一个字符串， 将指定的 value 追加到该 key 原来值（value）的末尾
+    APPEND key value
+    ```
+6. 数字值：数字值在 Redis 中以字符串保存
+    ```batch
+    # 将 key 中储存的数字值增一
+    INCR key
+    
+    # 将 key 所储存的值加上给定的增量值（increment） 
+    INCRBY key increment
+    
+    # 将 key 中储存的数字值减一
+    DECR key
+    
+    # key 所储存的值减去给定的减量值（decrement）
+    DECRBY key decrement
+    ```
+
+## 哈希（Hash）
+1. 哈希（也叫散列）类型
+    - 图示：
+        <img src="哈希.jpg" width="400px" height="auto" class="custom-img" title="哈希"/>
+    - 是一种字典结构，其存储了字段和字段值的映射，但字符值只能是字符串，不能其它数据类型，换句话说，散列类型不能嵌套其它数据类型，一个哈希类型可以包含至少 232 - 1 个字段；
+    - 提示：除了散列类型，Redis 的其它数据类型同样不支持数据类型嵌套；
+2. 添加
+    ```batch
+    # 将哈希表 key 中的字段 field 的值设为 value
+    HSET key field value [field value ...]
+    
+    # 同时将多个 field-value (域-值)对设置到哈希表 key 中
+    HMSET key field value [field value ...]
+    
+    # 只有在字段 field 不存在时，设置哈希表字段的值
+    HSETNX key field value
+    ```
+3. 删除
+    ```batch
+    # 删除一个或多个哈希表字段
+    HDEL key field1 [field2]
+    
+    # 通用命令：删除 1 个或多个指定的 key
+    DEL key [key ...]
+    ```
+4. 查询
+    ```batch
+    # 获取所有哈希表中的字段
+    HKEYS key
+    
+    # 获取哈希表中字段的数量
+    HLEN key
+    
+    # 获取存储在哈希表中指定字段的值
+    HGET key field
+    
+    # 获取所有给定字段的值
+    HMGET key field1 [field2]
+    
+    # 获取在哈希表中指定 key 的所有字段和值
+    HGETALL key
+    
+    # 查看哈希表 key 中，指定的字段是否存在
+    HEXISTS key field
+    
+    # 获取哈希表中所有值
+    HVALS key
+    
+    # 迭代哈希表中的键值对
+    # - cursor：游标
+    # - pattern：匹配的模式
+    # - count：指定从数据集里返回多少元素，默认值为 10
+    HSCAN key cursor [MATCH pattern] [COUNT count]
+    ```
+5. 修改
+    ```batch
+    # 将哈希表 key 中的字段 field 的值设为 value
+    HSET key field value [field value ...]
+    
+    # 为哈希表 key 中的指定字段的整数值加上增量 increment
+    HINCRBY key field increment
+    ```
+
+## 列表（List）
+1. 列表类型
+    - 图示：
+      <img src="列表.jpg" width="400px" height="auto" class="custom-img" title="列表"/>
+    - 类似于编程语言中的数组，可以存储一个有序的字符串列表，常用的操作就是向列表两端添加元素，或者获得列表的某一个片段；
+    - 列表类型内部使用双向链表实现的，所有向列表两端添加元素的时间复杂度为 O(1)，获取越接近两端的元素速度就越快；这意味着即使是一个有几千万个元素的列表，获取头部或尾部的 10 条记录也是极快的（和从只有 20 个元素的列表中获取头部或尾部的 10 条记录的速度是一样的）；
+    - 不过使用链表的代价是通过索引访问元素比较慢；设想在 iPhone 发售当前有 1000 个人在商店排队购买，这时商家为了感谢大家的支持，决定奖励第 486 位的顾客异步免费的 iPhone；为了找到这第 486 位顾客，工作人员不得不从队首一个一个地数到 486 个人；但同时，无论队伍有多长，新来的人想加入队伍的话直接排到队尾就好了，和队伍里有多少人没有任何关系；这种情景与列表类型的特性很相似；
+    - 这种特性使列表类型能非常快速地完成关系数据库难以应付的场景：例如社交网站的新鲜事，关心的只是最新内容，使用列表类型存储，即使新鲜事的总数达到几千万个，获取其中最新的 100 条数据也是极快的；同样因为在两端插入记录的时间复杂度是 O(1)，列表类型也适合用来记录日志，可以保证加入新日志的速度不会受到已有日志数量额影响；
+    - 一个列表最多可以包含 232 - 1 个元素 (4294967295, 每个列表超过 40 亿个元素)；
+2. 添加
+    ```batch
+    # 将一个或多个值插入到列表头部
+    LPUSH key element [element ...]
+    
+    # 在列表的元素前或者后插入元素
+    LINSERT key BEFORE|AFTER pivot value
+    
+    # 将一个值插入到已存在的列表头部
+    LPUSHX key value
+    
+    # 通过索引设置列表元素的值
+    LSET key index value
+    
+    # 在列表中添加一个或多个值
+    RPUSH key value1 [value2]
+    
+    # 将一个值插入到已存在的列表尾部
+    RPUSHX key value
+    ```
+3. 删除
+    ```batch
+    # 移出并获取列表的第一个元素
+    LPOP key
+    
+    # 移出并获取列表的最后一个元素
+    RPOP key
+    
+    # 移出并获取列表的第一个元素，如果列表没有元素会阻塞列表直到等待超时或发现可弹出元素为止
+    BLPOP key1 [key2 ] timeout
+    
+    # 移出并获取列表的最后一个元素，如果列表没有元素会阻塞列表直到等待超时或发现可弹出元素为止
+    BRPOP key1 [key2 ] timeout
+    
+    # 从列表中弹出一个值，将弹出的元素插入到另外一个列表中并返回它
+    # 如果列表没有元素会阻塞列表直到等待超时或发现可弹出元素为止
+    BRPOPLPUSH source destination timeout
+    
+    # 移除列表的最后一个元素，并将该元素添加到另一个列表并返回
+    RPOPLPUSH source destination
+    
+    # 移除列表元素
+    # 如果 count > 0，则从头向尾遍历删除元素
+    # 如果 count < 0，则从后面向前面删除元素
+    # 如果 count = 0，则删除所有匹配的元素
+    LREM key count value
+    
+    # 对一个列表进行修剪(trim)，让列表只保留指定区间内的元素，不在指定区间之内的元素都将被删除
+    LTRIM key start stop
+    ```
+4. 查询
+    ```batch
+    # 通过索引获取列表中的元素
+    LINDEX key index
+    
+    # 获取列表长度
+    LLEN key
+    
+    # 获取列表指定范围内的元素
+    LRANGE key start stop
+    ```
+
+## 集合（Set）
+1. 集合类型
+    - 和数学中的集合概念相似，集合中的元素是唯一的、无序的，简单理解集合就是 没有顺序且不重复 的列表；
+    - 一个集合类型可以存储至多 232 - 1 个字符串；
+    - 集合类型和列表类型有相似之处，它们的主要区别是：列表是有序的，集合是无序的；列表数据可以重复，集合中没有重复数据；
+    - 集合类型的常用操作是向集合中加入或删除元素、判断某个元素是否存在等；由于集合类型在 Redis 内部是使用值为空的散列表实现的，所以这些操作的时间复杂度都是 O(1)；
+    - 最方便的是多个集合之间还可以进行并集、交集和差集运算；
+2. 添加
+    ```batch
+    # 向集合添加一个或多个成员
+    SADD key member1 [member2]
+    ```
+3. 删除
+    ```batch
+    # 移除集合中一个或多个成员
+    SREM key member1 [member2]
+    
+    # 移除并返回集合中的一个随机元素
+    SPOP key
+    
+    # 将 member 元素从 source 集合移动到 destination 集合
+    SMOVE source destination member
+    ```
+4. 查询
+    ```batch
+    # 返回集合中的所有成员
+    SMEMBERS key
+    
+    # 获取集合的成员数
+    SCARD key
+    
+    # 判断 member 元素是否是集合 key 的成员
+    SISMEMBER key member
+    
+    # 返回集合中一个或多个随机数
+    SRANDMEMBER key [count]
+    ```
+5. 集合间聚合运算
+    ```batch
+    # 返回第一个集合与其他集合之间的差异
+    SDIFF key1 [key2]
+    
+    # 返回给定所有集合的交集
+    SINTER key1 [key2]
+    
+    # 返回所有给定集合的并集
+    SUNION key1 [key2]
+    
+    # 返回给定所有集合的差集并存储在 destination 中
+    SDIFFSTORE destination key1 [key2]
+    
+    # 返回给定所有集合的交集并存储在 destination 中
+    SINTERSTORE destination key1 [key2]
+    
+    # 所有给定集合的并集存储在 destination 集合中
+    SUNIONSTORE destination key1 [key2]
+    ```
+6. 使用场景
+    - 跟踪一些唯一性数据：比如访问网站的唯一 IP 地址信息，每次访问网站的时候记录用户 IP 地址，SET 自动保证数据的唯一不重复；
+    - 充分利用 SET 聚合操作方便高效的特性，用于维护数据对象之间的关联关系：比如所有购买 A 商品的客户 ID 存储到指定的 SET 中，所有购买 B 商品的客户 ID 存储到指定的 SET 中，如果想要获取有哪个客户同时购买了这两个商品，只需要使用交集操作就可以轻松的查出来；
+
+## 有序集合（Sorted Set）
+1. 有序集合
+    - 图示：
+      <img src="有序集合.jpg" width="400px" height="auto" class="custom-img" title="有序集合"/>
+    - 是一种类似于集合和哈希之间的混合数据类型；
+    - 与集合一样，排序集合由唯一的非重复字符串元素组成；
+    - 有序集合中的元素不排序，但有序集合中的每个元素都关联了一个分数（这就是为什么类型也类似于哈希，因为每个元素都映射到一个值）；
+    - 虽然集合中每个元素都是不同的，但是它们的分数确可以相同；
+    - 每个元素都会关联一个 double 类型的分数，Redis 正是通过分数来为集合中的成员进行从小到大的排序；
+2. 有序集合类型在某些方面和列表类型有些相似
+    - 相同点：
+      - 两者都是有序的；
+      - 两者都可以获得某一范围的元素；
+    - 不同点：
+      - 列表类型通过链表实现的，获取靠近两端的数据速度极快，而当元素增多后，访问中间数据的速度会较慢，所以它更适合实现如 "新鲜事" 或 "日志" 这样很少访问中间元素的应用；
+      - 有序集合类似是使用哈希表实现的，所以即使读取位于中间部分的数据速度也很快；
+      - 列表中不能简单的调整某个元素的位置，但是有序集合可以（通过更改元素的分数）；
+      - 有序集合要比列表类型更耗费内存；
+3. 有序集合的典型应用场景
+    - 排行榜：
+      - 例如一个大型在线游戏的积分排行榜，每当玩家的分数发生变化时，可以执行 ZADD 命令更新玩家的分数，此后再通过 ZRANGE 命令获取积分 TOPTEN 的用户信息；
+      - 当然也可以利用 ZRANK 命令通过 username 来获取玩家的排行信息；
+      - 最后将组合使用 ZRANGE 和 ZRANK 命令快速的获取和某个玩家积分相近的其他用户的信息；
+    - 微博热搜：
+      - 首先，需要一个衡量的标准，定量的量度热搜的热门程度；假设有一个字段叫回复量，回复量越高就越热门；
+      - 如果用关系型数据库来获取的话，用 SQL 语句实现很简单：SELECT * FROM message ORDER BY backsum LIMIT 10；
+      - 但是当数据量很大的时候，效率很低，同时如果建立索引又要消耗大量的资源，同时增加负载；
+      - 使用 Redis 的时候，不需要存储多余的信息，只需要存储帖子 id 和回复量两个信息就可以了；
+4. 添加
+    ```batch
+    # 向有序集合添加一个或多个成员，或者更新已存在成员的分数
+	  ZADD key score member [score member ...]
+    ```
+5. 删除
+    ```batch
+    # 移除有序集合中的一个或多个成员
+    ZREM key member [member ...]
+    
+    # 移除有序集合中给定的排名区间的所有成员
+    ZREMRANGEBYRANK key start stop
+    
+    # 移除有序集合中给定的分数区间的所有成员
+    ZREMRANGEBYSCORE key min max
+    ```
+6. 查询
+    ```batch
+    # 通过索引区间返回有序集合指定区间内的成员，分数从低到高排序
+    ZRANGE key start stop [WITHSCORES]
+    
+    # 通过索引区间返回有序集合指定区间内的成员，分数从高到低排序
+    ZREVRANGE key start stop [WITHSCORES]
+    
+    # 返回有序集中指定分数区间内的成员，分数从低到高排序
+    ZRANGEBYSCORE key min max [WITHSCORES] [LIMIT offset count]
+    
+    # 返回有序集中指定分数区间内的成员，分数从高到低排序
+    ZREVRANGEBYSCORE key max min [WITHSCORES] [LIMIT offset count]
+    
+    # 返回有序集合中指定成员的排名，有序集成员按分数值（从小到大）排序
+    ZRANK key member
+    
+    # 返回有序集合中指定成员的排名，有序集成员按分数值（从大到小）排序
+    ZREVRANK key member
+    
+    # 获取有序集合的成员数
+    ZCARD key
+    
+    # 返回有序集中，成员的分数值
+    ZSCORE key member
+    
+    # 计算在有序集合中指定区间分数的成员数
+    ZCOUNT key min max
+    ```
+7. 修改
+    ```batch
+    # 向有序集合添加一个或多个成员，或者更新已存在成员的分数
+    ZADD key score member [score member ...]
+    
+    # 有序集合中对指定成员的分数加上增量 increment
+    ZINCRBY key increment member
+    ```
+8. 聚合运算
+    ```batch
+    # 计算给定的一个或多个有序集的交集并将结果集存储在新的有序集合 destination 中
+    ZINTERSTORE destination numkeys key [key ...]
+    
+    # 计算给定的一个或多个有序集的并集，并存储在新的 key 中
+    ZUNIONSTORE destination numkeys key [key ...]
+    ```
+
+## 通用命令
+1. 通用命令
+    ```batch
+    # 返回所有 key
+    KEYS *
+    
+    # 返回所有以 my 开头的 key
+    KEYS my*
+    
+    # 获取 key 的类型
+    TYPE key
+    
+    # 查询某个 key 是否存在
+    EXISTS key [key ...]
+    
+    # 删除指定 key
+    DEL key [key ...]
+    
+    # 从当前数据库中随机返回(不删除)一个 key
+    RANDOMKEY
+    
+    # 对 key 进行重命名
+    RENAME key newkey
+    
+    # 清空当前数据库所有内容
+    FLUSHDB
+    
+    # 清空所有数据库内容
+    FLUSHALL
+    
+    # 将当前数据库的 key 移动到给定的数据库 db 当中
+    MOVE key db
+    ```
+2. [Redis 命令列表](http://redisdoc.com/)

@@ -3,7 +3,7 @@ title: markdown 常用语法
 comment: true
 top: 100000
 categories:
-  - hexo
+  - blog 相关
 tags:
   - markdown
 abbrlink: 74dfa7c4

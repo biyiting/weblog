@@ -165,7 +165,7 @@
     }
 
     try{
-      $('#post-right').css('opacity', 0);
+      $('#post-left').css('opacity', 0);
       // 工具栏的收缩与展开
       $('#post-left').on('click',function(){
         $("#post-left-aside").animate({ marginLeft: -310 },200);
@@ -182,8 +182,8 @@
         localStorage.setItem('post-left-aside-isHide', false);
       })
 
-      if(JSON.parse(localStorage.getItem('post-left-aside-isHide'))){
-        $('#post-left').trigger('click');
+      if(!JSON.parse(localStorage.getItem('post-left-aside-isHide'))){
+        $('#post-right').trigger('click');
       }
     }catch(err){
       console.log(err);

@@ -11,7 +11,7 @@ const sortReference = [
     '高阶技术专题',
     '前端运维',
     '面试指导',
-    'hexo',
+    'blog 相关',
 
     // 二级目录
     'JS 高级',
