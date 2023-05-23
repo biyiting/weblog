@@ -33,6 +33,7 @@ stylesheets:
 # scripts loaded in the end of the body
 scripts:
   - /js/jquery-3.5.1.min.js
+  - /js/jquery.lazyload.min.js
   - /lib/prism/prism.js
   - /js/tools.js
   - /js/layout.js

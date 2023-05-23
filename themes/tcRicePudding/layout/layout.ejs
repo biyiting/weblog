@@ -33,16 +33,12 @@
     <div id="bottom-outer">
       <p>©2023-04-23 <%=config.author%></p>
       <p>
-        <a class="github-badge" target="_blank" href="https://hexo.io/" style="margin-inline:5px"
-          data-title="博客框架为Hexo_v5.4.0" title="博客框架为Hexo_v5.4.0"><img
-            src="https://npm.elemecdn.com/anzhiyu-blog@2.1.5/img/badge/Frame-Hexo.svg"
-            data-lazy-src="https://npm.elemecdn.com/anzhiyu-blog@2.1.5/img/badge/Frame-Hexo.svg" alt="博客框架为Hexo_v5.4.0"
-            data-ll-status="loaded" class="entered loaded"/></a>
-        <a class="github-badge" target="_blank" href="https://github.com/" style="margin-inline:5px"
-          data-title="本站项目由Github托管" title="本站项目由Github托管"><img
-            src="https://npm.elemecdn.com/anzhiyu-blog@2.1.5/img/badge/Source-Github.svg"
-            data-lazy-src="https://npm.elemecdn.com/anzhiyu-blog@2.1.5/img/badge/Source-Github.svg" alt="本站项目由Github托管"
-            data-ll-status="loaded" class="entered loaded"/></a>
+        <a class="github-badge" target="_blank" href="https://hexo.io/" style="margin-inline:5px" title="博客框架为Hexo_v5.4.0">
+          <img class="badge" src="https://npm.elemecdn.com/anzhiyu-blog@2.1.5/img/badge/Frame-Hexo.svg" alt="博客框架为Hexo_v5.4.0"/>
+        </a>
+        <a class="github-badge" target="_blank" href="https://github.com/" style="margin-inline:5px" title="本站项目由Github托管">
+          <img class="badge" src="https://npm.elemecdn.com/anzhiyu-blog@2.1.5/img/badge/Source-Github.svg" alt="本站项目由Github托管"/>
+        </a>
       </p>
     </div>
 
@@ -83,6 +79,29 @@
         searchFunc(path, 'local-search-input', 'local-search-result');
     </script>
     <% } %>
+
+    <script>
+      $(function() {  
+        try{
+            // 修改所有 img 的 url 前缀
+            $('img').not(".badge").each((inx, img)=>{
+              let oldSrc = $(img).attr('data-original');
+              let [pathname] = location.pathname.split('.html')
+              $(img).attr('data-original',`${pathname}/${oldSrc}`);
+            })
+
+            // 对所有 img 标签进行懒加载        
+            $("img").lazyload({
+              // 设置占位图，我这里选用了一个 loading 的加载动画
+              placeholder: "/weblog/images/loading.gif",
+              // 加载效果
+              effect: "fadeIn",
+            });
+          }catch(err){
+            console.log(err);
+          }
+      });
+    </script>
   </body>
 
   </html>
