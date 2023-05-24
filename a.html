@@ -8,28 +8,25 @@
     <title>Document</title>
     <style>
         .logo path {
-            fill: none;
-            stroke: chocolate;
-            stroke-width: 10;
-            stroke-dasharray: 11229;
-            animation: anima-line 3s ease infinite;
+          fill: none;
+          stroke: chocolate;
+          stroke-width: 10;
+          stroke-dasharray: 11229;
+          animation: anima-line 3s ease infinite;
         }
-
         /* 声明关键帧动画 */
-        @keyframes anima-line {
-            from {
-                stroke-dashoffset: 11229;
-                /* 初始状态，隐藏起来 */
-                fill: transparent;
-            }
-
-            to {
-                stroke-dashoffset: 0;
-                /* 结束状态，展示出来 */
-                fill: rgba(255, 0, 0, 0.411);
-            }
+        @keyframes anima-line { 
+          from {
+            stroke-dashoffset: 11229; /* 初始状态，隐藏起来 */
+            fill: transparent;
+          }
+      
+          to {
+            stroke-dashoffset: 0; /* 结束状态，展示出来 */
+            fill: rgba(255, 0, 0, 0.411);
+          }
         }
-    </style>
+      </style>
 </head>
 
 <body>
@@ -44,8 +41,13 @@
 </body>
 <script>
     const path = document.getElementById('logo')
-    const pathLen = path.getTotalLength()
+    const pathLen = path.getTotalLength() 
     console.log(pathLen); // 11229
-</script>
+  </script>
 
 </html>
+
+
+  
+  
+  

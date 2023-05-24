@@ -36,7 +36,13 @@ const sortReference = [
     'Express',
     'Egg.js',
     'MongoDB',
-    'Redis'
+    'Redis',
+
+    // 二级目录
+    '微前端解决方案',
+    '前端数据可视化专题',
+    '前端性能优化专题',
+    '前端监控',
 ];
 
 const recursionTreeData = (categories, topNode) => {
