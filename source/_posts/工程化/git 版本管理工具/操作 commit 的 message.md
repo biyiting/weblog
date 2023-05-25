@@ -10,7 +10,7 @@ date: 2022-06-18 18:34:46
 ---
 
 ## 修改最近一次的提交的 message
->`git commit -amend`
+>`git commit --amend`
 
 ## 修改历史提交的 message
 >`git rebase -i hash`
