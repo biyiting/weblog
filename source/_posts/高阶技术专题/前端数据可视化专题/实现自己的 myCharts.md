@@ -9,7 +9,7 @@ abbrlink: af9fe93c
 date: 2022-03-14 15:45:40
 ---
 ## 项目目录
-<img src="实现自己的myCharts.jpg" width="200px" height="auto" class="lazy-load" title="实现自己的myCharts"/>
+<img src="实现自己的myCharts.jpg" width="200px" height="auto" class="lazy-load" title="实现自己的myCharts" />
 
 ## 实现代码
 ### 初始化
@@ -523,6 +523,7 @@ date: 2022-03-14 15:45:40
     }
     ```
 3. 效果展示
+
     <img src="绘制折线图.jpg" width="600px" height="auto" class="lazy-load" title="绘制折线图"/>
 
 ### 绘制直方图
