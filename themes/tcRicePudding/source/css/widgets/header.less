@@ -11,25 +11,38 @@
   width: 100%;
 
   .nav-left {
-    text-align: center;
+    width: 240px;
+    display: flex;
+    align-items: center;
+
+    .open-drawer{
+      font-size: 25px;
+      border-radius: 50%;
+      padding: 3px 4px;
+      cursor: pointer;
+    }
+    .open-drawer:hover{
+      color: #fff;
+      background: #3b70fc;
+      transition: all 0.3s ease-in-out .2s;
+    }
 
     #logo {
-      display: flex;
       position: relative;
-      padding: 7px 10px !important;
+      padding: 7px 15px !important;
       font-size: 25px;
 
       i {
         transform: scale(0);
         position: absolute;
-        transition: .3s ease-in;
+        transition: 0.1s ease-out;
         top: 8px;
-        left: 65px;
+        left: 26px;
         font-size: 30px !important;
       }
 
       .logo-title {
-        transition: .3s ease-in;
+        transition: .2s ease-in;
         letter-spacing: normal;
       }
     }

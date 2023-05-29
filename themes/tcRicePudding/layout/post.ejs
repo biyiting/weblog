@@ -1,4 +1,4 @@
-<%-partial('widgets/header', {}, {cache: true})%>
+<%-partial('widgets/header', {}, {cache: false})%>
 
 <article id="post" class="post-article">
   <input name="postTitle" type="hidden" value="<%=page.title%>"/>
@@ -36,17 +36,14 @@
     </section>
   </header>
 
-  <section class="post-content">
-    <div id="post-left-aside" class="post-left-aside">
-      <div class="post-list-box">
-        <div id="post-tool">
-          <i id="post-left" class="iconfont icon-jiantou_yemian_xiangzuo iconfont-size"></i>
-          <i id="post-right" class="iconfont icon-jiantou_yemian_xiangyou iconfont-size"></i>
-        </div>
-        <%- menu_list(site) %>
-      </div>
+  <div id="post-drawer-mask" class="post-drawer-mask">
+    <div id="post-drawer" class="post-drawer">
+      <i id="close-drawer" class="close-drawer iconfont icon-guanbi iconfont-size"></i>
+      <%- menu_list(site) %>
     </div>
+  </div>
 
+  <section class="post-content">
     <div class="post-md-content">
       <div class="markdown-html">
         <%-page.content%>
@@ -164,30 +161,30 @@
       console.log(err);
     }
 
-    try{
-      $('#post-left').css('opacity', 0);
-      // 工具栏的收缩与展开
-      $('#post-left').on('click',function(){
-        $("#post-left-aside").animate({ marginLeft: -310 },200);
-        $('#post-left').animate({ 'opacity': 0},500);
-        $('#post-right').animate({ 'opacity': 1 },500);
+    // 隐藏抽屉
+    $('#close-drawer').on('click', function(e){
+      $('#post-drawer-mask').animate({
+        opacity: 0,
+        width: 0,
+      }, 'fast', 'linear');
+      $('body').css('overflow', 'auto');
+    });
 
-        localStorage.setItem('post-menu-isShow', false);
-      })
-      $('#post-right').on('click',function(){
-        $('#post-left-aside').animate({ marginLeft: 0 },200);
-        $('#post-left').animate({ 'opacity': 1 },500);
-        $('#post-right').animate({ 'opacity': 0 },500);
+    // 打开抽屉
+    $('#open-drawer').on('click', function(e){
+      $('#post-drawer-mask').animate({
+        opacity: 1,
+        width: '100%',
+      }, 'fast', 'linear');
+      $('body').css('overflow', 'hidden');
+    });
 
-        localStorage.setItem('post-menu-isShow', true);
-      })
-
-      if(JSON.parse(localStorage.getItem('post-menu-isShow'))){
-        $('#post-right').trigger('click');
+    $('#post-drawer-mask').on('click', function(e){
+      if($(e.target).attr('class') === 'post-drawer-mask'){
+        $('#close-drawer').trigger('click');
       }
-    }catch(err){
-      console.log(err);
-    }
+    });
+
 
     try{
       // 附件下载：劫持 a.class = "attachment"，给其增加相对路径

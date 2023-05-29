@@ -1,9 +1,12 @@
 <div id="menu-box">
     <div class="nav-left">
-    <a id="logo" href="<%= url_for('/') %>">
-        <div class="logo-title"><%= config.title %></div>
-        <i class="iconfont logo-fontsize icon-home"></i>
-    </a>
+        <% if (is_post()) { %>
+            <i id="open-drawer" class="iconfont logo-fontsize icon-zhankaicaidan open-drawer"></i>
+        <% } %>
+        <a id="logo" href="<%= url_for('/') %>">
+            <div class="logo-title"><%= config.title %></div>
+            <i class="iconfont logo-fontsize icon-home"></i>
+        </a>
     </div>
     <div class="nav-center">
     <% Object.keys(theme.menu).forEach(key=> { %>
