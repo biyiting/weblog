@@ -1,5 +1,5 @@
 ---
-title: 剑指 Offer 20：表示数值的字符串
+title: 剑指 Offer 20.表示数值的字符串
 categories:
   - 数据结构与算法
   - 力扣
