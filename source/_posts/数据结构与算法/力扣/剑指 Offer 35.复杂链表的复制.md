@@ -1,0 +1,110 @@
+---
+title: 剑指 Offer 35.复杂链表的复制
+categories:
+  - 数据结构与算法
+  - 力扣
+tags:
+  - 算法
+  - 链表
+  - 迭代
+abbrlink: 68dc24ea
+date: 2023-05-30 10:34:16
+---
+
+## [复杂链表的复制](https://leetcode.cn/problems/fu-za-lian-biao-de-fu-zhi-lcof/)
+
+## 迭代+哈希
+1. 解题思路：
+    - 本题中因为随机指针的存在，当拷贝节点时，「当前节点的随机指针指向的节点」可能还没创建，因此需要变换思路，用哈希表记录每一个节点对应新节点的创建情况；
+    - 先不考虑 random 指针，和原本的链表复制一样，创建新节点，并构造 next 指针关系，同时使用「哈希表」记录原节点和新节点的映射关系；
+    - 对原链表和新链表进行同时遍历，对于原链表的每个节点上的 random 都通过「哈希表」找到对应的新 random 节点，并在新链表上构造 random 关系；
+2. 复杂度：
+    - 时间复杂度：O(n)；
+    - 空间复杂度：O(n)；
+3. 代码实现：
+    ```TS
+    function copyRandomList(head: Node | null): Node | null {
+      if (head === null) return head;
+
+      let curr = head;
+      let newHead = new Node();
+      let newCurr = newHead;
+      let map = new Map();
+
+      while (curr) {
+        // 新链表复制 val 值和 next 指向
+        newCurr.val = curr.val;
+        newCurr.next = curr.next ? new Node() : null;
+
+        map.set(curr, newCurr);// 把 newCurr 的值存起来
+
+        newCurr = newCurr.next;
+        curr = curr.next;
+      }
+
+      newCurr = newHead;
+      while (head) {
+        // 通过引用地址找到对应的链表节点
+        newCurr.random = head.random ? map.get(head.random) : null;
+        head = head.next;
+        newCurr = newCurr.next;
+      }
+
+      return newHead;
+    };
+    ```
+
+## 迭代+拼接
+1. 解题思路：
+    <img src="复杂链表的复制（迭代+拼接）.jpg" width="600px" height="auto" class="lazy-load" title="复杂链表的复制（迭代+拼接）"/>
+
+    - 在原链表每一个节点后，续接一个新节点，再为每一个新节点的 random 属性赋值；
+    - 将当前链表，按照一个间隔一个的顺序拆分开，将新节点，串成一个新链表，将原链表的节点，拆出来并组合成原链表；
+    - 将原链表的最后一个节点的 next 指针，重新指向 null；
+2. 复杂度：
+    - 时间复杂度：O(n)；
+    - 空间复杂度：O(n)；
+3. 代码实现：
+    ```TS
+    function copyRandomList(head: Node | null): Node | null {
+      if (head === null) return head;
+
+      let curr = head;
+      // 在原链表每一个节点后，续接一个新节点
+      while (curr) {
+        let tempNode = new Node(curr.val);
+
+        tempNode.next = curr.next;
+        curr.next = tempNode;
+        curr = tempNode.next;
+      }
+
+      // 为当前链表的每一个新节点的 random 属性赋值
+      curr = head;
+      while (curr && curr.next) {
+        if (curr.random) {
+          // 为新节点的 random 赋值为原链表中应该的 random 指向的节点的相应的新节点
+          curr.next.random = curr.random.next;
+        }
+        curr = curr.next.next;
+      }
+
+      // 将链表，按照一个间隔一个的顺序拆分开
+      //  1、将新节点，串成一个新链表
+      //  2、将原链表的节点，拆出来并组合成原链表
+      curr = head.next;
+      let preNode = head; // 原链表
+      let newLinkList = head.next; // 新链表
+      while (curr && curr.next) {
+        preNode.next = preNode.next.next;
+        curr.next = curr.next.next;
+        preNode = preNode.next;
+        curr = curr.next;
+      }
+
+      preNode.next = null;    // 将原链表的最后一个节点的 next 指针重新指向 null
+
+      return newLinkList;
+    };
+    ```
+
